@@ -1,0 +1,9 @@
+#title:Proteins which have genes with exactly 1 coding exon
+#tags:TODO,gene,exons
+#acs: , , , ...
+#count:
+#time: 
+
+select distinct ?entry where {
+
+}
