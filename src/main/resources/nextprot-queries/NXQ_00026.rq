@@ -11,4 +11,3 @@ select distinct ?entry where {
   # allows the ?interactant to be either an :Entry or an :Isoform 
   ?interactant :isoform?/:cellularComponent/:term/:childOf cv:SL-0173 
 }group by ?entry
-limit 100

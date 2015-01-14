@@ -3,8 +3,8 @@
 #comment:Federated query with Zfin
 #tags:federated query,ortholog
 #acs:
-#count: 3405
-#time: 32
+#count:3405
+#time:32
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

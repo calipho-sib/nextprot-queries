@@ -9,7 +9,7 @@ select distinct ?entry where {
  ?entry :isoform ?iso .
  ?iso :keyword / :term cv:KW-0479. # metal-binding
  ?iso :keyword / :term cv:KW-0862. # zinc
-FILTER NOT EXISTS { ?iso :keyword / :term cv:KW-0804} # transcription
-FILTER NOT EXISTS {?iso :keyword / :term cv:KW-560 } # oxidoreductase
+FILTER NOT EXISTS {?iso :keyword / :term cv:KW-0804} # transcription
+FILTER NOT EXISTS {?iso :keyword / :term cv:KW-0560} # oxidoreductase
 }
 

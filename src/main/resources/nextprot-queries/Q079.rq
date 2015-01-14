@@ -1,7 +1,7 @@
 #id:NXQ_00079
 #title:Proteins with at least one 3D structure and that are phosphorylated
-#tags:PDB,PTM,3D structure,phosphorylation
-#acs: Q9Y570, P37840, O00763, ...
+#tags:PDB,3D structure,PTM,phosphorylation
+#acs:Q9Y570, P37840, O00763, ...
 #count:2972
 #time: 0.53
 
