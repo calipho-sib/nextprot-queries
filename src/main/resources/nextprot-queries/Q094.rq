@@ -1,6 +1,6 @@
-#title:Q094  which are targets of antipsychotic drugs and highly expressed in brain - - - federated query with drugbank - - -
-#tags:federated,drug
-#acs: P08183,P10635,P11229, ...
+#title:Proteins which are targets of antipsychotic drugs and highly expressed in brain (federated query with DrugBank)
+#tags:federated query,drug,expression
+#acs:P08183,P10635,P11229, ...
 #count: 8
 #time: 1.3
 

@@ -1,5 +1,6 @@
-#title: Q096  which are targets of drugs for cardiac therapy - - - federated query with drugbank - - -Query based on drug classification ATC Codes
-#tags:drug,federated
+#title:Proteins which are targets of drugs for cardiac therapy (federated query with Drugbank)
+#comment:Query based on the drug classification ATC Codes implemented in DrugBank
+#tags:drug,federated query
 #acs:P23975,O95069,P31645, ...
 #count:135
 #time:10  

@@ -1,5 +1,6 @@
+#id:NXQ_00034
 #title:Proteins with at least 1 homeobox domain and with at least one variant in the homeobox domain(s)
-#tags:domain,variant,sequence variation
+#tags:domain,region,variant,sequence variation
 #acs:A6NHT5, A6NNA5, O95076, ...
 #count:229
 #time:0.15

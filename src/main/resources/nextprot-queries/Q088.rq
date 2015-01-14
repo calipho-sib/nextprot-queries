@@ -1,6 +1,7 @@
-#title:Q088 which have orthologs/paralogs in mammals but not in zebrafish
-#tags:federated,ortholog
-#acs:,,, ...
+#title:Proteins which have orthologs/paralogs in mammals but not in zebrafish
+#comment:Federated query with Zfin
+#tags:federated query,ortholog
+#acs:
 #count: 3405
 #time: 32
 
