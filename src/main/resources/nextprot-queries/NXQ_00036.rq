@@ -8,5 +8,5 @@
 select distinct ?entry where {
   ?entry :classifiedWith cv:KW-0560. #oxidoreductase
   ?entry :classifiedWith ?kw
-  FILTER( ?kw in (cv:KW-0520,cv:KW-0521)) # NAD or NADP
+  filter( ?kw in (cv:KW-0520,cv:KW-0521)) # NAD or NADP
 }

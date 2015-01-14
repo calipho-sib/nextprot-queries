@@ -12,7 +12,7 @@ select distinct ?entry where {
   ?iso :region/:term cv:DO-00581.
 
 #GO "RNA binding" with evidence IEA or ISS
-  FILTER NOT EXISTS {
+  filter not exists {
    ?iso :function/:term /:childOf cv:GO_0003723
   }
  }UNION{

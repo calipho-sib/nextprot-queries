@@ -7,6 +7,6 @@
 
 select distinct ?entry where {
   ?entry a :Entry .
-  FILTER NOT EXISTS { ?entry :isoform / :region/rdf:type :Domain}
+  filter not exists { ?entry :isoform / :region/rdf:type :Domain}
 }
 

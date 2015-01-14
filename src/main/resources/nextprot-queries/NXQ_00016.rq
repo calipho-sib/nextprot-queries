@@ -6,11 +6,11 @@
 #time:0.08
 
 select distinct ?entry where {
-?entry :isoform ?iso .
-?iso :cellularComponent/:term cv:SL-0243;:sequence / :chain ?seq. #secreted
-?iso :matureProtein [ :start ?mstart ; :end ?mend]
-FILTER ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 
-BIND(?mend - ?mstart as ?mlen)	 
-BIND(substr(?seq, ?mstart, ?mlen) as ?mseq)	 
-filter(!regex (?mseq,'C'))
+  ?entry :isoform ?iso .
+  ?iso :cellularComponent/:term cv:SL-0243;:sequence / :chain ?seq. #secreted
+  ?iso :matureProtein [ :start ?mstart ; :end ?mend]
+  filter ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 
+  bind (?mend - ?mstart as ?mlen)	 
+  bind (substr(?seq, ?mstart, ?mlen) as ?mseq)	 
+  filter (!regex (?mseq,'C'))
 }

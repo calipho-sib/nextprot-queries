@@ -8,7 +8,7 @@
 select distinct ?entry where {
  ?entry :isoform ?iso;:classifiedWith cv:KW-0804.
  ?iso :region/rdf:type :CoiledCoilRegion.
- FILTER NOT EXISTS{
+ filter not exists{
    ?iso :region/:term cv:DO-00078
  }
 }

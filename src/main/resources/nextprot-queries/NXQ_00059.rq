@@ -12,9 +12,9 @@ select distinct ?entry where {
   ?topodom :start ?topostart ; :end ?topoend.
  ?iso :positionalAnnotation ?annot.
   {
-        ?annot a :ModifiedResidue.
-        ?annot :term ?ptmtype.
-        FILTER (?ptmtype in (cv:PTM-0253, cv:PTM-0254, cv:PTM-0255))  
+   ?annot a :ModifiedResidue.
+   ?annot :term ?ptmtype.
+   filter (?ptmtype in (cv:PTM-0253, cv:PTM-0254, cv:PTM-0255))  
   }
   union
   {

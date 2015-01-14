@@ -6,7 +6,7 @@
 #time:0.11
 
 select distinct ?entry where {
-?entry
-  :reference / :provenance db:Orphanet ;
-  :gene / :chromosome "21"^^xsd:string
+  ?entry
+    :reference / :provenance db:Orphanet ;
+    :gene / :chromosome "21"^^xsd:string
 }

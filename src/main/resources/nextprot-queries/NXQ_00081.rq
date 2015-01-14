@@ -10,4 +10,4 @@ select distinct ?entry where {
   ?iso :pdbMapping ?map.
   ?iso :cellularComponent/:term/:childOf cv:SL-0173 .
   ?iso :medical/rdf:type :Disease.
- }
+}

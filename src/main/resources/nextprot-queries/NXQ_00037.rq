@@ -7,5 +7,5 @@
 
 select distinct ?entry where {
  ?entry :isoform ?iso;:classifiedWith cv:KW-0694.
- FILTER NOT EXISTS {?iso :region/:term cv:DO-00581}
+ filter not exists {?iso :region/:term cv:DO-00581}
 }

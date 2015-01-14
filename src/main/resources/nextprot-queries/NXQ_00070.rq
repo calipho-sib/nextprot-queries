@@ -8,5 +8,5 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
     ?iso :cellularComponent/:term/:childOf cv:SL-0243
- FILTER NOT EXISTS {?iso :signalPeptide ?_}
- }
+  filter not exists {?iso :signalPeptide ?_}
+}
