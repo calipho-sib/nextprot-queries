@@ -11,6 +11,6 @@ select distinct ?entry where {
  ?tm :start ?tmstart ; :end ?tmend.
  ?iso :sequence /:chain ?chain.
   BIND (substr(?chain, ?tmstart, ?tmend-?tmstart) as ?tmseq)
-  FILTER(regex(?tmseq, '[DE]'))
+  filter (regex(?tmseq, '[DE]'))
 
 }

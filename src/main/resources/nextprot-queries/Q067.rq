@@ -11,7 +11,7 @@ select distinct ?entry where {
     ?iso :modifiedResidue ?ptm .
     ?ptm :start ?ptmpos.
     ?ptm rdfs:comment ?comment.
-# use this filter to select acetylations
-  FILTER regex(?comment, "acetyl","i")
+  # use this filter to select acetylations
+  filter regex(?comment, "acetyl","i")
 }
 

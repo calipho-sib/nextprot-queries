@@ -1,0 +1,105 @@
+Proteins phosphorylated and located in the cytoplasm
+Proteins that are located in both the cytoplasm and in the nucleus
+Proteins with 7 transmembrane regions
+Proteins highly expressed in brain but not expressed in testis
+Proteins located in mitochondrion and that lack a transit peptide
+Proteins whose genes are on chromosome 13 and are associated with a disease
+Proteins associated with diseases that are associated with cardiovascular aspects
+Proteins whose genes are less than 50000 bp away from the location of the gene coding for protein p53
+Proteins that have 3 disulfide bonds and that are not annotated as hormones 
+Proteins that are glycosylated and are not located in the membrane
+Proteins that are expressed in liver and involved in transport
+Proteins that interact with protein RBM17 and that are involved in splicing
+Proteins that have a protein kinase domain but lack protein kinase activity
+Proteins with one SH2 and two SH3 domains
+Proteins with a PDZ domain that interact with at least one protein which is expressed in brain
+Proteins with a mature chain of less than 1000 amino acids which are secreted and do not contain cysteines in the mature chain
+Proteins larger than 1000 amino acids that are located in the nucleus and expressed in the nervous system
+Proteins that are acetylated and methylated and located in the nucleus
+Proteins with at least 2 HPA antibodies whose genes are located on chromosome 21 and that are highly expressed at IHC level in heart
+Proteins with no function annotated 
+Proteins that are involved in transport and located in a membrane and that are not glycosylated (experimentally or predicted)
+Proteins with more than 1 reported interaction (of 'gold' quality)
+Proteins interacting with at least one protein which are located in the mitochondrion
+Proteins whose gene is located in chromosome 2 that belongs to families with at least 5 members in the human proteome
+Proteins with a coiled coil region and that are involved in transcription but does not contain a bZIP domain
+Proteins that bind a metal and are secreted
+Proteins that bind zinc and are not oxidoreductase and not involved in transcription
+Proteins which are located on the genome next to a protein which is involved in spermatogenesis
+Proteins that are glycosylated and phosphorylated on an extracellular topological domain
+Proteins that have one or more RRM RNA-binding domain and either no GO "RNA binding" or a GO "RNA binding" with evidence IEA or ISS
+Proteins secreted but without a signal sequence
+Proteins associated with at least 3 papers that are not "large scale" and not "additional"
+Proteins with a cross-reference to CCDS
+Proteins with no known (annotated) domain
+Proteins with at least one 3D structure of resolution less than 3 Angstroms
+Proteins with at least one 3D structure and that are located in the mitochondrion and are linked with a disease
+Proteins whose genes are on chromosome 18 and that are experimentally known to be glycosylated or phosphorylated or acetylated
+Proteins which have orthologs/paralogs in mammals but not in zebrafish
+Proteins expressed in liver and that have COSMIC variants associated with liver/hepatic cancer
+Proteins that do not have a cross-reference to an Ensembl ENSG
+Proteins whose gene is on chromosome 21 with at least one cross-reference to Orphanet
+Proteins that have a MS-identified peptide that maps partly or fully into a signal sequence
+Proteins With one transmembrane domain and no annotated topology
+Proteins located in nucleus and nowhere else
+Proteins with protein evidence "At protein level" (PE=1) and at least one proteotypic peptide
+Proteins with from 2 to 4 transmembrane regions
+Proteins with a mature chain of from 100 to 500 residues
+Proteins with at least one HPA antibody that are located in the peroxisome
+Proteins with at least 50 interactors that are not associated with a disease
+Proteins with one or more glycosylation sites reported in PubMed:20570859 or PubMed:14760718
+Proteins associated with a disease but without a disease-linked variant
+Proteins associated with a cardiovascular disease
+Proteins with more than 10 alternative isoforms
+Proteins with at least one phoshotyrosine but no phosphoserine or phosphothreonine
+Proteins with at least 1 homeobox domain and with at least one variant in the homeobox domain(s)
+Proteins located in the mitochondrion and which is an enzyme
+Proteins that are oxidoreductases and that bind to NAD/NADP
+Proteins that bind RNA but do not contain a RRM domain
+Proteins with at least one selenocysteine in their sequence
+Proteins with a mutagenesis in a position that correspond to an annotated active site
+Proteins that are enzymes and with at least one mutagenesis site that decrease or abolish activity
+Proteins that are annotated with GO "F" (function) terms prefixed by "Not"
+Proteins involved in the Reactome pathway xxxx
+Proteins with an active site that is a proton acceptor
+Protein with a gene alternative name which is IL27
+Proteins with a gene name that starts with "CLDN"
+Proteins with at least one variant of the type "C->" (Cys to anything else) that are linked to one ore more diseases
+Proteins with at least one variant of the types "A->R" or "R->A"
+Proteins which are expressed in brain according to IHC but not expressed in brain according to microarray
+Proteins that have at one 3D structure solved by NMR
+Proteins with a sequence that does not contain a lysine in the mature region
+Proteins which are involved in cell adhesion according to GO with an evidence not IAE and not ISS
+Proteins which are "Receptor binding" according to GO and have the Swiss-Prot keyword "Immunity"
+Proteins which have genes of length greater than 2 million bp
+Proteins which have genes with exactly 1 coding exon
+Proteins that are located in the mitochondrion with an experimental evidence originating not from HPA or DKFZ-GFP
+Proteins which have one or more negatively charged residue in a transmembrane domain
+Proteins which have at least one 3D structure that spans the complete sequence of the mature protein
+Proteins which have at least one zinc finger of any subtype
+Proteins which are enzymes and that have an incomplete EC number
+Proteins that have more than one catalytic activity
+Proteins that are cytoplasmic with alternate O-glycosylation or phosphorylation at the same positions
+Proteins with alternative acetylation or Ubl conjugation (SUMO or Ubiquitin) at the same positions
+Proteins with a "protein evidence" at transcript level (PE=2)
+Proteins phosphorylated by SRC
+Proteins belonging to a family with at least two members in the human proteome
+Proteins which have been detected in the HUPO liver proteome set but not the HUPO plasma proteome set
+Proteins which are located in mitochondrion and have at least one HPA antibody and exist in at least one proteome identification sets
+Proteins which are expressed in liver according to IHC data but not found in HUPO liver proteome set
+Proteins which have been identified in at least one proteomics set and that are secreted
+Proteins with at least one 3D structure and that are phosphorylated
+Proteins whose genes are on chromosome 21 that have "gold" variants not associated with a disease
+Proteins whose genes are on chromosome 18 that are expressed only in liver
+Proteins whose genes are located in chromosome 2 region from 2p12 to 2p24.2
+Proteins whose genes are on chromosome X and which do not have a ortholog in mouse
+Proteins with a sequence containing "FF.QYD" where "." is any single amino-acid
+Proteins with a sequence containing "FF.+QYD" where ".+" is any peptide of any length
+Proteins which are targets of antipsychotic drugs and highly expressed in brain
+Proteins which are targets of drugs for cardiac therapy
+Protein located on chromosome 2 and having at least one variant in a phosphorylated tyrosine
+Proteins that have at least one PTM in a position of a variant
+Proteins with at least one cross-reference to the ProteinModelPortal but no cross-references to PDB.
+Proteins annotated as glycosylated but with no recorded glycosylation site.
+Proteinss with a protein evidence not "At protein level" (PE=1) and with a HGNC approved gene name that contains "orf"
+Proteins that have a 3D structure in PDB that overlap by at least 50 amino acids with a SH3 domain

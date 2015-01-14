@@ -10,6 +10,6 @@ select distinct ?entry where {
  ?iso :pdbMapping  ?pdbmap.
  ?pdbmap :start ?pdbstart ; :end ?pdbend.
  ?iso :matureProtein [ :start ?mstart ; :end ?mend]
- FILTER (?mend-?mstart > 0)	 
- FILTER((?pdbstart <= ?mstart) && (?pdbend >= ?mend))
+ filter (?mend-?mstart > 0)	 
+ filter ((?pdbstart <= ?mstart) && (?pdbend >= ?mend))
 }

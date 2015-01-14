@@ -10,7 +10,7 @@ select distinct ?entry where {
   ?iso :cellularComponent ?loc.
   ?loc :term/:childOf cv:SL-0173 .
   ?loc :evidence /:assignedBy ?src.
-  FILTER  ( ?src not in (source:Human_protein_atlas_subcellular_localization, source:GFP-cDNAEMBL))
+  filter ( ?src not in (source:Human_protein_atlas_subcellular_localization, source:GFP-cDNAEMBL))
   # alternatively
   #?loc :evidence /:fromXref ?xr.
   #FILTER  ( ?xr not in (db:HPA, db:GFP-cDNA))

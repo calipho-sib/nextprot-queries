@@ -7,5 +7,5 @@
 
 select distinct ?entry where {
   ?entry :isoform / :function / a :Pathway .
-  ?entry  :reference / :provenance db:Reactome .
+  ?entry :reference / :provenance db:Reactome .
 }
