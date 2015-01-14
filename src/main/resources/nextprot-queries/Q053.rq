@@ -8,6 +8,6 @@
 select distinct ?entry where {
   ?entry  :isoform/:function ?statement.
   ?statement :term / :childOf cv:GO_0007155.
-  ?statement :evidence/:code ?ecode .
+  ?statement :evidence/:evidenceCode ?ecode .
    FILTER  ( ?ecode != :IEA && ?ecode != :ISS)
 }
