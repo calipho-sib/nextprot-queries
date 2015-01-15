@@ -1,5 +1,5 @@
 #id:NXQ_00048
-#title:Proteins with at least one variant of the type "C->" (Cys to anything else) that are linked to one ore more diseases
+#title:Proteins with at least one variant of the type "C->" (Cys to anything else) that are linked to one or more diseases
 #tags:variant,sequence variation,disease
 #acs:O00423, O15111, O75112, ...
 #count:3392
@@ -10,10 +10,3 @@ select distinct ?entry ?v where {
   ?iso :variant ?statement;:medical/rdf:type :Disease.
   ?statement :original "C"^^xsd:string;:variation ?v
 }
-
-# or more precisely with disease directly correlated to the variant itself
-#SELECT distinct ?entry WHERE  {
-#  ?entry :isoform / :variant ?variant .
-#  ?variant :original "C"^^xsd:string;:variation ?v.
-#  ?variant :disease ?someDisease .
-#}

@@ -8,11 +8,8 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :expressionProfile ?s1;:expressionProfile ?s2.
-
-# there exists an evidence saying that microarray didn't detect any expression in the brain
+  # there exists an evidence saying that microarray didn't detect any expression in the brain
   ?s2 :term/:childOf cv:TS-0095;:negativeEvidence/:experimentalContext/:detectionMethod cv:ECO_0000220.
-
-# there exists an evidence telling that the protein is expressed in brain according to IHC
+  # there exists an evidence telling that the protein is expressed in brain according to IHC
   ?s1 :term/:childOf cv:TS-0095;:evidence/:experimentalContext/:detectionMethod cv:ECO_0000045.
-
 }

@@ -6,16 +6,14 @@
 #time:0.08
 
 select distinct ?entry where {
-select ?entry ?iso (count(?ptm)) where {
-  ?entry :isoform ?iso .
-  ?iso :modifiedResidue  ?ptm .
-  ?ptm :term cv:PTM-0255 #phosphotyrosine .
-  filter (
-    not exists { ?iso :modifiedResidue / :term cv:PTM-0253 . } #phosphoserine
-    &&
-    not exists { ?iso :modifiedResidue / :term cv:PTM-0254 . } #phosphothreonine
-  )
-}
-group by ?entry ?iso
-having ( count(?ptm) >= 1 )
+  select ?entry ?iso (count(?ptm)) where {
+    ?entry :isoform ?iso .
+    ?iso :modifiedResidue  ?ptm .
+    ?ptm :term cv:PTM-0255 #phosphotyrosine .
+    filter (
+     not exists { ?iso :modifiedResidue / :term cv:PTM-0253 . } #phosphoserine
+     &&
+     not exists { ?iso :modifiedResidue / :term cv:PTM-0254 . } #phosphothreonine
+    )
+  } group by ?entry ?iso having ( count(?ptm) >= 1 )
 }

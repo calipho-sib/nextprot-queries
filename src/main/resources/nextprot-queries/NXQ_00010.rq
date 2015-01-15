@@ -7,5 +7,5 @@
 select distinct ?entry where {
   ?entry :isoform ?iso .
   ?iso :keyword / :term cv:KW-0325.
-  FILTER NOT EXISTS { ?iso :topology / :term cv:CVTO_0022 }
+  filter not exists { ?iso :topology / :term cv:CVTO_0022 }
 }

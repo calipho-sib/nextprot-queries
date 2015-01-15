@@ -5,10 +5,8 @@
 #count: 1055
 
 select distinct ?entry where{
- ?entry :isoform ?iso.
-   ?iso :topology ?statement .
-   ?statement a :TransmembraneRegion.
-}
-GROUP BY ?entry ?iso 
-HAVING(count( ?statement)>=2 && count( ?statement)<=4)
+  ?entry :isoform ?iso.
+  ?iso :topology ?statement .
+  ?statement a :TransmembraneRegion.
+} group by ?entry ?iso having(count( ?statement)>=2 && count( ?statement)<=4)
 

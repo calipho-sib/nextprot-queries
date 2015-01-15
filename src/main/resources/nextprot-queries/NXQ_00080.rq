@@ -9,5 +9,5 @@ select distinct ?entry where {
   ?entry :isoform ?iso .
   ?iso :pdbMapping ?map.
   ?map :resolution ?res.
-  filter(?res <= 3.0)
+  filter (?res <= 3.0)
 }

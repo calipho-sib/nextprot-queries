@@ -6,7 +6,7 @@
 #time:
 
 select distinct ?x ?p ?entry ?name where {
- ?entry a :Entry.
+  ?entry a :Entry.
   ?entry :alternativeName /:fullName ?name.
- filter (strlen(?name) < 5 )
+  filter (strlen(?name) < 5 )
 }

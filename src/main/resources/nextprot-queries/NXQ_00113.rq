@@ -18,6 +18,4 @@ select distinct ?entry where {
     ?ref2 :accession ?ac .
     filter (?entry2 != ?entry)
   }
-}
-
-order by ?entry
+} order by ?entry

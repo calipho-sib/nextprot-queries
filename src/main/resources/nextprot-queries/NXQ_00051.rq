@@ -9,5 +9,5 @@ select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :pdbMapping ?map.
   ?map :method ?meth
-  FILTER(contains(?meth,'NMR'))
- }
+  filter (contains(?meth,'NMR'))
+}

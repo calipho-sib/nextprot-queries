@@ -13,6 +13,6 @@ select distinct ?entry where {
   ?p :term/:childOf cv:TS-1313.
   ?p :evidence / :expressionLevel ?level.
   ?iso :sequence/:length ?len.
-  FILTER (?len>1000)
-  FILTER (?level != :Negative)
+  filter (?len>1000)
+  filter (?level != :Negative)
 }

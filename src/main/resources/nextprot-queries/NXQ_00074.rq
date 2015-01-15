@@ -8,6 +8,4 @@
 select distinct ?entry where {
   ?entry :family/:accession/:childOf ?ac .
   ?member :family/:accession/:childOf ?ac .
-} 
-group by ?entry
-having (count(distinct ?member) >= 2 )
+} group by ?entry having (count(distinct ?member) >= 2 )

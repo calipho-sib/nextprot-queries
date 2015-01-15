@@ -6,14 +6,12 @@
 #time:0.12
 
 select distinct ?entry where {
- ?entry :isoform ?iso
- { select ?iso where
-                  { 
-                        ?iso :transmembraneRegion ?tm. 
-            OPTIONAL { ?iso :topologicalDomain ?topo. }
-            FILTER (!bound(?topo)) .	
-                  }
- GROUP BY ?iso HAVING(count( ?tm)=1)
- }
-}
-order by ?entry
+  ?entry :isoform ?iso
+  { select ?iso where
+    { 
+    ?iso :transmembraneRegion ?tm. 
+    OPTIONAL { ?iso :topologicalDomain ?topo. }
+    filter (!bound(?topo)) .	
+    } group by ?iso HAVING(count( ?tm)=1)
+  }
+} order by ?entry

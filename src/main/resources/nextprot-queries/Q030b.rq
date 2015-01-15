@@ -5,8 +5,8 @@
 #time:0.415
 
 select distinct ?entry where {
-#select family with >=5 members
+  #select family with >=5 members
   {select ?family where{?family ^:accession/^:family ?entry}group by ?family  having ( count(?entry) >= 5 )}
-#constraint with chromosome 2  
+  #constraint with chromosome 2  
   ?entry :gene / :chromosome "2"^^xsd:string;:family/:accession ?family.
 }

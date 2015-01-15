@@ -10,5 +10,5 @@ select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :mutagenesis /:start ?mutaPos.
   ?iso :activeSite /:start ?actsitePos.
-  FILTER(?mutaPos=?actsitePos)
+  filter (?mutaPos=?actsitePos)
 }

@@ -5,6 +5,6 @@
 #count:61
 
 select distinct ?entry where {
-   ?entry :gene / :chromosome  "13"^^xsd:string;
-   :isoform / :medical /rdf:type :Disease.
+  ?entry :gene / :chromosome  "13"^^xsd:string;
+  :isoform / :medical /rdf:type :Disease.
 }

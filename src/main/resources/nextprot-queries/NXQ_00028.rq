@@ -7,5 +7,5 @@
 
 select distinct ?entry where {
   ?entry :isoform / :medical / rdf:type :Disease .
-  filter  ( not exists { ?entry :isoform / :variant / :disease ?_ . } )
+  filter ( not exists { ?entry :isoform / :variant / :disease ?_ . } )
 }

@@ -10,4 +10,4 @@ select distinct ?entry where {
   # :isoform predicate in line below is optional (postfix ?) because the data model
   # allows the ?interactant to be either an :Entry or an :Isoform 
   ?interactant :isoform?/:cellularComponent/:term/:childOf cv:SL-0173 
-}group by ?entry
+} group by ?entry

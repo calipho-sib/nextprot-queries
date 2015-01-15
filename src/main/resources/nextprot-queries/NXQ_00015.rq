@@ -6,7 +6,7 @@
 #time: 160
 
 select distinct ?entry where {
-?entry :isoform ?iso.
-?iso :region / :term cv:DO-00477. #PDZ domain
-?iso :binaryInteraction/:interactant/:isoform?/:detectedExpression/:term/:childOf cv:TS-0095 #brain
+  ?entry :isoform ?iso.
+  ?iso :region / :term cv:DO-00477. #PDZ domain
+  ?iso :binaryInteraction/:interactant/:isoform?/:detectedExpression/:term/:childOf cv:TS-0095 #brain
 }

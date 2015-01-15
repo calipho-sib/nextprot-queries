@@ -8,5 +8,5 @@
 select distinct ?entry where {
   ?entry :classifiedWith/rdf:type :EnzymeClassificationCv;:isoform ?iso.
   ?iso :mutagenesis/rdfs:comment ?comment
-FILTER regex(?comment, '(decrease|abolish).*activity','i')
+  filter regex(?comment, '(decrease|abolish).*activity','i')
 }

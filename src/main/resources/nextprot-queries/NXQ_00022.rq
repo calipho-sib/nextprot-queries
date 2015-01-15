@@ -8,5 +8,5 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  FILTER NOT EXISTS {?iso :function ?_ }
+  filter not exists {?iso :function ?_ }
 } order by ?entry

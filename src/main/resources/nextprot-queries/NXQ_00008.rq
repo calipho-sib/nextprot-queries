@@ -5,7 +5,7 @@
 #count:5
 
 select distinct ?entry where {
-   entry:NX_P04637 :gene /:begin ?s;:gene/:chromosome ?chr.
-   ?entry :gene/:begin  ?gs;:gene/:chromosome ?chr.
-   filter ( ?gs > (?s -50000) && ?gs <= (?s +50000) && ?entry != entry:NX_P04637)
+  entry:NX_P04637 :gene /:begin ?s;:gene/:chromosome ?chr.
+  ?entry :gene/:begin  ?gs;:gene/:chromosome ?chr.
+  filter ( ?gs > (?s -50000) && ?gs <= (?s +50000) && ?entry != entry:NX_P04637)
 }

@@ -6,8 +6,8 @@
 #time: 0.13
 
 select distinct ?entry where {
- ?entry :isoform ?iso.
+  ?entry :isoform ?iso.
   ?iso :cellularComponent/:term/:childOf cv:SL-0243.
-   ?iso :peptideMapping ?map.
+  ?iso :peptideMapping ?map.
 }
 

@@ -7,7 +7,7 @@
 #count:3680
 
 select distinct ?entry where {
- ?entry :isoform ?iso .
- ?iso :keyword / :term cv:KW-0597 .
- ?iso :cellularComponent /:term /:childOf cv:SL-0086 .
+  ?entry :isoform ?iso .
+  ?iso :keyword / :term cv:KW-0597 .
+  ?iso :cellularComponent /:term /:childOf cv:SL-0086 .
 }order by ?entry

@@ -7,6 +7,6 @@
 
 select distinct ?entry where {
   ?entry
-    :reference / :provenance db:Orphanet ;
-    :gene / :chromosome "21"^^xsd:string
+  :reference / :provenance db:Orphanet ;
+  :gene / :chromosome "21"^^xsd:string
 }

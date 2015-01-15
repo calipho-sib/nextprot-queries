@@ -6,13 +6,13 @@
 #time:0.6
 
 select distinct ?entry where {
- ?entry :isoform ?iso .
- ?iso :sequence / :chain ?seq.
- ?iso :matureProtein [ :start ?mstart ; :end ?mend]
- FILTER (?mend-?mstart > 0)	 
- BIND(?mend - ?mstart as ?mlen)	 
- BIND(substr(?seq, ?mstart, ?mlen) as ?mseq)	 
- #BIND(substr(?seq, ?mstart, ?mend - ?mtart) as ?mseq)	 
- filter(!regex (?mseq,'K'))
+  ?entry :isoform ?iso .
+  ?iso :sequence / :chain ?seq.
+  ?iso :matureProtein [ :start ?mstart ; :end ?mend]
+  filter (?mend-?mstart > 0)	 
+  bind(?mend - ?mstart as ?mlen)	 
+  bind(substr(?seq, ?mstart, ?mlen) as ?mseq)	 
+  #BIND(substr(?seq, ?mstart, ?mend - ?mtart) as ?mseq)	 
+  filter (!regex (?mseq,'K'))
 }
 

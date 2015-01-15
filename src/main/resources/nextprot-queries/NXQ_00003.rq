@@ -1,6 +1,6 @@
 #id:NXQ_00003
 #title:Proteins with 7 transmembrane regions
-#tags:region,domain,transmembrane,topology
+#tags:domain,region,transmembrane,topology
 #acs:
 #count:1026
 
@@ -8,6 +8,4 @@ select distinct ?entry where {
  ?entry :isoform ?iso.
    ?iso :topology ?statement .
    ?statement a :TransmembraneRegion.
-}
-GROUP BY ?entry ?iso 
-HAVING(count( ?statement)=7)
+} group by ?entry ?iso having(count( ?statement)=7)

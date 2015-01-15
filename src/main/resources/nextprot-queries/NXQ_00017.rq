@@ -11,5 +11,5 @@ select distinct ?entry where {
   ?iso :cellularComponent/:term/:childOf cv:SL-0191.
   ?iso :detectedExpression/:term/:childOf cv:TS-1313.
   ?iso :sequence/:length ?len.
-  FILTER (?len>1000)
+  filter (?len>1000)
 }
