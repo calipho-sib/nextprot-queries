@@ -6,16 +6,18 @@
 #time:369
 
 select distinct ?entry where {
-  ?entry :existence :Evidence_at_protein_level .
   ?entry :isoform / :peptideMapping ?pm .
+  ?entry :existence :Evidence_at_protein_level .
   ?pm :evidence / :reference ?ref .
-  ?ref :provenance db:PeptideAtlas .
-  ?ref :accession ?ac .
-  filter not exists {
+  ?ref :provenance db:PeptideAtlas; :accession ?ac .
+  filter (not exists {
+	# check that the same peptide doesn't match another entry
     ?entry2 :isoform / :peptideMapping ?pm2 .
     ?pm2 :evidence / :reference ?ref2 .
-    ?ref2 :provenance db:PeptideAtlas .
-    ?ref2 :accession ?ac .
+    ?ref2 :provenance db:PeptideAtlas; :accession ?ac .
     filter (?entry2 != ?entry)
-  }
-} order by ?entry
+  })
+}
+order by ?entry
+# Not 100% true because peptides not from PeptideAtlas are not accounted (no identifiers in RDF).
+# Could be much faster if we attach a triple to peptides telling if it is proteotypic or not !
