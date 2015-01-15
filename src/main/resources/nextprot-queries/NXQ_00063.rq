@@ -1,6 +1,6 @@
 #id:NXQ_00063
 #title:Proteins that have one or more RRM RNA-binding domain and either no GO "RNA binding" or a GO "RNA binding" with evidence IEA or ISS
-#tags:REDO(eviedence),domain,region,evidence,GO
+#tags:REDO(evidence),domain,region,evidence,GO
 #acs:Q14103, Q6ZRY4, Q8TC92, ...
 #count:78
 #time: 0.1
@@ -10,7 +10,7 @@ select distinct ?entry where {
   {
     # >=1 RRM RNA-binding domain
     ?iso :region/:term cv:DO-00581.
-    # GO "RNA binding" with evidence IEA or ISS
+    # No GO "RNA binding" 
     filter not exists {
     ?iso :function/:term /:childOf cv:GO_0003723
   }

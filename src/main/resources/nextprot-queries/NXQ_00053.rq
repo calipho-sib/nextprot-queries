@@ -1,6 +1,6 @@
 #id:NXQ_00053
 #title:Proteins which are involved in cell adhesion according to GO with an evidence not IAE and not ISS
-#tags:function,evidence
+#tags:function,evidence,REDO(evidence)
 #acs:O14788, P07911, Q14393, ...
 #count:515
 #time: 0.48
@@ -9,5 +9,7 @@ select distinct ?entry where {
   ?entry :isoform/:function ?statement.
   ?statement :term / :childOf cv:GO_0007155.
   ?statement :evidence/:evidenceCode ?ecode .
-  filter ( ?ecode != :IEA && ?ecode != :ISS)
+# filter ( ?ecode != :IEA && ?ecode != :ISS)
+  filter not exists { ?ecode :childOf cv:ECO_0000501 . } 
+  filter not exists { ?ecode :childOf cv:ECO_0000250 . } 
 }
