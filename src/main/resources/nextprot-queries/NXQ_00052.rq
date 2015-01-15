@@ -12,7 +12,6 @@ select distinct ?entry where {
   filter (?mend-?mstart > 0)	 
   bind(?mend - ?mstart as ?mlen)	 
   bind(substr(?seq, ?mstart, ?mlen) as ?mseq)	 
-  #BIND(substr(?seq, ?mstart, ?mend - ?mtart) as ?mseq)	 
   filter (!regex (?mseq,'K'))
 }
 
