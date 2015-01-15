@@ -2,15 +2,17 @@
 #title:Proteins that have a MS-identified peptide that maps partly or fully into a signal sequence
 #tags:signal sequence,peptide,mass spectrometry,proteomics
 #acs:O43570,P22891,P01023
-#count:913
-#time:98
+#count:491
+#time:0.5
 
-select distinct ?entry where {
+select distinct ?entry ?overlap where {
   ?entry :isoform ?iso .
-  #get Signal position
-  ?iso :signalPeptide [:start ?s1;:end ?s2] .
-  #get peptide position
+#get Signal position (start is always 1)
+  ?iso :signalPeptide [:end ?s2] .
+#get peptide position
   ?iso :peptideMapping /:position [ :start ?p1 ; :end ?p2] .
-  #match positions
-  filter ( ?p2 >= ?s1 && ?p1 = ?s2   )
+#match positions
+  filter ( ?p1 < ?s2   )
+  bind ( if(?p2<?s2, ?p2, ?s2) - ?p1 as ?overlap) .
+  filter(?overlap > 2)
 }
