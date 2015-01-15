@@ -3,15 +3,17 @@
 #tags:domain,region,transmembrane,topology
 #acs:A0A5B9,A0AVI2,A1L0T0
 #count:682
-#time:0.12
+#time:0.25
 
-select distinct ?entry where {
-  ?entry :isoform ?iso
-  { select ?iso where
-    { 
-    ?iso :transmembraneRegion ?tm. 
-    OPTIONAL { ?iso :topologicalDomain ?topo. }
-    filter (!bound(?topo)) .	
-    } group by ?iso HAVING(count( ?tm)=1)
-  }
-} order by ?entry
+select distinct ?entry where{
+ ?entry :isoform ?iso.
+   ?iso :topology ?tm.
+   ?tm a :TransmembraneRegion.
+	FILTER (NOT EXISTS {
+   ?iso :topology ?topodom .
+   ?topodom a :TopologicalDomain.
+   })
+}
+GROUP BY ?entry ?iso 
+HAVING(count( ?tm)=1)
+ORDER BY ?entry
