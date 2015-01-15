@@ -1,0 +1,14 @@
+#id:NXQ_00130
+#title: With a DNA-binding region but never reported in nucleus
+#tags:dna-binding,location
+#acs:P02751,Q96LU7,Q01892
+#count:6
+#time:0.1
+
+SELECT distinct ?entry  WHERE  {
+?entry :isoform ?iso .
+?iso :dnaBindingRegion ?dnab.
+?iso :subcellularLocation ?loc.
+    ?loc :evidence / :negative false .
+FILTER NOT EXISTS { ?iso :subcellularLocation /:term /:childOf cv:SL-0191}.  
+}

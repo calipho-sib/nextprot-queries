@@ -1,0 +1,13 @@
+#id:NXQ_00118
+#title: All proteins with at least one somatic variant
+#tags:variant
+#acs:Q9UQ05,O15075,O43166
+#count:1382
+#time:0.5
+
+SELECT  distinct ?entry WHERE {
+ ?entry :isoform ?iso.
+  ?iso :variant ?var.
+  ?var rdfs:comment ?comment.
+  filter (contains (?comment,'somatic'))
+}
