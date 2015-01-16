@@ -13,6 +13,4 @@ select distinct ?entry where{
    ?iso :topology ?topodom .
    ?topodom a :TopologicalDomain.
    })
-} group by ?entry ?iso 
-HAVING(count( ?tm)=1)
-ORDER BY ?entry
+} group by ?entry ?iso having (count( ?tm)=1)

@@ -16,6 +16,6 @@ select distinct ?entry where {
   # one variant in the homeobox domain
   select distinct ?entry where {
     ?entry :isoform ?iso.
-  } group by ?entry having(count(?iso)>10)
+  } group by ?entry having (count(?iso)>10)
   filter (?varpos >=?start && ?varpos <=?end)
 }

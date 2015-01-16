@@ -14,4 +14,4 @@ select distinct ?entry where {
   # filter not exists { ?isoform :generalAnnotation  / :term /:related / :childOf cv:GO_0005179  . }
   # should do the same thing with one filter but gives slightly different results
   # due to ':related' mapping assymetry
-} group by ?entry ?isoform HAVING (count(?statement) =3 )
+} group by ?entry ?isoform having (count(?statement) =3 )
