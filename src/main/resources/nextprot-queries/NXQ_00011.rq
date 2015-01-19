@@ -7,8 +7,8 @@
 #time: 9.7
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :detectedExpression/:term/:childOf cv:TS-0564.
-  cv:KW-0813 :related  ?tra .
+  cv:KW-0813 :related  ?tra.
   ?iso :generalAnnotation / :term ?tra.
 }

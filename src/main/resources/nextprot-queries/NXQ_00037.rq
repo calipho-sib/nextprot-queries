@@ -6,6 +6,6 @@
 #time:0.1
 
 select distinct ?entry where {
-  ?entry :isoform ?iso;:classifiedWith cv:KW-0694.
-  filter not exists {?iso :region/:term cv:DO-00581}
+  ?entry :isoform ?iso;:classifiedWith cv:KW-0694. #RNA-binding
+  filter not exists {?iso :region/:term cv:DO-00581} #RRM
 }

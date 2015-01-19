@@ -6,13 +6,14 @@
 #time:0.12
 
 select distinct ?entry {
-  ?entry :gene / :chromosome "18"^^xsd:string .
-  ?entry :isoform  ?iso.
+  ?entry :gene / :chromosome "18"^^xsd:string.
+  ?entry :isoform ?iso.
   {
-	?iso :glycosylationSite ?ptm1 .
-	?ptm1 :evidence /:evidenceCode / :childOf cv:ECO_0000269
-  }  UNION {
-    ?iso :modifiedResidue ?ptm2 .
+    ?iso :glycosylationSite ?ptm1.
+    ?ptm1 :evidence /:evidenceCode / :childOf cv:ECO_0000269
+  } 
+  union {
+    ?iso :modifiedResidue ?ptm2.
     ?ptm2 rdfs:comment ?com.
     ?ptm2 :evidence / :evidenceCode / :childOf cv:ECO_0000269
     filter (regex(?com, '^phospho|acetyl','i'))

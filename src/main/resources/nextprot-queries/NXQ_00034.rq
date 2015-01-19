@@ -8,10 +8,10 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   # with >=1 homeobox domain
-  ?iso :region  ?st1.
+  ?iso :region ?st1.
   ?st1 :term cv:DO-00312;:start ?start;:end ?end.
   # with >=1 variant
-  ?iso :variant  ?var.
+  ?iso :variant ?var.
   ?var :start ?varpos.
   # one variant in the homeobox domain
   select distinct ?entry where {

@@ -6,9 +6,9 @@
 #time:0.42
 
 select distinct ?entry where {
-  ?entry :existence ?level .
-  filter (?level != :Evidence_at_protein_level) .
-  ?entry :reference ?r .
-  ?r :provenance db:HGNC ; :accession ?ac .
+  ?entry :existence ?level.
+  filter (?level != :Evidence_at_protein_level).
+  ?entry :reference ?r.
+  ?r :provenance db:HGNC ; :accession ?ac.
   filter (regex(?ac,'orf')) .
 }

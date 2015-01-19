@@ -6,7 +6,7 @@
 #time:0.1
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
-  ?iso :crossLink /rdfs:comment ?comment .
+  ?entry :isoform ?iso.
+  ?iso :crossLink /rdfs:comment ?comment.
   filter(contains (?comment,'SUMO'))
 }

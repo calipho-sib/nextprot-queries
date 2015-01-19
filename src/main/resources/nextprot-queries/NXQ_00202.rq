@@ -6,7 +6,7 @@
 
 select distinct ?entry where{
   ?entry :isoform ?iso.
-  ?iso :topology ?statement .
+  ?iso :topology ?statement.
   ?statement a :TransmembraneRegion.
 } group by ?entry ?iso having(count( ?statement)>=2 && count( ?statement)<=4)
 

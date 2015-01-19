@@ -11,7 +11,7 @@ PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/d
 
 select distinct ?entry where {
   service <http://wifo5-03.informatik.uni-mannheim.de/drugbank/sparql> {
-    SELECT distinct ?unipage WHERE {
+    select distinct ?unipage WHERE {
     ?drug drugbank:drugCategory ?drugCat .
     ?drug drugbank:target ?target .
     ?target drugbank:swissprotPage ?unipage .
@@ -21,8 +21,8 @@ select distinct ?entry where {
     ) )
     }
   }
-  ?entry :swissprotPage ?unipage .
+  ?entry :swissprotPage ?unipage.
   ?entry :isoform/:expressionProfile ?expr.
-  ?expr :term/:childOf  cv:TS-0095 .
-  ?expr :evidence / :expressionLevel :High .
+  ?expr :term/:childOf cv:TS-0095 .
+  ?expr :evidence / :expressionLevel :High.
 }

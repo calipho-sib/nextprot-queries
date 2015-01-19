@@ -5,7 +5,7 @@
 #count:29
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :region /:term cv:DO-00529.
   filter not exists { ?iso :enzymeClassification / :term /:childOf cv:2_7_-_- }
 }

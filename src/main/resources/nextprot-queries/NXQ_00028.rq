@@ -6,6 +6,6 @@
 #time:2.147
 
 select distinct ?entry where {
-  ?entry :isoform / :medical / rdf:type :Disease .
+  ?entry :isoform / :medical / rdf:type :Disease.
   filter ( not exists { ?entry :isoform / :variant / :disease ?_ . } )
 }

@@ -9,8 +9,7 @@ select distinct ?entry where{
  ?entry :isoform ?iso.
    ?iso :topology ?tm.
    ?tm a :TransmembraneRegion.
-   filter (not exists {
-   ?iso :topology ?topodom .
+   filter (not exists { ?iso :topology ?topodom.
    ?topodom a :TopologicalDomain.
    })
 } group by ?entry ?iso having (count( ?tm)=1)

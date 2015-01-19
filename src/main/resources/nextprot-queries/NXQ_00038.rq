@@ -1,10 +1,11 @@
 #id:NXQ_00038
 #title:Proteins with at least one selenocysteine in their sequence
-#tags:REDO(annot instead of KW),selenocysteine,sequence
+#tags:unpublished,selenocysteine,sequence
 #acs:O60613, Q99611, Q9NZV6, ...
 #count:26
 #time:0.1
 
+#redo with annotation rather than KW
 select distinct ?entry where {
   #?entry :isoform/:selenocysteine/:term ?statement.
   ?entry :isoform/ :keyword / :term cv:KW-0712. # selenocysteine

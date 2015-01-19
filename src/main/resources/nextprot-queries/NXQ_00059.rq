@@ -6,9 +6,9 @@
 #time: 4.85
 
 select distinct ?entry where {
- ?entry :isoform ?iso .
+ ?entry :isoform ?iso.
  ?iso :topologicalDomain ?topodom.
-  ?topodom :term cv:CVTO_0002 .
+  ?topodom :term cv:CVTO_0002.
   ?topodom :start ?topostart ; :end ?topoend.
  ?iso :positionalAnnotation ?annot.
   {

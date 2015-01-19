@@ -1,11 +1,11 @@
 #id:NXQ_00044
 #title:Proteins involved in the Reactome pathway xxxx
-#tags:TODO,pathway
+#tags:unpublished,pathway
 #acs:Q32NB8, O14832, O76050, ...
 #count:762
 #time:4.6
 
 select distinct ?entry where {
-  ?entry :isoform / :function / a :Pathway .
-  ?entry :reference / :provenance db:Reactome .
+  ?entry :isoform / :function / a :Pathway.
+  ?entry :reference / :provenance db:Reactome.
 }

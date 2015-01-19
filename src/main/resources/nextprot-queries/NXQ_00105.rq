@@ -6,6 +6,6 @@
 #time:3.1
 
 select distinct ?entry where {
-  ?entry :reference / :provenance db:ProteinModelPortal .
+  ?entry :reference / :provenance db:ProteinModelPortal.
   filter not exists { ?entry :reference / :provenance db:PDB }
 }

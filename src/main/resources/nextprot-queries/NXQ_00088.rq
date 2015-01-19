@@ -15,7 +15,7 @@ PREFIX ensemblterms: <http://rdf.ebi.ac.uk/terms/ensembl/>
 
 SELECT distinct ?humanGene ?humanLabel WHERE {
   service <http://wwwdev.ebi.ac.uk/rdf/services/ensembl/sparql> {
-SELECT DISTINCT ?humanGene ?mouseGene ?zebraGene ?humanLabel  WHERE {
+select distinct ?humanGene ?mouseGene ?zebraGene ?humanLabel  WHERE {
  ?humanGene rdf:type ensemblterms:protein_coding .
   ?humanGene rdfs:label ?humanLabel .
   ?humanGene obo:RO_0002162 <http://identifiers.org/taxonomy/9606> .
@@ -27,7 +27,7 @@ SELECT DISTINCT ?humanGene ?mouseGene ?zebraGene ?humanLabel  WHERE {
    }
   }
  }
-FILTER(!bound(?zebraGene)).
+filter(!bound(?zebraGene)).
 #bind(substr(?humanGene^^xsd:string,40,15) as ?ensg).
 #?entry :reference /:accession ?ensg. 		  
 }

@@ -6,8 +6,8 @@
 #time: 0.58
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
-  ?iso :transmembraneRegion  ?tm.
+  ?entry :isoform ?iso.
+  ?iso :transmembraneRegion ?tm.
   ?tm :start ?tmstart ; :end ?tmend.
   ?iso :sequence /:chain ?chain.
   bind (substr(?chain, ?tmstart, ?tmend-?tmstart) as ?tmseq)

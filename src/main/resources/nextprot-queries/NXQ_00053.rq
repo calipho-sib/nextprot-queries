@@ -8,7 +8,7 @@
 select distinct ?entry where {
   ?entry :isoform/:function ?statement.
   ?statement :term / :childOf cv:GO_0007155.
-  ?statement :evidence/:evidenceCode ?ecode .
-  filter not exists { ?ecode :childOf cv:ECO_0000501 . } 
-  filter not exists { ?ecode :childOf cv:ECO_0000250 . } 
+  ?statement :evidence/:evidenceCode ?ecode.
+  filter not exists { ?ecode :childOf cv:ECO_0000501. } 
+  filter not exists { ?ecode :childOf cv:ECO_0000250. } 
 }

@@ -6,7 +6,7 @@
 #time:0.5
 
 select distinct ?entry ?overlap where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   #get Signal position (start is always 1)
   ?iso :signalPeptide [:end ?s2] .
   #get peptide position

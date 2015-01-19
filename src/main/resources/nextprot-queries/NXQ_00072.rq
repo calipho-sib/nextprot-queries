@@ -6,6 +6,6 @@
 #time: 3.6
 
 select distinct ?entry where {
-  ?entry :reference / :provenance db:CCDS .
+  ?entry :reference / :provenance db:CCDS.
 }
 

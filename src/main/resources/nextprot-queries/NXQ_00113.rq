@@ -1,22 +1,21 @@
 #id:NXQ_00113
 #title:Proteins with protein existence "At protein level" (PE=1) and at least one proteotypic peptide
-#tags:peptide,mass spectrometry,proteotypic,protein existence,PE
+#tags:unpublished,peptide,mass spectrometry,proteotypic,protein existence,PE
 #ac:A0A5B9,A0AV02,A0AV96
 #count:14927
 #time:369
 
 select distinct ?entry where {
-  ?entry :isoform / :peptideMapping ?pm .
-  ?entry :existence :Evidence_at_protein_level .
-  ?pm :evidence / :reference ?ref .
-  ?ref :provenance db:PeptideAtlas; :accession ?ac .
+  ?entry :isoform / :peptideMapping ?pm.
+  ?entry :existence :Evidence_at_protein_level.
+  ?pm :evidence / :reference ?ref.
+  ?ref :provenance db:PeptideAtlas; :accession ?ac.
   filter (not exists {
         # check that the same peptide doesn't match another entry
-    ?entry2 :isoform / :peptideMapping ?pm2 .
-    ?pm2 :evidence / :reference ?ref2 .
-    ?ref2 :provenance db:PeptideAtlas; :accession ?ac .
+    ?entry2 :isoform / :peptideMapping ?pm2.
+    ?pm2 :evidence / :reference ?ref2.
+    ?ref2 :provenance db:PeptideAtlas; :accession ?ac.
     filter (?entry2 != ?entry)
   })
 }
 # Not 100% true because peptides not from PeptideAtlas are not accounted (no identifiers in RDF).
-# Could be much faster if we attach a triple to peptides telling if it is proteotypic or not !

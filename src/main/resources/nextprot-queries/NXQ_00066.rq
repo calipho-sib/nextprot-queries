@@ -6,7 +6,7 @@
 #time: 0.9
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :cellularComponent/:term/:childOf cv:SL-0086.
   ?iso :modifiedResidue /:term ?ptmtype.
   ?iso :modifiedResidue /:start ?ptmpos.

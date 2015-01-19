@@ -11,9 +11,9 @@ select ?entry where {
   where {
     ?entry :isoform / :cellularComponent ?loc .
     ?loc :evidence / :negative false .
-    ?loc :term ?locterm .
+    ?loc :term ?locterm.
     bind( exists {
-      ?locterm :childOf / rdfs:label ?label .
+      ?locterm :childOf / rdfs:label ?label.
       filter (regex(?label, '^[Nn]ucleus$'))
     } as ?inNucleus)
   } group by ?entry

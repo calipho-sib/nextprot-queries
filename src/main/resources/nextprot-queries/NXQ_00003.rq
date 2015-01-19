@@ -5,7 +5,7 @@
 #count:1026
 
 select distinct ?entry where {
- ?entry :isoform ?iso.
-   ?iso :topology ?statement .
-   ?statement a :TransmembraneRegion.
+  ?entry :isoform ?iso.
+  ?iso :topology ?statement.
+  ?statement a :TransmembraneRegion.
 } group by ?entry ?iso having(count( ?statement)=7)

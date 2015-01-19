@@ -6,7 +6,7 @@
 #time: 0.6
 
 select distinct ?entry where {
-  ?entry rdf:type :Entry .
-  ?entry :isoform / :sequence / :chain ?chain .
+  ?entry rdf:type :Entry.
+  ?entry :isoform / :sequence / :chain ?chain.
   filter ( regex(?chain, "FF.QYD") )
 }
