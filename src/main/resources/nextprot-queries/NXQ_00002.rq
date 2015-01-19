@@ -7,4 +7,4 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :cellularComponent / :term / :childOf cv:SL-0086, cv:SL-0191
-}order by ?entry
+}

@@ -1,17 +1,20 @@
 #id:NXQ_00103
 #title:Proteins that do not have a cross-reference to an Ensembl ENSG
-#tags:REDO(check),Xref,cross-reference 
+#tags:unpublished,Xref,cross-reference 
 #acs:A6NHS1,A8MWK0,Q58FF6
 #count:216
 #time:1.4
 
+
+# check 
+# for unknown reasons the filter of Q087 won't work -> 0 entries
+# FILTER NOT EXISTS { ?entry :reference / :provenance db:Ensembl . }
+
 select distinct ?entry where {
- ?entry a :Entry .
- filter not exists {
-   ?entry :reference ?x .
-   ?x :provenance db:Ensembl ; :accession ?ac .
-   filter (regex(?ac,'^ENSG'))
- }
- # for unknown reasons the filter of Q087 won't work -> 0 entries
- #  FILTER NOT EXISTS { ?entry :reference / :provenance db:Ensembl . }
+  ?entry a :Entry.
+  filter not exists {
+    ?entry :reference ?x.
+    ?x :provenance db:Ensembl ; :accession ?ac.
+    filter (regex(?ac,'^ENSG'))
+  }
 }

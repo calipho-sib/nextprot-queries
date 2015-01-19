@@ -5,8 +5,8 @@
 #count:1327
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
-  ?iso :cellularComponent/:term/:childOf cv:SL-0173 .
+  ?entry :isoform ?iso.
+  ?iso :cellularComponent/:term/:childOf cv:SL-0173.
   filter not exists { ?iso :keyword /:term cv:KW-0809 }
-} order by ?entry
+}
 

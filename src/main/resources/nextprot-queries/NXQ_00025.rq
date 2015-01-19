@@ -9,7 +9,7 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?iso :binaryInteraction/:interactant ?interactant .
+  ?iso :binaryInteraction/:interactant ?interactant.
   filter not exists { ?entry :reference / :provenance db:Orphanet . }
   filter not exists { ?iso :medical / rdf:type :Disease. }
 } group by ?entry ?iso having (count(?interactant) >= 50)

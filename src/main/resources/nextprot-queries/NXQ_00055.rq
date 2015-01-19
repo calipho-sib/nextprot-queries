@@ -5,7 +5,7 @@
 #count:7
 #time:0.1
 
-select distinct ?entry  where {
-  ?entry :gene / :length ?l .
+select distinct ?entry where {
+  ?entry :gene / :length ?l.
   filter (?l > 2000000)
-} order by DESC(?l)
+}

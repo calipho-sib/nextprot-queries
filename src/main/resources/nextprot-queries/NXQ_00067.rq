@@ -8,7 +8,7 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :crossLink /:start ?ptmpos.
-  ?iso :modifiedResidue ?ptm .
+  ?iso :modifiedResidue ?ptm.
   ?ptm :start ?ptmpos.
   ?ptm rdfs:comment ?comment.
   # use this filter to select acetylations

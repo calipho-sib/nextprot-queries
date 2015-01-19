@@ -6,12 +6,12 @@
 #time:0.5
 
 select distinct ?entry ?overlap where {
-  ?entry :isoform ?iso .
-#get Signal position (start is always 1)
+  ?entry :isoform ?iso.
+  #get Signal position (start is always 1)
   ?iso :signalPeptide [:end ?s2] .
-#get peptide position
+  #get peptide position
   ?iso :peptideMapping /:position [ :start ?p1 ; :end ?p2] .
-#match positions
+  #match positions
   filter ( ?p1 < ?s2   )
   bind ( if(?p2<?s2, ?p2, ?s2) - ?p1 as ?overlap) .
   filter(?overlap > 2)

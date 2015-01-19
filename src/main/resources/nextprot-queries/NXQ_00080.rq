@@ -6,7 +6,7 @@
 #time: 0.76
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :pdbMapping ?map.
   ?map :resolution ?res.
   filter (?res <= 3.0)

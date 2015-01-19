@@ -1,11 +1,11 @@
 #id:NXQ_00105
 #title:Proteins with at least one cross-reference to the ProteinModelPortal but no cross-references to PDB
-#tags:Xref,cross-reference,PDB,3D-structure
+#tags:Xref,cross-reference,PDB,3D structure
 #acs:A0A183,A0PJX8,A1L020
 #count:14438
 #time:3.1
 
 select distinct ?entry where {
-  ?entry :reference / :provenance db:ProteinModelPortal .
+  ?entry :reference / :provenance db:ProteinModelPortal.
   filter not exists { ?entry :reference / :provenance db:PDB }
 }

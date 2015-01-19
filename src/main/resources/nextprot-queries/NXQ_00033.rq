@@ -7,9 +7,9 @@
 
 select distinct ?entry where {
   select ?entry ?iso (count(?ptm)) where {
-    ?entry :isoform ?iso .
-    ?iso :modifiedResidue  ?ptm .
-    ?ptm :term cv:PTM-0255 #phosphotyrosine .
+    ?entry :isoform ?iso.
+    ?iso :modifiedResidue  ?ptm.
+    ?ptm :term cv:PTM-0255 #phosphotyrosine.
     filter (
      not exists { ?iso :modifiedResidue / :term cv:PTM-0253 . } #phosphoserine
      &&

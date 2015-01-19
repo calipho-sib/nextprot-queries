@@ -1,12 +1,12 @@
 #id:NXQ_00083
 #title:Proteins whose genes are on chromosome 18 that are expressed only in liver
-#tags:TODO,chromosomal location,expression
+#tags:unpublished,chromosomal location,expression
 #acs:
 #count:
 #time: 
 
 Select distinct ?entry count(?tiss) where {
-  ?entry :gene / :chromosome "18"^^xsd:string .
+  ?entry :gene / :chromosome "18"^^xsd:string.
   ?entry :isoform  ?iso.
   ?iso :expressionProfile /:term ?tiss.
   ?iso :expressionProfile /:term  /:childOf cv:TS-0564. #liver

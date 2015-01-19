@@ -8,4 +8,4 @@
 select distinct ?entry where {
   ?ec a :EnzymeClassificationCv.
   ?entry :classifiedWith ?ec
-} group by ?entry HAVING (count(?ec)>1)
+} group by ?entry having (count(?ec)>1)

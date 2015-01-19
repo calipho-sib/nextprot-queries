@@ -9,4 +9,4 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   filter not exists {?iso :function ?_ }
-} order by ?entry
+}

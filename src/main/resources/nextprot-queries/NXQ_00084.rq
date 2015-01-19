@@ -1,18 +1,21 @@
 #id:NXQ_00084
-#title:Proteins whose genes are on chromosome 18 and that are experimentally known to be glycosylated or phosphorylated or acetylated
-#tags:chromosomal location,PTM,phosphorylation,glycosylation,carbohydrate,experimental evidence
+#title:Proteins whose genes are on chromosome 18 and that are experimentally (cv:ECO_0000269) known to be glycosylated or phosphorylated or acetylated
+#tags:chromosomal location,PTM,phosphorylation,glycosylation,carbohydrate,experimental evidence,restest
 #acs:O95427,P49257,P25391
-#count:145
+#count:102
 #time:0.12
 
 select distinct ?entry {
-  ?entry :gene / :chromosome "18"^^xsd:string .
-  ?entry :isoform  ?iso.
-  {?iso :glycosylationSite /:evidence /:evidenceCode ?evcode.
-  filter (?evcode not in (:IEA))}
-  UNION
+  ?entry :gene / :chromosome "18"^^xsd:string.
+  ?entry :isoform ?iso.
   {
-  ?iso :modifiedResidue / rdfs:comment ?com.
-  filter (regex(?com, '^phospho|acetyl','i'))
+    ?iso :glycosylationSite ?ptm1.
+    ?ptm1 :evidence /:evidenceCode / :childOf cv:ECO_0000269
+  } 
+  union {
+    ?iso :modifiedResidue ?ptm2.
+    ?ptm2 rdfs:comment ?com.
+    ?ptm2 :evidence / :evidenceCode / :childOf cv:ECO_0000269
+    filter (regex(?com, '^phospho|acetyl','i'))
   }
 }

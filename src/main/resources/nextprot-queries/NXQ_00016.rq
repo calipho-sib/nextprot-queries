@@ -6,7 +6,7 @@
 #time:0.08
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :cellularComponent/:term cv:SL-0243;:sequence / :chain ?seq. #secreted
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
   filter ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 

@@ -6,7 +6,7 @@
 #time: 10s
 
 select distinct ?entry where {
-  ?entry a :Entry .
+  ?entry a :Entry.
   ?entry :isoform / :peptideMapping / :evidence / :assignedBy source:PeptideAtlas_human_liver .
   filter not exists { ?entry :isoform / :peptideMapping / :evidence / :assignedBy source:PeptideAtlas_human_plasma . }
 }

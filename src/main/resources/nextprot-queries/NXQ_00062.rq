@@ -6,7 +6,7 @@
 #time: 0.26
 
 select distinct ?entry where {
-  ?entry :isoform ?iso .
+  ?entry :isoform ?iso.
   ?iso :zincFingerRegion ?_.
 }
 

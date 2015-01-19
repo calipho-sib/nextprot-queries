@@ -6,7 +6,7 @@
 #time: 2.4
 
 select distinct ?entry where {
-  ?entry a :Entry .
+  ?entry a :Entry.
   filter not exists { ?entry :isoform / :region/rdf:type :Domain}
 }
 

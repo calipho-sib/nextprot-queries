@@ -1,10 +1,11 @@
 #id:NXQ_00039
 #title:Proteins with a mutagenesis in a position that correspond to an annotated active site
-#tags:mutagenesis,active site,enzyme
+#tags:unpublished,mutagenesis,active site,enzyme
 #acs:P53816, P14550, P15374, ...
 #count:369
 #time:0.1
 
+#check comment
 select distinct ?entry where {
   #?entry :classifiedWith/rdf:type :EnzymeClassificationCv;:isoform ?iso.
   ?entry :isoform ?iso.

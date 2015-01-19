@@ -1,6 +1,7 @@
 #id:NXQ_00058
 #title:Proteins which are located on the genome next to a protein which is involved in spermatogenesis
-#tags:gene location,neighbour,function
+#tags:unpublished,gene location,neighbour,function
+#comment:In the future we will add / pre-calculate interesting predicates like :neighbor , :overlaps, ...
 #acs:P50993,Q2M3M2,Q9NP85
 #count:893
 #time:3.3

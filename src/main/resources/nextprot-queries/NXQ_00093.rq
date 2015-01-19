@@ -6,6 +6,6 @@
 #time:0.8
 
 select distinct ?entry where {
-  ?entry :isoform / :sequence / :chain ?chain .
+  ?entry :isoform / :sequence / :chain ?chain.
   filter ( regex(?chain, "FF.+QYD") )
 }
