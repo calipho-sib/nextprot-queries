@@ -1,14 +1,13 @@
-#id:NXQ_00019
+#id:NXQ_00020
 #title:Proteins with at least 2 HPA antibodies whose genes are located on chromosome 21 and that are highly expressed at IHC level in heart
-#tags:expression,antibody,chromosomal location
+#tags:unpublished,expression,antibody,chromosomal location
 #acs:P56181,P48449,Q8TCY5
 #count:3
 #time:1.269
-#pending
 
 select ?entry where {
   select distinct ?entry ?ac where {
-    ?entry :gene / :chromosome "21"^^xsd:string .
+    ?entry :gene / :chromosome "21"^^xsd:string.
     ?entry :isoform / :expressionProfile ?s1.
     ?s1 :term / :childOf cv:TS-0445.
     ?s1 :evidence ?evi.

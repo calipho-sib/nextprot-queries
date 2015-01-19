@@ -2,7 +2,7 @@
 #title:Proteins with at least one homeobox domain and with at least one variant in the homeobox domain(s)
 #tags:domain,region,variant,sequence variation
 #acs:A6NHT5, A6NNA5, O95076, ...
-#count:229
+#count:232
 #time:0.15
 
 select distinct ?entry where {
@@ -14,8 +14,5 @@ select distinct ?entry where {
   ?iso :variant ?var.
   ?var :start ?varpos.
   # one variant in the homeobox domain
-  select distinct ?entry where {
-    ?entry :isoform ?iso.
-  } group by ?entry having (count(?iso)>10)
   filter (?varpos >=?start && ?varpos <=?end)
 }

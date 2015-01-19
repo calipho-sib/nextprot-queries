@@ -1,8 +1,8 @@
 #id:NXQ_00023
 #title:Proteins that are involved in transport and located in a membrane and that are not glycosylated (experimentally or predicted)
 #tags:subcellular location,cellular process,function,PTM
-#acs:
-#count:1541
+#acs: Q9Y6H8, ...
+#count:1585
 #time:3.514
 
 select distinct ?entry where {
