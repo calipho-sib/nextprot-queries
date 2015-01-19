@@ -2,8 +2,8 @@
 #title:Proteins highly expressed in brain but not expressed in testis
 #tags:expression
 #acs:A5YM72,P43699,P78411
-#count: 49
-#time: 0.4
+#count: 54
+#time: 34
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
