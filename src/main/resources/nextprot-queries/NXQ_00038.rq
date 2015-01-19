@@ -7,4 +7,4 @@
 
 select distinct ?entry where {
   ?entry :isoform/:selenocysteine ?statement.
- }
+}

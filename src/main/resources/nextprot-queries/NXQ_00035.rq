@@ -2,7 +2,7 @@
 #title:Proteins located in the mitochondrion and which is an enzyme
 #tags:enzyme,function,subcellular location,cellular component
 #acs:O00154, P55211, Q14318, ...
-#count:535
+#count:562
 #time:0.08
 
 select distinct ?entry where {

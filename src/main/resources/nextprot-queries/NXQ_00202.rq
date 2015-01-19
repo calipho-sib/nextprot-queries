@@ -1,8 +1,9 @@
 #id:NXQ_00202
 #title:Proteins with from 2 to 4 transmembrane regions
 #tags:domain,region,transmembrane,topology
-#acs:
-#count: 1055
+#acs:Q6ZT12, ...
+#count:1097
+#time:0.3
 
 select distinct ?entry where{
   ?entry :isoform ?iso.
