@@ -1,11 +1,12 @@
 #id:NXQ_00064
 #title:Proteins which are enzymes and that have an incomplete EC number
-#tags:TODO,enzyme,function
-#acs:A6NFU8, Q9UMW8, O95630, ...
-#count:1268
-#time: 0.18
+#tags:enzyme,function,classification
+#acs:A0PJE2,A6NNS2,A6NDL7
+#count:1284
+#time:0.55
 
-select distinct ?entry where {
-  ?entry :isoform / :function / a :Pathway .
-  ?entry :reference / :provenance db:Reactome .
+SELECT  distinct ?entry WHERE  {
+  ?entry :isoform/ :enzymeClassification ?ec.
+  ?ec :term / rdfs:label ?eclabel.
+  FILTER regex(?eclabel, '-'^^xsd:string)
 }

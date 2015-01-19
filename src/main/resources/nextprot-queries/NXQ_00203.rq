@@ -1,9 +1,14 @@
 #id:NXQ_00203
 #title:Proteins with a mature chain of from 100 to 500 residues
-#tags:TODO,sequence,processing
-#acs:
-#count: 
+#tags:sequence,processing
+#acs:Q9Y6H8,Q9BYP8,Q9BYP9
+#count:13674
+#time:0.7
 
-select distinct ?entry where{
+SELECT distinct ?entry WHERE  {
+?entry :isoform ?iso .
+?iso :matureProtein [ :start ?mstart ; :end ?mend].
+FILTER (?mend-?mstart > 0). # chain fully defined
+BIND(?mend - ?mstart as ?mlen)	 
+filter(?mlen >= 100 && ?mlen <= 500)
 }
-
