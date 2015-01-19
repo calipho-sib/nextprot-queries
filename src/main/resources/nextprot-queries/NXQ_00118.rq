@@ -1,10 +1,11 @@
 #id:NXQ_00118
 #title:Proteins with at least one somatic variant
-#tags:REDO(wrong query as does not take into account COSMIC),variant
+#tags:Unpublished,variant
 #acs:Q9UQ05,O15075,O43166
 #count:1382
 #time:0.5
 
+#Does not take into account COSMIC variants, not sure it can be done
 select distinct ?entry where {
  ?entry :isoform ?iso.
  ?iso :variant ?var.
