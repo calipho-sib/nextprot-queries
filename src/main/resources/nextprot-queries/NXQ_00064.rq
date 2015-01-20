@@ -1,12 +1,13 @@
 #id:NXQ_00064
 #title:Proteins which are enzymes and that have an incomplete EC number
+#comment:An incomplete EC number contains at least one "-"
 #tags:enzyme,function,classification
 #acs:A0PJE2,A6NNS2,A6NDL7
 #count:1284
 #time:0.55
 
-SELECT  distinct ?entry WHERE  {
+select distinct ?entry where {
   ?entry :isoform/ :enzymeClassification ?ec.
   ?ec :term / rdfs:label ?eclabel.
-  FILTER regex(?eclabel, '-'^^xsd:string)
+  filter regex(?eclabel, '-'^^xsd:string)
 }
