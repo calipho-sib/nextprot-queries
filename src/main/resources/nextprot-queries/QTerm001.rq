@@ -1,5 +1,6 @@
 #title:QTerm001 - Terms of controlled vocabularies containing some word(s)
-#tags:vocabulary
+#tags:vocabulary,snorql-only
+
 SELECT DISTINCT * WHERE { 
   ?term rdfs:label ?label ; a ?type .
   # ---------------------------
