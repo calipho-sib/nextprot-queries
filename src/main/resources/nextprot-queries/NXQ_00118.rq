@@ -1,7 +1,7 @@
 #id:NXQ_00118
-#title:All proteins with at least one somatic variant
+#title:Proteins with at least one somatic variant
 #comment:In this query we consider all COSMIC mutation to be somatic (which is not alwasy the case!).
-#tags:variant
+#tags:variant,sequence variation
 #acs:Q9Y6X6,Q9NYV4,Q9NZ52
 #count:17914
 #time:9.9
@@ -13,7 +13,7 @@ select distinct ?entry where {
  ?var rdfs:comment ?comment.
  filter (contains (?comment,'somatic'))
  }
-  UNION
+ union
  {
  ?var :evidence ?ev.
  ?ev :assignedBy source:Cosmic.
