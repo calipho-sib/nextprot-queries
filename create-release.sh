@@ -4,7 +4,7 @@
 set -x
 
 stopDebugModeAndExit () {
-  set +x; git checkout develop ; exit $1
+  set +x; exit $1
 }
 
 if [ -z "$1" ]; then
@@ -20,29 +20,27 @@ fi
 RELEASEVERSION=${1}
 DEVELOPMENTVERSION=${2}-SNAPSHOT
 
-# change to branch develop
-git checkout develop || stopDebugModeAndExit 1
-git merge develop master || stopDebugModeAndExit 2
-
 # change to branch master
-git checkout master || stopDebugModeAndExit 3
+git checkout master || stopDebugModeAndExit 1
+git merge develop || stopDebugModeAndExit 2
+
 # set new version in pom.xml
-mvn versions:set -DnewVersion=$RELEASEVERSION || stopDebugModeAndExit 4
-git add .
-git commit -m "Release version $RELEASEVERSION" || stopDebugModeAndExit 5
-git push origin master || stopDebugModeAndExit 6
+mvn versions:set -DnewVersion=$RELEASEVERSION || stopDebugModeAndExit 3
+git add pom.xml
+git commit -m "New release version $RELEASEVERSION" || stopDebugModeAndExit 4
+git push origin master || stopDebugModeAndExit 5
 # tag
-git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION" || stopDebugModeAndExit 7
-git push --tags || stopDebugModeAndExit 8
+git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION" || stopDebugModeAndExit 6
+git push --tags || stopDebugModeAndExit 7
 # deploy on nexus
-mvn clean deploy || stopDebugModeAndExit 9
+mvn clean deploy || stopDebugModeAndExit 8
 
 # change to branch develop
-git checkout develop || stopDebugModeAndExit 10
-mvn versions:set -DnewVersion=$DEVELOPMENTVERSION || stopDebugModeAndExit 11
-git add pom.xml || stopDebugModeAndExit 12
-git commit -m "Setting new snapshot version $DEVELOPMENTVERSION" || stopDebugModeAndExit 13
-git push origin develop || stopDebugModeAndExit 14
+git checkout develop || stopDebugModeAndExit 9
+mvn versions:set -DnewVersion=$DEVELOPMENTVERSION || stopDebugModeAndExit 10
+git add pom.xml || stopDebugModeAndExit 11
+git commit -m "New snapshot version $DEVELOPMENTVERSION" || stopDebugModeAndExit 12
+git push origin develop || stopDebugModeAndExit 13
 
 stopDebugModeAndExit 0
 
