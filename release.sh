@@ -14,21 +14,25 @@ fi
 
 
 RELEASEVERSION=${1}
-DEVELOPMENTVERSION=${2}
+DEVELOPMENTVERSION=${2}-SNAPSHOT
 
 echo "Releasing with version: $RELEASEVERSION"
 
+git merge develop master
+git checkout master
 mvn versions:set -DnewVersion=$RELEASEVERSION
-git add pom.xml
+git add .
 git commit -m "poms for release version $RELEASEVERSION"
 git push origin master
 git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION"
 git push --tags
-mvn clean gpg:sign deploy -Dgpg.executable=gpg2 -s ~/.m2/settings.xml
+mvn clean deploy
+# change to develop 
+git ckeckout develop
 mvn versions:set -DnewVersion $DEVELOPMENTVERSION
-git add .
+git add pom.xml
 git commit -m "poms for development version $DEVELOPMENTVERSION"
-git push origin master
+git push origin develop
 
 
 
