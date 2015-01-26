@@ -3,25 +3,24 @@
 # start debug mode
 set -x
 
-if [ -z "$1" ]
-    then
-        echo "Specify release version as first argument"
-    exit 0
-fi
-
-if [ -z "$2" ]
-    then
-        echo "Specify development version as second argument"
-        exit 0
-fi
-
 stopDebugModeAndExit () {
   set +x; git checkout develop ; exit $1
 }
 
+if [ -z "$1" ]; then
+    echo "Specify release version as first argument"
+    stopDebugModeAndExit 0
+fi
+
+if [ -z "$2" ]; then
+    echo "Specify development version as second argument"
+    stopDebugModeAndExit 0
+fi
+
 RELEASEVERSION=${1}
 DEVELOPMENTVERSION=${2}-SNAPSHOT
 
+# change to branch develop
 git checkout develop || stopDebugModeAndExit 1
 git merge develop master || stopDebugModeAndExit 2
 
