@@ -25,7 +25,7 @@ git checkout master || stopDebugModeAndExit 1
 git merge develop || stopDebugModeAndExit 2
 
 # set new version in pom.xml
-mvn versions:set -DnewVersion=$RELEASEVERSION || stopDebugModeAndExit 3
+mvn versions:set -DnewVersion=$RELEASEVERSION -DgenerateBackupPoms=false || stopDebugModeAndExit 3
 git add pom.xml
 git commit -m "New release version $RELEASEVERSION" # returns -1 if nothing to commit || stopDebugModeAndExit 4
 git push origin master || stopDebugModeAndExit 5
@@ -37,7 +37,7 @@ mvn clean deploy || stopDebugModeAndExit 8
 
 # change to branch develop
 git checkout develop || stopDebugModeAndExit 9
-mvn versions:set -DnewVersion=$DEVELOPMENTVERSION || stopDebugModeAndExit 10
+mvn versions:set -DnewVersion=$DEVELOPMENTVERSION -DgenerateBackupPoms=false || stopDebugModeAndExit 10
 git add pom.xml || stopDebugModeAndExit 11
 git commit -m "New snapshot version $DEVELOPMENTVERSION" || stopDebugModeAndExit 12
 git push origin develop || stopDebugModeAndExit 13
