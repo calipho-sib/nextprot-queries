@@ -19,7 +19,7 @@ DEVELOPMENTVERSION=${2}
 echo "Releasing with version: $RELEASEVERSION"
 
 mvn versions:set -DnewVersion=$RELEASEVERSION
-git add .
+git add pom.xml
 git commit -m "poms for release version $RELEASEVERSION"
 git push origin master
 git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION"
