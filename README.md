@@ -3,11 +3,11 @@ Example queries used for the documentation
 
 #### Naming convention
 For queries to be published, use: 
-> NXQ_<nnnnn>.rq 
-> where *<nnnnn>* is a five digit number 
+> NXQ_*nnnnn*.rq 
+> where *nnnnn* is a five digit number 
 
 For queries used internally or which need further validation, use:
-> NXQ_<nnnnn>.rq.unpub 
+> NXQ_*nnnnn*.rq.unpub 
 
 #### File content structure
 The file contains meta-information fields followed by the SPARQL query itself.
@@ -16,7 +16,7 @@ The meta-inoformation fields are:
 - #title: english free text translation of the SPARQL query 
 - #comment: useful info about query (multiple lines prefixed with #comment are allowed)
 - #tags: a list of comma separated categories for classifying & searching queries
-- - add tag *snorql-only* for queries not returning protein entries
+  - add tag *snorql-only* for queries not returning protein entries
 - #acs: a sample of uniprot style perotein accession codes returned by the query
 - #count: the count of entries returned by the query (approximative)
 
