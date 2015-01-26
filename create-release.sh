@@ -27,7 +27,7 @@ git merge develop || stopDebugModeAndExit 2
 # set new version in pom.xml
 mvn versions:set -DnewVersion=$RELEASEVERSION || stopDebugModeAndExit 3
 git add pom.xml
-git commit -m "New release version $RELEASEVERSION" || stopDebugModeAndExit 4
+git commit -m "New release version $RELEASEVERSION" # returns -1 if nothing to commit || stopDebugModeAndExit 4
 git push origin master || stopDebugModeAndExit 5
 # tag
 git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION" || stopDebugModeAndExit 6
