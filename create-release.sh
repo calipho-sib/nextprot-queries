@@ -29,7 +29,7 @@ if [ -z "$1" ]; then
     stopDebugModeAndExit 0
 fi
 
-calcNextVersion RELEASE_VERSION DEVELOPMENTVERSION
+calcNextVersion $RELEASE_VERSION DEVELOPMENTVERSION
 
 # change to branch master
 git checkout master || stopDebugModeAndExit 1
