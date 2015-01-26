@@ -16,7 +16,7 @@ if [ -z "$2" ]
 fi
 
 stopDebugModeAndExit () {
-  set +x; exit $1
+  set +x; git checkout develop ; exit $1
 }
 
 RELEASEVERSION=${1}
