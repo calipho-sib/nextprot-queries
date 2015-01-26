@@ -4,7 +4,11 @@
 	<groupId>org.nextprot</groupId>
 	<artifactId>nextprot-queries</artifactId>
 	<packaging>jar</packaging>
+<<<<<<< HEAD
 	<version>0.0.6</version>
+=======
+	<version>0.0.5</version>
+>>>>>>> master
 
 	<build>
 		<finalName>nextprot-queries</finalName>

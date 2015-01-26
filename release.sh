@@ -28,8 +28,8 @@ git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION"
 git push --tags
 mvn clean deploy
 # change to develop 
-git ckeckout develop
-mvn versions:set -DnewVersion $DEVELOPMENTVERSION
+git checkout develop
+mvn versions:set -DnewVersion=$DEVELOPMENTVERSION
 git add pom.xml
 git commit -m "Setting new snapshot version $DEVELOPMENTVERSION"
 git push origin develop
