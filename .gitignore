@@ -6,3 +6,5 @@ target
 MANIFEST.MF
 *.iml
 .idea
+pom.xml.releaseBackup
+release.properties
