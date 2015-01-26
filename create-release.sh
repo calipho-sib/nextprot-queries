@@ -15,6 +15,7 @@ if [ -z "$2" ]
         exit 0
 fi
 
+# stop debug mode and exit
 stopDebugModeAndExit () {
   set +x; exit $1
 }
