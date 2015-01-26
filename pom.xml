@@ -22,4 +22,8 @@
                 </repository>
         </distributionManagement>
 
+	<scm>
+		<connection>scm:git:git@github.com:calipho-sib/nextprot-queries.git</connection>
+		<developerConnection>scm:git:git@github.com:calipho-sib/nextprot-queries.git</developerConnection>
+	</scm>
 </project>
