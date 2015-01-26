@@ -22,7 +22,7 @@ git merge develop master
 git checkout master
 mvn versions:set -DnewVersion=$RELEASEVERSION
 git add .
-git commit -m "poms for release version $RELEASEVERSION"
+git commit -m "Release version $RELEASEVERSION"
 git push origin master
 git tag -a v$RELEASEVERSION -m "tag v$RELEASEVERSION"
 git push --tags
@@ -31,7 +31,7 @@ mvn clean deploy
 git ckeckout develop
 mvn versions:set -DnewVersion $DEVELOPMENTVERSION
 git add pom.xml
-git commit -m "poms for development version $DEVELOPMENTVERSION"
+git commit -m "Setting new snapshot version $DEVELOPMENTVERSION"
 git push origin develop
 
 
