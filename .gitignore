@@ -4,3 +4,5 @@ bin
 .settings
 target
 MANIFEST.MF
+pom.xml.releaseBackup
+release.properties
