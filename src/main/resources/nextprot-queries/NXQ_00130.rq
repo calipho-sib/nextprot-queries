@@ -8,7 +8,5 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :dnaBindingRegion ?dnab.
-  ?iso :subcellularLocation ?loc.
-  ?loc :evidence / :negative false .
   filter not exists { ?iso :subcellularLocation /:term /:childOf cv:SL-0191}.  
 }
