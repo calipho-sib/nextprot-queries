@@ -1,5 +1,5 @@
 #id:NXQ_00048
-#title:Proteins with at least one variant of the type "C->" (Cys to anything else) that are linked to one or more diseases
+#title:Proteins with at least one variant of the type "C->X" (Cys to anything else) that are linked to one or more diseases
 #tags:variant,sequence variation,disease
 #acs:O14802,O43405,P35670 
 #count:469
