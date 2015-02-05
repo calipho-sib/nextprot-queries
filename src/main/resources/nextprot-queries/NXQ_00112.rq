@@ -17,6 +17,7 @@ select ?entry where {
       filter (regex(?label, '^[Nn]ucleus$'))
       } as ?inNucleus)
     }
+    group by ?entry
   }
   filter ( ?anyLoc = ?nucleusLoc)
 }
