@@ -1,14 +1,12 @@
 #id:NXQ_00130
 #title:Proteins with a DNA-binding region but not located in the nucleus
 #tags:DNA-binding,region,domain,subcellular location,cellular component
-#acs:P02751,Q96LU7,Q01892
-#count:6
+#acs:P02751,Q96LU7,Q9BXR3
+#count:14
 #time:0.1
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :dnaBindingRegion ?dnab.
-  ?iso :subcellularLocation ?loc.
-  ?loc :evidence / :negative false .
-  filter not exists { ?iso :subcellularLocation /:term /:childOf cv:SL-0191}.  
+  filter not exists { ?entry :isoform / :subcellularLocation /:term /:childOf cv:SL-0191}.  
 }

@@ -6,7 +6,7 @@
 #time:0.08
 
 select distinct ?entry where {
-  select ?entry ?iso (count(?ptm)) where {
+  select ?entry ?iso (count(?ptm) as ?ptmCnt) where {
     ?entry :isoform ?iso.
     ?iso :modifiedResidue ?ptm.
     ?ptm :term cv:PTM-0255 #phosphotyrosine.

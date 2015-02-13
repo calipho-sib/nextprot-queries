@@ -15,8 +15,9 @@ select ?entry where {
     bind( exists {
       ?locterm :childOf / rdfs:label ?label.
       filter (regex(?label, '^[Nn]ucleus$'))
-    } as ?inNucleus)
-  } group by ?entry
+      } as ?inNucleus)
+    }
+    group by ?entry
   }
-  filter ( ?anyLoc = ?nucleusLoc  && ?nucleusLoc > 0)
+  filter ( ?anyLoc = ?nucleusLoc)
 }
