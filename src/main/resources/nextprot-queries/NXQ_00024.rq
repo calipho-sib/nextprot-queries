@@ -8,4 +8,5 @@
 select distinct ?entry where {
   ?entry :isoform/:binaryInteraction ?interaction.
   ?interaction :interactant ?interactant; :quality :GOLD
-} group by ?entry having count(distinct ?interactant) > 10
+} group by ?entry having (count(distinct ?interactant) > 10)
+

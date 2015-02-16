@@ -12,5 +12,6 @@ select ?famlab (count(distinct(?member)) as ?membercnt) where{
   # Query evaluation determines all matches of a path expression and binds subject or object as appropriate.
   ?member :family/:accession/rdfs:label ?famlab.
 }
-order by desc (?membercnt)
+group by ?famlab
+order by desc(?membercnt)
 limit 10
