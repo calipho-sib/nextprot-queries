@@ -10,5 +10,5 @@ select distinct ?entry where {
   ?iso :detectedExpression/:term/:childOf cv:TS-0564.
   ?iso :variant /:evidence ?ev.
   ?ev :assignedBy source:Cosmic.
-  ?ev :experimentalContext /:tissue term:TS-0564.
+  ?ev :experimentalContext /:tissue cv:TS-0564.
 }
