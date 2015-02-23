@@ -7,8 +7,8 @@
 
 select distinct ?entry where {
   ?entry :isoform  ?iso .
-    # cv:GO:0016055 wnt pathway
-    ?iso :goBiologicalProcess / :term / :childOf cv:GO_0016055.
-    # cv:GO:0016055 Hippo pathway
-    ?iso :goBiologicalProcess / :term / :childOf cv:GO_0035329.
+  # cv:GO:0016055 wnt pathway
+  ?iso :goBiologicalProcess / :term / :childOf cv:GO_0016055.
+  # cv:GO:0016055 Hippo pathway
+  ?iso :goBiologicalProcess / :term / :childOf cv:GO_0035329.
 }
