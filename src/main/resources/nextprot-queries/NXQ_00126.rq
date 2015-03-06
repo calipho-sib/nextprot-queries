@@ -2,19 +2,21 @@
 #title:Peptides that are potential neo N-termini from undescribed isoforms
 #tags:snorql-only,peptide,alternative splicing
 #acs:
-#count:9398
+#count:14830
 #time:39
 
 select distinct ?entry ?pep where {
   ?entry :isoform ?iso .
   ?iso :peptideMapping /:position [ :start ?p1 ; :end ?p2] .
-  filter(?p1 > 1).
+  filter(?p1 > 2).
   ?iso :sequence / :chain ?chain.
   bind (substr(?chain, ?p1+1, ?p2 - ?p1) as ?pep) .
   bind (substr(?chain, ?p1, 1) as ?prevAA) .
+  bind (substr(?chain, ?p1 + 1, 1) as ?firstAA) .
   bind (substr(?chain, ?p2, 1) as ?lastAA) .
-  filter(regex (?prevAA,'M'))
-  filter(regex (?lastAA,'[KR]')) # must be semi-tryptic in N-ter
+  filter(!regex (?prevAA,'[KR]')) # must be semi-tryptic in N-ter
+  filter(regex (?prevAA,'M') || regex (?firstAA,'M')) 
+  filter(regex (?lastAA,'[KR]')) # must be tryptic in C-ter
 }
 order by ?pep
 # Largely overestimated, need additional filter(s)
