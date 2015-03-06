@@ -10,6 +10,6 @@ select distinct ?entry where {
   ?iso :transmembraneRegion ?tm.
   ?tm :start ?tmstart ; :end ?tmend.
   ?iso :sequence /:chain ?chain.
-  bind (substr(?chain, ?tmstart, ?tmend-?tmstart) as ?tmseq)
+  bind (substr(?chain, ?tmstart, ?tmend - ?tmstart + 1) as ?tmseq)
   filter (regex(?tmseq, '[DE]'))
 }
