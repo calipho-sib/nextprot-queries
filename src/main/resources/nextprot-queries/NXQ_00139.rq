@@ -1,0 +1,23 @@
+#id:NXQ_00139
+#title:Kinases with are drug targets according to CHEMBL
+#tags:drug,federated,CHEMBL
+#acs:P05771,Q12852,P04626
+#count:227
+#time:6
+#comment: CHEMBL won't return more than 1000 rows
+PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
+
+select distinct ?entry ?gen where {
+  SERVICE<http://www.ebi.ac.uk/rdf/services/chembl/sparql>{
+	 SELECT distinct ?protein WHERE {
+  ?target cco:hasTargetComponent ?tarComp . 
+  ?target cco:taxonomy <http://identifiers.org/taxonomy/9606> .
+  ?tarComp skos:exactMatch ?protein . 
+  ?activity a cco:Activity ; cco:hasMolecule ?drug ; cco:hasAssay ?assay .
+  ?assay cco:hasTarget ?target .
+		}
+  	 }
+  BIND (IRI(CONCAT("http://nextprot.org/rdf/entry/NX_",substr(str(?protein),33,6))) as ?entry)	    
+  ?entry :classifiedWith cv:KW-0418. #kinase	
+  ?entry :gene / :name ?gen.
+}
