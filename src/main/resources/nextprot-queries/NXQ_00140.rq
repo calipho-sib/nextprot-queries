@@ -1,6 +1,6 @@
 #id:NXQ_00140
 #title:Proteins that interact with viral proteins
-#tags:interaction,federated,UniProt
+#tags:interaction,PPI,federated,UniProt
 #acs:P05556,P08047,P29590
 #count:2712
 #time:3.1
@@ -8,7 +8,7 @@
 PREFIX up:<http://purl.uniprot.org/core/>
 PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
 
-select distinct ?entry  where {
+select distinct ?entry where {
   ?entry :isoform ?iso.
   {?iso :interactionInfo / rdfs:comment ?txt.
   filter(contains(?txt,"viral") || contains(?txt,"virus")).}
