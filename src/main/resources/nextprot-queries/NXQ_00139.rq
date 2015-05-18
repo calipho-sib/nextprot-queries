@@ -17,7 +17,7 @@ select distinct ?entry ?gen where {
   ?assay cco:hasTarget ?target .
                 }
   	 }
-  BIND (IRI(CONCAT("http://nextprot.org/rdf/entry/NX_",substr(str(?protein),33,6))) as ?entry)	    
+  ?entry skos:exactMatch ?protein .	    
   ?entry :classifiedWith cv:KW-0418. #kinase	
   ?entry :gene / :name ?gen.
 }
