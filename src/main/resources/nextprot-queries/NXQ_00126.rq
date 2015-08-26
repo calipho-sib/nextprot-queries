@@ -8,7 +8,7 @@
 select distinct ?entry ?pep where {
   ?entry :isoform ?iso .
   ?iso :peptideMapping ?pm.
-  ?pm :position [ :start ?p1 ; :end ?p2] .
+  ?pm :start ?p1 ; :end ?p2 .
   ?pm :proteotypic true .
   filter(?p1 > 2). # must not be already N-terminal
   ?iso :sequence / :chain ?chain.
