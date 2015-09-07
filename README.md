@@ -1,5 +1,5 @@
 ## Example queries
-Example queries used for the documentation
+Example queries for http://snorql.nextprot.org
 
 #### Naming convention
 For queries to be published, use: 
