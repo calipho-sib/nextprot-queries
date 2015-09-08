@@ -12,7 +12,7 @@ select distinct ?entry ?overlap where {
   ?iso :peptideMapping ?pm .
   ?pm :proteotypic true .
   #get peptide position
-  ?pm :position [ :start ?p1 ; :end ?p2] .
+  ?pm :start ?p1 ; :end ?p2 .
   #match positions
   filter ( ?p1 < ?s2   )
   bind ( if(?p2<?s2, ?p2, ?s2) - ?p1 as ?overlap) .

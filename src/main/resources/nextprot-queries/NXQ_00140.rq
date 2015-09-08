@@ -1,6 +1,6 @@
 #id:NXQ_00140
 #title:Proteins that interact with viral proteins
-#tags:interaction,PPI,federated,UniProt
+#tags:interaction,PPI,federated query,UniProt
 #acs:P05556,P08047,P29590
 #count:2739
 #time:3.1
@@ -16,7 +16,7 @@ UNION
   {  ?iso :keyword / :term cv:KW-0945.} # host-virus interaction keyword
 UNION
   {
-   SERVICE <http://beta.sparql.uniprot.org/sparql> {
+   SERVICE <http://sparql.uniprot.org/sparql> {
      SELECT distinct ?viralinteractor WHERE # get viral proteins with an IntAct xref
     {
 	?viralinteractor a up:Protein .
@@ -32,7 +32,7 @@ UNION
   } 
 UNION
   {
-   SERVICE <http://beta.sparql.uniprot.org/sparql> {
+   SERVICE <http://sparql.uniprot.org/sparql> {
      SELECT distinct ?humprotein WHERE # get human proteins that share a PDB xref with a viral protein (same PDB id)
     {
 	?humprotein a up:Protein .
