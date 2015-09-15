@@ -18,6 +18,6 @@ select distinct ?entry ?gen where {
                 }
   	 }
   ?entry skos:exactMatch ?protein .	    
-  ?entry :classifiedWith cv:KW-0418. #kinase	
+  ?entry :isoform / :keyword / :term cv:KW-0418. #kinase	
   ?entry :gene / :name ?gen.
 }
