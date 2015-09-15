@@ -32,4 +32,6 @@ select distinct ?entry ?pep where {
 }  
 order by ?pep
 
-# Maybe overestimated, need additional filter(s) ?
+# overestimated, need additional filter(s)
+# but for instance AELEEVTLDGKPLQALR, AELEEVTLDGKPLQALRVTDLKAALEQR and AELEEVTLDGKPLQALRVTDLKAALEQR in Q9UKV3
+# are N-acetylated and good markers for an additional iso starting at M-59
