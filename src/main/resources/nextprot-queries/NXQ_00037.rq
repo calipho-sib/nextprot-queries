@@ -2,10 +2,11 @@
 #title:Proteins that bind RNA but do not contain a RRM domain
 #tags:domain,region
 #acs:P08621, P14678, Q96B26, ...
-#count:453
-#time:0.1
+#count:465
+#time:0.5
 
 select distinct ?entry where {
-  ?entry :isoform ?iso;:classifiedWith cv:KW-0694. #RNA-binding
+  ?entry :isoform ?iso .
+  ?iso :keyword /:term cv:KW-0694. #RNA-binding
   filter not exists {?iso :region/:term cv:DO-00581} #RRM
 }
