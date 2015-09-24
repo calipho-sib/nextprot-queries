@@ -11,7 +11,7 @@ SELECT distinct ?entry ?iso ?roi where {
   ?signal :start ?start; :end ?end.
 
 #?iso :region ?dom.
-#?dom :in term:DO-00615 ; :start ?start ; :end ?end .
+#?dom :in cv:DO-00615 ; :start ?start ; :end ?end .
 
 #?iso :transmembraneRegion ?tm.
 #?tm :start ?start; :end ?end.

@@ -2,11 +2,12 @@
 #title:Proteins that are oxidoreductases and that bind to NAD/NADP
 #tags:enzyme,function
 #acs:Q6DKJ4, Q9BYZ2, Q8TBF2, ...
-#count:267
-#time:0.1
+#count:270
+#time:0.3
 
 select distinct ?entry where {
-  ?entry :classifiedWith cv:KW-0560. #oxidoreductase
-  ?entry :classifiedWith ?kw
+  ?entry :isoform ?iso.
+  ?iso :keyword /:term cv:KW-0560. #oxidoreductase
+  ?iso :keyword /:term ?kw
   filter( ?kw in (cv:KW-0520,cv:KW-0521)) # NAD or NADP
 }
