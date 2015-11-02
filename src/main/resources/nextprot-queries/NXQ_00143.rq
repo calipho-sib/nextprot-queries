@@ -1,0 +1,17 @@
+#id:NXQ_00143
+#title:Proteins for which none of the reported proteotypic peptides is from PeptideAtlas
+#tags:peptide,mass spectrometry,proteomics,proteotypic,dataset
+#acs:NX_Q9H521,NX_Q8IYX8,NX_Q8IZM9
+#count:270
+#time:120
+
+select distinct ?entry where {
+?entry :isoform / :peptideMapping ?pm.
+?pm :proteotypic true .
+filter not exists {
+	?entry :isoform / :peptideMapping ?pm2.
+	?pm2 :proteotypic true .
+	?pm2 :evidence / :assignedBy ?src .
+	filter(contains(str(?src),"PeptideAtlas"))
+	}
+}
