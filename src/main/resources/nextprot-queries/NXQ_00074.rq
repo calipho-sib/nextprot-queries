@@ -6,6 +6,6 @@
 #time: 4.7
 
 select distinct ?entry where {
-  ?entry :family/:accession ?ac.
-  ?member :family/:accession ?ac.
+  ?entry :family / :term ?ac.
+  ?member :family / :term ?ac.
 } group by ?entry having (count(distinct ?member) >= 2 )
