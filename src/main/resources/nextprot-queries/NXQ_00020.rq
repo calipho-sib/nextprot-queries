@@ -14,6 +14,6 @@ select ?entry where {
     ?evi :expressionLevel :High.
     ?evi :experimentalContext / :detectionMethod cv:ECO_0000087.
     ?entry :isoform / :antibodyMapping ?map.
-    ?map :antibodyName ?id.
+	 ?map :evidence / :reference / :accession ?id . 
   }
 } group by ?entry having (count(?id)>=2)
