@@ -6,7 +6,7 @@
 #time:0.456
 
 select ?entry where {
-  ?entry :family/:accession/^:accession/^:family ?member.
+  ?entry :family / :term/^:term/^:family ?member.
   ?entry :gene / :chromosome "2"^^xsd:string .
 } group by ?entry having ( count(?member) >= 5 )
 
