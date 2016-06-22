@@ -6,7 +6,7 @@ See: http://www.nextprot.org/
 
 # neXtprot advanced search example queries
 
-Example queries neXtProt advanced searches (SPARQL).
+Example queries for neXtProt advanced searches (SPARQL).
 
 #### Naming convention
 For queries to be published, use: 
