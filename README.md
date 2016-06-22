@@ -1,5 +1,12 @@
-## Example queries
-Example queries for http://snorql.nextprot.org
+# neXtProt - The knowledge resource on human proteins
+
+This is a code repository for the SIB - Swiss Institute of Bioinformatics CALIPHO group neXtProt project
+
+See: http://www.nextprot.org/
+
+# neXtprot advanced search example queries
+
+Example queries neXtProt advanced searches (SPARQL).
 
 #### Naming convention
 For queries to be published, use: 
