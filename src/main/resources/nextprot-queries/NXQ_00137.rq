@@ -8,6 +8,7 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :matureProtein / :end ?mend.
+  filter ( ?mend != 321 && ?mend != 193) # this filter for a virtuoso bug preventing mseq binding in two occurences (under investigation)
   ?iso :sequence / :chain ?seq.
   bind (substr(?seq, ?mend-2, 3) as ?cterseq).
   filter(regex(?cterseq,'[ST].[ILV]')). # short motif consensus for C-terminal PDZ-binding
