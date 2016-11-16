@@ -6,6 +6,6 @@
 #time:0.5
 
 select distinct ?entry where {
-  ?entry :isoform / :medical / rdf:type :Disease .
-  FILTER NOT EXISTS { ?entry :reference / :provenance db:MGI . }
+  ?entry :isoform / :signalPeptide / rdfs:comment ?comment .
+  filter(contains(?comment,"Not cleaved"))
 }
