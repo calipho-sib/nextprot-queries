@@ -2,7 +2,7 @@
 #title:Proteins that interact with viral proteins
 #tags:interaction,PPI,federated query,UniProt
 #acs:P05556,P08047,P29590
-#count:2739
+#count:642
 #time:3.1
 
 PREFIX up:<http://purl.uniprot.org/core/>
@@ -27,7 +27,7 @@ UNION
 	filter(contains(?orgname,"virus"))
     }
    }
-  ?entry :isoform / :binaryInteraction / :interactant ?interactant. # NeXtprot entries with an IntAct binary interaction
+  ?entry :isoform / :binaryInteraction / :interactant ?interactant; :quality :GOLD. # NeXtprot entries with a GOLD IntAct binary interaction
   ?interactant skos:exactMatch ?viralinteractor . # interactant must be in the uniprot service result set to select the entry
   } 
 UNION
