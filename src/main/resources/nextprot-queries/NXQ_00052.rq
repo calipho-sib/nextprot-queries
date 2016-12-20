@@ -2,14 +2,13 @@
 #title:Proteins with a sequence that does not contain a lysine in the mature region
 #tags:sequence,processing
 #acs:E5RJM6, H3BQW9, P04553, ...
-#count:266
+#count:267
 #time:1.2
 
 select distinct ?entry where {
   ?entry :isoform ?iso .
   ?iso :sequence / :chain ?seq.
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
-  filter ( ?mend != 321 && ?mend != 193) # this filter for a virtuoso bug preventing mseq binding in two occurences (under investigation)
   bind(?mend - ?mstart + 1 as ?mlen)
   bind(substr(?seq, ?mstart, ?mlen) as ?mseq)
   filter (!regex (?mseq,'K'))
