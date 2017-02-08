@@ -1,14 +1,13 @@
 #id:NXQ_00137
 #title:Proteins that potentially interact with Class I PDZ domains (whose C-terminal sequence has a PDZ-binding consensus)
-#tags:sequence,motif,interaction,PPI
+#tags:sequence,motif,interaction,PPI,tutorial
 #acs:A6NK89,P08311,P0CG22
-#count:1222
+#count:1220
 #time:0.7
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :matureProtein / :end ?mend.
-  filter ( ?mend != 321 && ?mend != 193) # this filter for a virtuoso bug preventing mseq binding in two occurences (under investigation)
   ?iso :sequence / :chain ?seq.
   bind (substr(?seq, ?mend-2, 3) as ?cterseq).
   filter(regex(?cterseq,'[ST].[ILV]')). # short motif consensus for C-terminal PDZ-binding

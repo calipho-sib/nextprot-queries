@@ -1,6 +1,6 @@
 #id:NXQ_00063
 #title:Proteins that have at least one RRM RNA-binding domain and either no GO "RNA binding" or a GO "RNA binding" with evidence cv:ECO_0000501 or cv:ECO_0000250
-#tags:domain,region,evidence,GO
+#tags:domain,region,evidence,GO,tutorial
 #acs:Q14103, Q6ZRY4, Q8TC92, ...
 #count:78
 #time: 0.1

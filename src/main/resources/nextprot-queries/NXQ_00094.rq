@@ -1,7 +1,7 @@
 #id:NXQ_00094
 #title:Proteins which are targets of antipsychotic drugs and highly expressed in brain
 #comment:Federated query with DrugBank
-#tags:federated query,drug,expression
+#tags:federated query,drug,expression,tutorial
 #acs:P08183,P10635,P11229, ...
 #count: 11
 #time: 1.3
