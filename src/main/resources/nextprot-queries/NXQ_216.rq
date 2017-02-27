@@ -1,0 +1,16 @@
+#id:NXQ_00216
+#title:Phosphorylation sites with source PeptideAtlas Phosphoproteome
+#tags:tutotial,snorql-only,PTM,proteomics
+#acs:NX_A0AUZ9,...
+#count:104228
+
+select distinct substr(?isopos1,33,strlen(?isopos1)-32) as ?isopos where {
+  select distinct ?ptmid sample(concat(concat(str(?iso),"-"),str(?pos))) as ?isopos1 where {
+  ?entry :isoform ?iso .
+  ?iso :ptm ?ptm.
+  ?ptm :entryAnnotationId  ?ptmid; :start ?pos .
+  ?ptm :evidence / :assignedBy source:PeptideAtlas_human_phosphoproteome .
+  }
+}
+order by ?isopos
+
