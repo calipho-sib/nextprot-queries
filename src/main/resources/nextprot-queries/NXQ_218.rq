@@ -1,0 +1,29 @@
+#id:NXQ_00218
+#title:Proteins for which different splice isoforms have a different subcellular location or function
+#tags:tutorial,isoforms,function,subcellular location
+#acs:NX_P95255,...
+#count:475
+#time:7.7
+
+select distinct ?entry str(?gen) where {
+ ?entry :gene / :name ?gen.
+ ?entry :isoform ?iso1, ?iso2.
+ ?iso1 :swissprotDisplayed true .
+ ?iso2 :swissprotDisplayed false .
+ {
+ ?iso2 :function / :term ?functerm .
+ filter (?functerm != cv:GO_0005515) #protein-binding
+ filter not exists {?iso1 :function / :term ?functerm .}
+ }
+ UNION
+ {
+ ?iso2 :functionInfo / rdfs:comment ?functext .
+ filter not exists {?iso1 :functionInfo / rdfs:comment ?functext .}
+ }
+ UNION
+ {
+ ?iso2 :goCellularComponent / :term ?locterm .
+ filter not exists {?iso1 :goCellularComponent / :term ?locterm}
+ }
+}
+order by ?gen 
