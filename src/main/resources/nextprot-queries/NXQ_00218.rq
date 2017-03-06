@@ -5,8 +5,7 @@
 #count:475
 #time:7.7
 
-select distinct ?entry str(?gen) where {
- ?entry :gene / :name ?gen.
+select distinct ?entry where {
  ?entry :isoform ?iso1, ?iso2.
  ?iso1 :swissprotDisplayed true .
  ?iso2 :swissprotDisplayed false .
@@ -26,4 +25,3 @@ select distinct ?entry str(?gen) where {
  filter not exists {?iso1 :goCellularComponent / :term ?locterm}
  }
 }
-order by ?gen 
