@@ -5,13 +5,13 @@
 #count:104226
 #time:32
 
-select distinct substr(?isopos1,33,strlen(?isopos1)-32) as ?isopos where {
-# The sample method selects randomly one mapping for a given unique site
-   select distinct ?ptmid sample(concat(concat(str(?iso),"-"),str(?pos))) as ?isopos1 where {
+select distinct IRI(substr(str(?isopos),1,43)) as ?isox xsd:integer(substr(?isopos,45,strlen(?isopos)-44)) as ?pos where {
+# The sample method selects randomly one isoform mapping for a given unique site in the genome (?ptmid)
+   select distinct ?ptmid sample(concat(concat(str(?iso),"-"),str(?pos))) as ?isopos where {
    ?entry :isoform ?iso .
    ?iso :ptm ?ptm.
    ?ptm :entryAnnotationId  ?ptmid; :start ?pos .
    ?ptm :evidence / :assignedBy source:PeptideAtlas_human_phosphoproteome .
    }
 }
-order by ?isopos
+order by ?isox ?pos
