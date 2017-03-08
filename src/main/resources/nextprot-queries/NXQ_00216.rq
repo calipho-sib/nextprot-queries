@@ -1,17 +1,25 @@
 #id:NXQ_00216
 #title:Phosphorylation sites from PeptideAtlas Phosphoproteome
-#tags: PTM,phosphorylation,tutorial,snorql-only
+#tags: PTM,phosphorylation,tutorial,snorql-only,pamtest
 #acs:NX_A0AUZ9,...
 #count:104226
 #time:32
 
-select distinct IRI(substr(str(?isopos),1,43)) as ?isox xsd:integer(substr(?isopos,45,strlen(?isopos)-44)) as ?pos where {
-# The sample method selects randomly one isoform mapping for a given unique site in the genome (?ptmid)
-   select distinct ?ptmid sample(concat(concat(str(?iso),"-"),str(?pos))) as ?isopos where {
+select (sample(?iso) as ?isospl) (sample(?pos) as ?posspl) where {
    ?entry :isoform ?iso .
    ?iso :ptm ?ptm.
    ?ptm :entryAnnotationId  ?ptmid; :start ?pos .
    ?ptm :evidence / :assignedBy source:PeptideAtlas_human_phosphoproteome .
-   }
-}
-order by ?isox ?pos
+} group by ?ptmid
+order by ?isospl ?posspl
+
+#select distinct (IRI(substr(str(?isopos),1,43)) as ?isox) (xsd:integer(substr(?isopos,45,strlen(?isopos)-44)) as ?pos) where {
+## The sample method selects randomly one isoform mapping for a given unique site in the genome (?ptmid)
+#   select distinct ?ptmid (sample(concat(concat(str(?iso),"-"),str(?pos))) as ?isopos) where {
+#   ?entry :isoform ?iso .
+#   ?iso :ptm ?ptm.
+#   ?ptm :entryAnnotationId  ?ptmid; :start ?pos .
+#   ?ptm :evidence / :assignedBy source:PeptideAtlas_human_phosphoproteome .
+#   }
+#}
+#order by ?isox ?pos
