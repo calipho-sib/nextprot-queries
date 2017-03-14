@@ -1,12 +1,11 @@
 #id:NXQ_00094
 #title:Proteins which are targets of antipsychotic drugs and highly expressed in brain
-#comment:Federated query with DrugBank
+#comment:Federated query with DrugBank, the sparql endpoint hasn't been updated since 2011
 #tags:federated query,drug,expression,tutorial
 #acs:P08183,P10635,P11229, ...
 #count: 11
 #time: 1.3
 
-PREFIX diseasome: <http://wifo5-04.informatik.uni-mannheim.de/diseasome/resource/diseasome/>
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
 
 select distinct ?entry where {
@@ -24,3 +23,4 @@ select distinct ?entry where {
   ?expr :term/:childOf cv:TS-0095.
   ?expr :evidence / :expressionLevel :High.
 }
+
