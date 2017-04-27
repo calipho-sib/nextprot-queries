@@ -2,15 +2,19 @@
 #title:Proteins with no function annotated
 #tags:function,tutorial
 #acs:A0PJZ0,A0ZSE6,Q9BRQ4
-#count:2477
-#time:0.3
+#count:2402
+#time:3.3
 
-select distinct ?entry where {
+select distinct ?entry ?fterm where {
  ?entry :isoform ?iso.
  filter not exists { ?iso :functionInfo ?_ . }
+ filter not exists { ?iso :function ?func . 
+					 optional {?func :term ?fterm1 .}
+					 filter(!bound(?fterm1)) #eliminates functions from pathways
+				   }
  filter not exists { 
-   ?iso :function / :term ?fterm . 
-   filter(?fterm != cv:GO_0005515 && ?fterm != cv:GO_0042802 && ?fterm != cv:GO_0005509 && ?fterm != cv:GO_0008270 && ?fterm != cv:GO_0051260)
-  # eliminates proteins whose ONLY function is one of calcium-binding, zinc-binding, protein-binding, identical protein binding, protein homooligomerization
- }
+   					?iso :function / :term ?fterm . 
+   					filter(?fterm != cv:GO_0005515 && ?fterm != cv:GO_0042802 && ?fterm != cv:GO_0005509 && ?fterm != cv:GO_0008270 && ?fterm != cv:GO_0051260)
+  					# eliminates proteins whose ONLY GO function is one of calcium-binding, zinc-binding, protein-binding, identical protein binding, protein homooligomerization
+ 				   }
 }
