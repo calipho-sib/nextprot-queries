@@ -2,8 +2,8 @@
 #title:Proteins that interact with viral proteins
 #tags:interaction,PPI,federated query,UniProt,tutorial
 #acs:P05556,P08047,P29590
-#count:642
-#time:3.1
+#count:655
+#time:85
 
 PREFIX up:<http://purl.uniprot.org/core/>
 PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
