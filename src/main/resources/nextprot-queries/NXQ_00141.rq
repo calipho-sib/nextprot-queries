@@ -2,8 +2,8 @@
 #title:Human proteins highly expressed in brain and observed in a PDB struture involving a virus protein
 #tags:interaction,federated query,PDB,UniProt,expression,tutorial
 #acs:NX_P49023,NX_P05161,NX_Q16630
-#count:36
-#time:2.3
+#count:41
+#time:13
 
 PREFIX up_core:<http://purl.uniprot.org/core/>
 PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
