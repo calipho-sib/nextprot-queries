@@ -2,8 +2,8 @@
 #title:Proteins that have at least one PTM in a position of a variant
 #tags:PTM,variant,sequence variation ,tutorial
 #acs:Q9UPT9,Q9UPN4,Q9Y272
-#count:12014 
-#time:1329  
+#count:12205 
+#time:320  
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
