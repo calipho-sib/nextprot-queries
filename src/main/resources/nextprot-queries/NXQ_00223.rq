@@ -5,7 +5,7 @@
 #count:100
 #time:24
 
-select distinct str(?publiid) ?title count (distinct ?entry) as ?ecnt where {
+select distinct str(?publiid) str(?title) count (distinct ?entry) as ?ecnt where {
   ?entry a :Entry .
   ?entry :reference ?ref .
    ?ref a :Publication.
