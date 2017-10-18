@@ -1,0 +1,17 @@
+#id:NXQ_00223
+#title:100 most-cited publications in neXtProt and the corresponding number of associated entries
+#tags:publication,snorql-only
+#acs:PubMed:15489334","PubMed:24755471","PubMed:25303977"
+#count:100
+#time:24
+
+select distinct str(?publiid) str(?title) count (distinct ?entry) as ?ecnt where {
+  ?entry a :Entry .
+  ?entry :reference ?ref .
+   ?ref a :Publication.
+   ?ref :title ?title .
+   ?ref :from ?publiid .
+   filter(contains (?publiid,'PubMed'))
+}
+order by desc(?ecnt)
+limit 100
