@@ -1,4 +1,4 @@
-#id:NX_09000
+#id:NXQ_09000
 #title:Check there are no protein domains with no entry associated
 #tags:QC,domain,snorql-only
 #acs:cv:DO-00014,cv:DO-00164,cv:DO-00893
