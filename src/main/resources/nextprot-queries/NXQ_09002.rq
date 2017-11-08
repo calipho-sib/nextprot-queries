@@ -1,6 +1,6 @@
 #id:NXQ_09002
 #title:Check there are no non-standard amino acid terms with no entry associated
-#tags:QC,selenocysteine,snorql-only
+#tags:QC,selenocysteine,vocabulary,snorql-only
 #comment:Only 1 term in CV: Selenocysteine (CVAA_0001)
 #acs:
 #count:0
