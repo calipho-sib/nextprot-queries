@@ -3,10 +3,10 @@
 #tags:QC,provenance
 #acs:
 #count:0
-#time:0.788
+#time:0.627
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
-  ?iso :Allergen /:evidence /:assignedBy ?src.
+  ?iso :allergen /:evidence /:assignedBy ?src.
   filter ( ?src not in (source:Uniprot))
 }
