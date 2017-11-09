@@ -4,10 +4,10 @@
 #tags:QC,provenance
 #acs:
 #count:0
-#time:0.773
+#time:0.634
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
-  ?iso :AbsorptionNote /:evidence /:assignedBy ?src.
+  ?iso :absorptionNote /:evidence /:assignedBy ?src.
   filter ( ?src not in (source:Uniprot))
 }
