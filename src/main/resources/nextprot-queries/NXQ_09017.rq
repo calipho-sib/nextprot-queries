@@ -1,6 +1,6 @@
 #id:NXQ_09017
-#title:Check there are no entries with cellular component annotations with evidence NOT from GO Consortium, HPA or neXtProt
-#comment:Encompasses both GO cellular component annotations and subcellular location annotations
+#title:Check there are no entries with GO cellular component annotations with evidence NOT from GO Consortium, HPA or neXtProt
+#comment: neXtProt BioEditor data
 #tags:QC,provenance,subcellular location
 #acs:
 #count:0
