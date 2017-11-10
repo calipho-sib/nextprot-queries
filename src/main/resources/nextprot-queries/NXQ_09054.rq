@@ -1,6 +1,6 @@
 #id:NXQ_09054
 #title:Check there are no entries with miscellaneous region annotations with evidence NOT from UniProt
-#tags:QC,provenance,
+#tags:QC,provenance,sequence,region
 #acs:
 #count:0
 #time:0.623
