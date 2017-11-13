@@ -1,0 +1,12 @@
+#id:NXQ_09097
+#title:Check there are no entries with calcium binding region annotations with evidence from UniProt of quality SILVER
+#tags:QC,quality,evidence,interaction,region,sequence
+#acs:
+#count:0
+#time:0.719
+
+select distinct ?entry where {
+  ?entry :isoform /:calciumBindingRegion /:evidence ?ev1.
+  ?ev1 :assignedBy source:Uniprot.
+  filter not exists{?ev1 :quality :GOLD }
+}
