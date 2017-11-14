@@ -1,12 +1,12 @@
 #id:NXQ_09102
-#title:Check there are no entries with cofactor annotations with evidence from UniProt of quality SILVER
+#title:Check there are no entries with cofactor information annotations with evidence from UniProt of quality SILVER
 #tags:QC,quality,evidence,function,enzyme
 #acs:
 #count:0
-#time:0.07
+#time:0.648
 
 select distinct ?entry ?src where {
-  ?entry :isoform /:cofactor /:evidence ?ev1.
+  ?entry :isoform /:cofactorInfo /:evidence ?ev1.
   ?ev1 :assignedBy source:Uniprot.
   filter not exists{?ev1 :quality :GOLD }
 }
