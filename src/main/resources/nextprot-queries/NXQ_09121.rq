@@ -1,0 +1,14 @@
+#id:NXQ_09121
+#title:Check there are no entries with GO biological process annotations with evidence quality SILVER which are not from CACAO, CAFA, Ensembl, HPA, InterPro, LIFEdb, PINC or Reactome
+#comment:neXtProt added to query to avoid spurious results
+#tags:QC,quality,evidence
+#acs:O00744
+#count:600
+#time:0.717
+
+select distinct ?entry where {
+  ?entry :isoform /:goBiologicalProcess /:evidence ?ev1.
+  ?ev1 :quality :SILVER .
+  ?ev1 :assignedBy ?src.
+  filter ( ?src not in (source:CACAO,source:CAFA,source:Ensembl,source:Human_protein_atlas,source:InterPro,source:LIFEdb,source:NextProt,source:PINC,source:Reactome))
+}
