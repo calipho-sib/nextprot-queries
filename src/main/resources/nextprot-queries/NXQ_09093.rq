@@ -3,10 +3,11 @@
 #tags:QC,quality,evidence
 #acs:
 #count:0
-#time:0.59
+#time:0.735
 
 select distinct ?entry where {
   ?entry :isoform /:allergen /:evidence ?ev1.
   ?ev1 :assignedBy source:Uniprot.
-  filter not exists{?ev1 :quality :GOLD }
+  ?ev1 :quality :SILVER.
 }
+limit 10
