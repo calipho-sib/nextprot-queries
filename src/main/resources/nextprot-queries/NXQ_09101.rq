@@ -5,7 +5,7 @@
 #count:0
 #time:0.702
 
-select distinct ?entry ?src where {
+select distinct ?entry where {
   ?entry :isoform /:cofactor /:evidence ?ev1.
   ?ev1 :assignedBy source:Uniprot.
   ?ev1 :quality :SILVER.
