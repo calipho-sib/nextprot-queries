@@ -4,11 +4,12 @@
 #tags:QC,quality,evidence,expression
 #acs:
 #count:0
-#time:7.185
+#time:1.034
 
 select distinct ?entry where {
   ?entry :isoform /:expressionProfile /:evidence ?ev1.
   ?ev1 :expressionLevel :Negative.
   ?ev1 :assignedBy source:Bgee.
-  filter not exists{?ev1 :quality :GOLD }
+  ?ev1 :quality :SILVER.
 }
+limit 10
