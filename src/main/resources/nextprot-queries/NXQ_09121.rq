@@ -3,10 +3,11 @@
 #tags:QC,quality,evidence,function
 #acs:
 #count:0
-#time:0.689
+#time:0.707
 
 select distinct ?entry where {
   ?entry :isoform /:goBiologicalProcess /:evidence ?ev1.
   ?ev1 :assignedBy source:CACAO.
-  filter not exists{?ev1 :quality :SILVER }
+  ?ev1 :quality :GOLD.
 }
+limit 10
