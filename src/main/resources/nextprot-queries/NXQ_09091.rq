@@ -4,10 +4,11 @@
 #tags:QC,quality,evidence
 #acs:
 #count:0
-#time:0.61
+#time:0.717
 
 select distinct ?entry where {
   ?entry :isoform / :absorptionNote /:evidence ?ev1.
   ?ev1 :assignedBy source:Uniprot.
-  filter not exists{?ev1 :quality :GOLD }
+  ?ev1 :quality :SILVER.
 }
+limit 10
