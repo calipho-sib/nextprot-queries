@@ -9,5 +9,6 @@
 select distinct ?entry where {
   ?entry :isoform / :betaStrand /:evidence ?ev1.
   ?ev1 :assignedBy source:Uniprot.
-  filter not exists{?ev1 :quality :GOLD }
+  ?ev1 :quality :SILVER.
 }
+limit 10
