@@ -1,0 +1,14 @@
+#id:NXQ_09209
+#title:Check there are no entries with GO molecular function annotations with evidence from ParkinsonsUK-UCL, the evidence code not IEP and quality SILVER
+#tags:QC,quality,evidence,function
+#acs:
+#count:0
+#time:0.841
+
+select distinct ?entry where {
+  ?entry :isoform /:goMolecularFunction /:evidence ?ev1.
+  ?ev1 :assignedBy source:ParkinsonsUK-UCL.
+  ?ev1 :quality :SILVER.
+  filter not exists{?ev1 :evidenceCode cv:ECO_0000270 }
+}
+limit 10
