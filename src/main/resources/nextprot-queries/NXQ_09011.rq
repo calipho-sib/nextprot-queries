@@ -1,6 +1,6 @@
 #id:NXQ_09011
 #title:Check there are no entries with beta strand annotations with evidence NOT from UniProt
-#comment:tertiary structure
+#comment:secondary structure
 #tags:QC,provenance
 #acs:
 #count:0
