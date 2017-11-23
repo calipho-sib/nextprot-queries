@@ -1,6 +1,6 @@
 #id:NXQ_09095
 #title:Check there are no entries with beta strand annotations with evidence from UniProt of quality SILVER
-#comment:tertiary structure
+#comment:secondary structure
 #tags:QC,quality,evidence
 #acs:
 #count:0
