@@ -1,5 +1,6 @@
 #id:NXQ_09258
 #title:Check there are no entries with SRM peptide mapping annotations with evidence from SRMAtlas of quality SILVER
+#comment:synthetic peptides
 #tags:QC,quality,evidence,proteomics
 #acs:
 #count:0
