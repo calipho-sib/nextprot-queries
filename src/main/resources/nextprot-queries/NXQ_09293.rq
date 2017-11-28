@@ -1,5 +1,5 @@
 #id:NXQ_09293
-#title:Check there are no entries with *peptide mapping* annotations from neXtProt for which the evidence code is NOT mass spectrometry evidence
+#title:Check there are no entries with peptide mapping annotations from neXtProt for which the evidence code is NOT mass spectrometry evidence
 #tags:QC,evidence,ECO,mass spectrometry,peptide,proteomics
 #acs:
 #count:0
