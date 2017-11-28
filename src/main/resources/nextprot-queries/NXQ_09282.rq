@@ -1,0 +1,13 @@
+#id:NXQ_09282
+#title:Check there are no entries with expression profile annotations from HPA for which the evidence code is NOT immunolocalization evidence (ECO:0000087) or RNA-seq evidence (ECO:0000295)
+#tags:QC,evidence,ECO,expression
+#acs:
+#count:0
+#time:4.664
+
+select distinct ?entry where {
+  ?entry :isoform /:expressionProfile /:evidence ?ev1.
+  ?ev1 :assignedBy source:Human_protein_atlas.
+  ?ev1 :evidenceCode ?eco.
+  filter (?eco not in (cv:ECO_0000087, cv:ECO_0000295))
+}
