@@ -1,7 +1,7 @@
 #id:NXQ_09350
 #title:Check there are no entries with mature protein annotations with evidence from UniProt that is negative
 #comment:mature chain
-#tags:QC,provenance,sequence
+#tags:QC,evidence,negative,sequence
 #acs:
 #count:0
 #time:0.728
