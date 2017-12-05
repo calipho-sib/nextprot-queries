@@ -1,6 +1,6 @@
 #id:NXQ_09351
 #title:Check there are no entries with metal binding site annotations with evidence from UniProt that is negative
-#tags:QC,provenance,sequence,interaction
+#tags:QC,evidence,negative,sequence,interaction
 #acs:
 #count:0
 #time:1.117
