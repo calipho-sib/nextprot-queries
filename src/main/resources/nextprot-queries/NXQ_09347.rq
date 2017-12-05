@@ -1,7 +1,7 @@
 #id:NXQ_09347
 #title:Check there are no entries with kinetic note annotations with evidence from UniProt that is negative
 #comment:biophysicochemical property
-#tags:QC,provenance,function,enzyme
+#tags:QC,evidence,negative,function,enzyme
 #acs:
 #count:0
 #time:0.715
