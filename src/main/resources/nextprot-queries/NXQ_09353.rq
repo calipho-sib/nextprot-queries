@@ -1,6 +1,6 @@
 #id:NXQ_09353
 #title:Check there are no entries with miscellaneous region annotations with evidence from UniProt that is negative
-#tags:QC,negative,sequence,region
+#tags:QC,evidence,negative,sequence,region
 #acs:
 #count:0
 #time:0.644
