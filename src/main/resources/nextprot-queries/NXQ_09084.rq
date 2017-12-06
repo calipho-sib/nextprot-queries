@@ -1,6 +1,6 @@
 #id:NXQ_09084
 #title:Check there are no entries with transmembrane region annotations with evidence NOT from UniProt
-#tags:QC,provenance,region,subcellular&nbsp;location
+#tags:QC,provenance,region,subcellular location
 #acs:
 #count:0
 #time:0.621
