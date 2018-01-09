@@ -1,0 +1,14 @@
+#id:NXQ_09403
+#title:Check there are no entries that have the accession number of excluded UniProt entries
+#tags:QC,filtering
+#acs:
+#count:0
+#time:27.76
+
+select distinct ?entry where {
+  ?entry a :Entry .
+  ?entry :reference ?ref.
+  ?ref :provenance db:UniProt.
+  ?ref :accession ?ac.
+  filter (str(?ac) in ("P04220","P04436","P04437","P01737","P01733","P04435")) #list of 6 excluded UniProt ACs
+}

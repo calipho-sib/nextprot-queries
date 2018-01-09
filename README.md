@@ -24,7 +24,7 @@ The meta-inoformation fields are:
 - #comment: useful info about query (multiple lines prefixed with #comment are allowed)
 - #tags: a list of comma separated categories for classifying & searching queries
   - add tag `snorql-only` for queries not returning protein entries
-- #acs: a sample of uniprot style perotein accession codes returned by the query
+- #acs: a sample of uniprot style protein accession codes returned by the query
 - #count: the count of entries returned by the query (approximative)
 
 
