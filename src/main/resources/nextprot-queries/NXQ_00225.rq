@@ -1,7 +1,7 @@
 #id:NXQ_00225
 #title:Proteins with high proline content
 #comment:By setting the AAcnt filter to 0 you will eventually get the longest sequences without a given AA, order with desc(?seqlen).
-#tags:sequence,compositional bias,snorql-only
+#tags:sequence,compositional bias,snorql-only,tutorial
 #acs:Q9BYE4,P02814,C9JFL3
 #count:10
 #time:80
