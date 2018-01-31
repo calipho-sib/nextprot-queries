@@ -1,17 +1,12 @@
 #id:NXQ_00124
-#title:What are the 10 most frequent families with member count
+#title:What are the 25 most frequent families with member count
 #tags:snorql-only,family,tutorial
 #acs:
-#count:10
-#time:2.1
+#count:25
+#time:0.5
 
-select ?famlab (count(distinct(?member)) as ?membercnt) where{
-  ?entry :family /:term/^:term/^:family ?member.
-  # The syntax ^elt represents the inverse path (object to subject)
-  # A property path expression (or just 'path') is similar to a string regular expression but over properties, not characters.
-  # Query evaluation determines all matches of a path expression and binds subject or object as appropriate.
-  ?member :family / :term/rdfs:label ?famlab.
-}
-group by ?famlab
+select str(?famlab) (count(distinct(?member)) as ?membercnt) where{
+  ?member :family /:term /:childOf / rdfs:label ?famlab .
+} group by ?famlab
 order by desc(?membercnt)
-limit 10
+limit 25
