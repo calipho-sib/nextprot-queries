@@ -1,29 +1,30 @@
 #id:NXQ_00141
-#title:Human proteins highly expressed in brain and observed in a PDB struture involving a virus protein
+#title:Human proteins highly expressed in brain and observed in a PDB structure involving a virus protein
 #tags:interaction,federated query,PDB,UniProt,expression,tutorial
 #acs:NX_P49023,NX_P05161,NX_Q16630
-#count:41
-#time:13
+#count:49
+#time:30
 
-PREFIX up_core:<http://purl.uniprot.org/core/>
-PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
-PREFIX up_database:<http://purl.uniprot.org/database/>
-select distinct ?entry  where {
-  {  
-SERVICE <http://sparql.uniprot.org/sparql> {
-      SELECT distinct ?humanprotein ?viralprotein ?db WHERE { 
-        # get human proteins that share a PDB xref with a viral protein (same PDB id)      
-        ?humanprotein a up_core:Protein ; up_core:organism taxon:9606 . 
-        ?viralprotein a up_core:Protein ; up_core:organism / up_core:scientificName ?orgname.
-        filter(contains(?orgname,"virus"))
-        ?humanprotein rdfs:seeAlso ?db .
-        ?viralprotein rdfs:seeAlso ?db .
-        ?db up_core:database up_database:PDB .
-      }
-    }
-  }
+PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
+
+select distinct ?entry  where {   
+SERVICE <http://integbio.jp/rdf/sparql> {
+SELECT distinct ?uplink
+FROM <http://rdf.integbio.jp/dataset/pdbj>
+WHERE {
+  ?entity PDBo:of_datablock ?pdb .
+  ?entity2 PDBo:of_datablock ?pdb .
+  ?entity3 PDBo:of_datablock ?pdb .
+  ?entity PDBo:referenced_by_entity_src_gen / PDBo:entity_src_gen.pdbx_gene_src_scientific_name ?name .
+  filter(contains(?name,"virus")) # at least one viral chain
+  ?entity2 PDBo:referenced_by_entity_src_gen / PDBo:entity_src_gen.pdbx_gene_src_scientific_name ?name2 .
+  filter(contains(?name2,"Homo")) # at least one human chain
+  ?entity3 PDBo:link_to_uniprot ?uplink; PDBo:struct_ref.db_code ?id .
+  filter(contains(?id,"HUMAN") && substr(?id,7,1) != "_") # aka SwissProt/Reviewed
+  }  
+ }
   # get human proteins highly expressed in brain according to HPA
-  ?entry skos:exactMatch ?humanprotein .
+  ?entry skos:exactMatch ?uplink .
   ?entry :isoform / :highExpression ?expressionprofile .
   ?expressionprofile :term / :childOf cv:TS-0095 .
   ?expressionprofile :evidence / :reference / :provenance db:HPA .
