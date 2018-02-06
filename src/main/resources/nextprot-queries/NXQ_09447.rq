@@ -1,0 +1,10 @@
+#id:NXQ_09447
+#title:Check there are no entries with the Swiss-Prot keyword Acetylcholine receptor inhibiting toxin (KW-0008)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.788
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0008.
+}
