@@ -3,7 +3,7 @@
 #tags:peptide,mass spectrometry,proteomics,proteotypic,dataset,tutorial
 #acs:entry:Q8WYA6,Q8N8Y2,P13746
 #count:8793
-#time:1476
+#time:1475
 
 select distinct ?entry where { 
 values ?pepsources { 
