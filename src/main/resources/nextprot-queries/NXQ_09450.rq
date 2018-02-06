@@ -1,0 +1,10 @@
+#id:NXQ_09450
+#title:Check there are no entries with the Swiss-Prot keyword Activation of host NF-kappa-B by virus (KW-1074)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.889
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-1074.
+}
