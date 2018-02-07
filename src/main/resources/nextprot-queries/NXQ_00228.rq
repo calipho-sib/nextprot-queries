@@ -1,5 +1,5 @@
 #id:NXQ_00228
-#title:Proteins with at least 2 validating peptides >=9aa found in blood plasma, urine or cerebrospinal fluid (criteria for biomarker)].
+#title:Proteins with at least 2 validating peptides >=9aa found in blood plasma, urine or cerebrospinal fluid (criteria for biomarker).
 #comment:Same query as NXQ_00226 but with constraint that peptides are not overlapping (much longer)
 #tags:peptide,mass spectrometry,proteomics,proteotypic,dataset,tutorial
 #acs:entry:Q8WYA6,Q8N8Y2,P13746
