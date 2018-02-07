@@ -1,12 +1,13 @@
 #id:NXQ_00099
-#title:Proteins that have at least one PTM in a position of a variant
-#tags:PTM,variant,sequence variation ,tutorial
+#title:Secreted proteins that have at least one PTM in a position of a variant
+#tags:PTM,variant,sequence variation,tutorial
 #acs:Q9UPT9,Q9UPN4,Q9Y272
 #count:12205 
 #time:320  
 
 select distinct ?entry where {
-  ?entry :isoform ?iso.
+  ?entry :isoform ?iso .
+  ?iso :cellularComponent / :term /:childOf cv:SL-0243. # secreted
   ?iso :swissprotDisplayed true . # restricted to main isoform due to computing time (> 98% of sites)
   ?iso :variant /:start ?varpos.
   ?iso :ptm /:start ?varpos.
