@@ -1,0 +1,10 @@
+#id:NXQ_09449
+#title:Check there are no entries with the Swiss-Prot keyword Activation of host caspases by virus (KW-1073)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.907
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-1073.
+}

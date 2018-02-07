@@ -1,0 +1,10 @@
+#id:NXQ_09454
+#title:Check there are no entries with the Swiss-Prot keyword Alkylphosphonate uptake (KW-0019)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.916
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0019.
+}

@@ -1,0 +1,10 @@
+#id:NXQ_09459
+#title:Check there are no entries with the Swiss-Prot keyword Antibiotic biosynthesis (KW-0045)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.815
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0045.
+}
