@@ -16,4 +16,4 @@ select ?entry (str(?gen) as ?gene) (group_concat(distinct ?src,' ') as ?uniq_sou
   filter(?p2-?p1 >= 8) #peplen >= 9
 }
 group by ?entry ?gen having(count (distinct ?src) = 1) 
-order by ?source
+order by ?uniq_source
