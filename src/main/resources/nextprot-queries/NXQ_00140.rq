@@ -2,16 +2,19 @@
 #title:Proteins that interact with viral proteins
 #tags:interaction,PPI,federated query,UniProt,tutorial
 #acs:P05556,P08047,P29590
-#count:655
-#time:85
+#count:650
+#time:46
 
 PREFIX up:<http://purl.uniprot.org/core/>
 PREFIX taxon:<http://purl.uniprot.org/taxonomy/>
+PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  {?iso :interactionInfo / rdfs:comment ?txt.
-  filter(contains(?txt,"viral") || contains(?txt,"virus")).} # refers to a virus in the free-text interactionInfo topic
+  {
+  ?iso :interactionInfo / rdfs:comment ?txt.
+  filter(contains(?txt,"viral") || contains(?txt,"virus")).
+  } # refers to a virus in the free-text interactionInfo topic
 UNION
   {  ?iso :keyword / :term cv:KW-0945.} # host-virus interaction keyword
 UNION
@@ -32,21 +35,23 @@ UNION
   } 
 UNION
   {
-   SERVICE <http://sparql.uniprot.org/sparql> {
-     SELECT distinct ?humprotein WHERE # get human proteins that share a PDB xref with a viral protein (same PDB id)
+   SERVICE <http://integbio.jp/rdf/sparql> {
+     SELECT distinct ?uplink
+     FROM <http://rdf.integbio.jp/dataset/pdbj>
+    WHERE
     {
-	?humprotein a up:Protein .
-    ?humprotein up:organism taxon:9606 . 
-	?humprotein rdfs:seeAlso ?db .
-	?db up:database <http://purl.uniprot.org/database/PDB> .
-	?viralprotein a up:Protein .
-	?viralprotein rdfs:seeAlso ?db .
-    ?viralprotein up:organism ?tax .
-	?tax up:scientificName ?orgname.
-	filter(contains(?orgname,"virus"))
-    }
+    ?entity PDBo:of_datablock ?pdb .
+    ?entity2 PDBo:of_datablock ?pdb .
+    ?entity3 PDBo:of_datablock ?pdb .
+    ?entity PDBo:referenced_by_entity_src_gen / PDBo:entity_src_gen.pdbx_gene_src_scientific_name ?name .
+    filter(contains(?name,"virus")) # at least one viral chain
+    ?entity2 PDBo:referenced_by_entity_src_gen / PDBo:entity_src_gen.pdbx_gene_src_scientific_name ?name2 .
+    filter(contains(?name2,"Homo")) # at least one human chain
+    ?entity3 PDBo:link_to_uniprot ?uplink; PDBo:struct_ref.db_code ?id .
+    filter(contains(?id,"HUMAN") && substr(?id,7,1) != "_") # aka SwissProt/Reviewed
+    }  
    }
-  BIND (IRI(CONCAT("http://nextprot.org/rdf/entry/NX_",substr(str(?humprotein),33,6))) as ?entry) # cast result to NeXtprot entry
+  ?entry skos:exactMatch ?uplink . # cast result to NeXtprot entry
   }  
 }
 order by ?entry
