@@ -3,7 +3,7 @@
 #comment:Federated query with DrugBank
 #comment:Query based on the drug classification ATC Codes implemented in DrugBank
 #comment:This is the same federated query with DrugBank as NXQ_00096 but with a more up-to-date endpoint
-#tags:drug,federated query,tutorial
+#tags:drug,federated query
 #acs:P09172,Q07343,P00439, ...
 #count:92
 #time:7
