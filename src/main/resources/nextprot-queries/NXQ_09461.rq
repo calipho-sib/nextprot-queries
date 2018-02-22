@@ -1,0 +1,10 @@
+#id:NXQ_09461
+#title:Check there are no entries with the Swiss-Prot keyword Antifreeze protein (KW-0047)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.798
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0047.
+}

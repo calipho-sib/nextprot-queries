@@ -1,0 +1,19 @@
+#id:NXQ_00229
+#title:Proteins with 2 peptides from only one PeptideAtlas data set
+#tags:peptide,mass spectrometry,proteomics,proteotypic,dataset,tutorial,snorql-only
+#acs:entry:O14649,P19099,P15538
+#count:1298
+#time:300
+
+select ?entry (str(?gen) as ?gene) (group_concat(distinct ?src,' ') as ?uniq_source) where {
+  ?entry :isoform ?iso.
+  ?entry :gene / :name ?gen.
+  ?iso :peptideMapping ?pm .
+  ?pm :proteotypic true .
+  ?pm  :start ?p1 ; :end ?p2 .
+  ?pm :evidence / :assignedBy  ?src.
+  filter(contains(str(?src),"PeptideAtlas"))
+  filter(?p2-?p1 >= 8) #peplen >= 9
+}
+group by ?entry ?gen having(count (distinct ?src) = 1) 
+order by ?uniq_source

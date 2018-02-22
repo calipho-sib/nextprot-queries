@@ -1,8 +1,8 @@
 #id:NXQ_00224
 #title:Transmembrane proteins with at least 100 consecutive aa located in the EXTRACELLULAR OR LUMENAL compartment.
 #tags:region,sequence,subcellular location,topology,transmembrane,tutorial
-#acs:PubMed:15489334","PubMed:24755471","PubMed:25303977"
-#count:1945
+#acs:O14975,O43916,P09958
+#count:1951
 #time:0.4
 
 select distinct ?entry where { 

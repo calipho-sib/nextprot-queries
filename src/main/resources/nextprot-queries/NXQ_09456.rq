@@ -1,0 +1,10 @@
+#id:NXQ_09456
+#title:Check there are no entries with the Swiss-Prot keyword Amphibian defense peptide (KW-0878)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.859
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0878.
+}

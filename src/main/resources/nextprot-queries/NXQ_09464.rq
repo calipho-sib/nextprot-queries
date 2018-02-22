@@ -1,0 +1,10 @@
+#id:NXQ_09464
+#title:Check there are no entries with the Swiss-Prot keyword Arabinose catabolism (KW-0054)
+#tags:QC,keyword
+#acs:
+#count:0
+#time:0.803
+
+select distinct ?entry where {
+  ?entry :isoform /:keyword / :term cv:KW-0054.
+}

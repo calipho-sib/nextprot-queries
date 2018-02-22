@@ -5,13 +5,15 @@
 #count:100
 #time:24
 
-select distinct str(?publiid) str(?title) count (distinct ?entry) as ?ecnt where {
+select (str(?publiid) as ?PMID) (str(?tt) as ?title) (count(distinct ?entry) as ?ecnt) 
+where {
   ?entry a :Entry .
   ?entry :reference ?ref .
    ?ref a :Publication.
-   ?ref :title ?title .
+   ?ref :title ?tt .
    ?ref :from ?publiid .
    filter(contains (?publiid,'PubMed'))
 }
+group by ?publiid ?tt
 order by desc(?ecnt)
 limit 100
