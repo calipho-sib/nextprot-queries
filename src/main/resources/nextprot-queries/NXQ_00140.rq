@@ -30,7 +30,8 @@ UNION
 	filter(contains(?orgname,"virus"))
     }
    }
-  ?entry :isoform / :binaryInteraction / :interactant ?interactant; :quality :GOLD. # NeXtprot entries with a GOLD IntAct binary interaction
+  ?entry :isoform / :binaryInteraction ?it .
+  ?it :interactant ?interactant; :quality :GOLD. # NeXtprot entries with a GOLD IntAct binary interaction
   ?interactant skos:exactMatch ?viralinteractor . # interactant must be in the uniprot service result set to select the entry
   } 
 UNION
