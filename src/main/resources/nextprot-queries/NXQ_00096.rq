@@ -7,7 +7,6 @@
 #count:135
 #time:11
 
-PREFIX diseasome: <http://wifo5-04.informatik.uni-mannheim.de/diseasome/resource/diseasome/>
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
 
 select distinct ?entry where {
