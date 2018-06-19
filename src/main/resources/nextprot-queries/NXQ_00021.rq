@@ -2,12 +2,14 @@
 #title:Proteins with at least one HPA antibody that are located in the peroxisome
 #tags:antibody,subcellular location,cellular component,tutorial
 #comment:The "/^:related" construct is used to augment the :related predicate which is not currently symmetrical
-#acs:O14678
-#count:112
-#time:0.572
+#acs:O14678,O60420,O75381
+#count:114
+#time:0.57
 
 select distinct ?entry where {
   ?entry :isoform ?iso. 
   ?iso :antibodyMapping ?map. 
-  ?iso :cellularComponent / :term /:childOf /^:related cv:SL-0204. # peroxisomal
+  ?iso :cellularComponent ?sl .
+  ?sl :term /:childOf /^:related cv:SL-0204. # peroxisomal
+  filter not exists { ?sl :negativeEvidence ?negev. } # No negative localization evidence
 }
