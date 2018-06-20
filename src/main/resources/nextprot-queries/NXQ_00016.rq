@@ -3,12 +3,13 @@
 #comment:The search takes into account all isoforms so sometimes you may see cysteines in a displayed isoform but at least one of the isoform does not contain any cysteine.
 #tags:sequence,subcellular location,cellular component,processing,tutorial
 #acs:P10163,P01258,P01270
-#count:165
-#time:0.08
+#count:193
+#time:0.4
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?iso :cellularComponent/:term cv:SL-0243;:sequence / :chain ?seq. #secreted
+  ?iso :cellularComponent /:term /:childOf cv:SL-0243 .
+  ?iso :sequence / :chain ?seq. 
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
   filter ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 
   bind (?mend - ?mstart + 1 as ?mlen)	 
