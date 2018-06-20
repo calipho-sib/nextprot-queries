@@ -3,12 +3,16 @@
 #comment:Using PTM-0253 (phosphoserine), PTM-0254 (phosphothronine) and PTM-0255 (phosphotyrosine) for the phosphorylation sites
 #tags:subcellular location,cellular component,PTM,glycosylation,carbohydrate,sequence,tutorial
 #acs:P08047, P31749, P10636, ...
-#count:17
-#time: 0.9
+#count:60
+#time: 8
 
 select distinct ?entry where {
+  values ?cytoloc {cv:SL-0086 cv:GO_0005737} # SL and GO values for cytoplasm
+  
   ?entry :isoform ?iso.
-  ?iso :cellularComponent/:term/:childOf cv:SL-0086.
+  ?iso :cellularComponent ?loc .
+  ?loc :term /:childOf ?cytoloc .
+  filter not exists {?loc  :negativeEvidence ?negev} # No negative localization evidence
   ?iso :modifiedResidue /:term ?ptmtype.
   ?iso :modifiedResidue /:start ?ptmpos.
   filter (?ptmtype in (cv:PTM-0253, cv:PTM-0254, cv:PTM-0255)) 
