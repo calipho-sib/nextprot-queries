@@ -7,9 +7,11 @@
 #time:0.57
 
 select distinct ?entry where {
+  values ?peroxiloc {cv:GO_0005777  cv:SL-0204} # GO and SL values for peroxisome
+  
   ?entry :isoform ?iso. 
   ?iso :antibodyMapping ?map. 
-  ?iso :cellularComponent ?sl .
-  ?sl :term /:childOf /^:related cv:SL-0204. # peroxisomal
-  filter not exists { ?sl :negativeEvidence ?negev. } # No negative localization evidence
+  ?iso :cellularComponent ?loc .
+  ?loc :term /:childOf ?peroxiloc. # peroxisomal
+  filter not exists { ?loc :negativeEvidence ?negev. } # No negative localization evidence
 }
