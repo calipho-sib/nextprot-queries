@@ -2,12 +2,16 @@
 #title:Proteins which are located in mitochondrion and have at least one HPA antibody and exist in at least one proteome identification sets
 #tags:subcellular location,cellular component,antibody,proteomics,mass spectrometry,tutorial
 #acs:A8K5M9,O75570,P23443, ...
-#count:1169
-#time: 0.4
+#count:1911
+#time: 0.7
 
 select distinct ?entry where {
+  values ?mitoloc {cv:SL-0173 cv:GO_0005739} # SL and GO values for mitochondrion
+  
   ?entry :isoform ?iso.
-  ?iso :cellularComponent/:term/:childOf cv:SL-0173.
-  ?iso :antibodyMapping ?map1.
-  ?iso :peptideMapping ?map2.
+  ?iso :cellularComponent ?loc .
+  ?loc :term /:childOf ?mitoloc .
+  filter not exists { ?loc :negativeEvidence ?negev. } # No negative localization evidence
+  ?iso :antibodyMapping ?abmap.
+  ?iso :peptideMapping ?pepmap.
 }
