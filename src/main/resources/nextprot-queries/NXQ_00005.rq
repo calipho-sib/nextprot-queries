@@ -2,11 +2,14 @@
 #title:Proteins located in mitochondrion and that lack a transit peptide
 #tags:cellular component,subcellular location,tutorial
 #acs:A1XBS5,O00159,O00755,O14734,O14972,O15270,A2AJT9,A6NDV4,A6NFY7,A6NK06,B7ZC32
-#count:902
+#count:1563
+#time:0.5
 
 select distinct ?entry where {
+  values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
   ?entry :isoform ?iso.
-  ?iso :cellularComponent/:term/:childOf cv:SL-0173.
-  filter not exists { ?iso :keyword /:term cv:KW-0809 }
+  filter not exists { ?iso :keyword /:term cv:KW-0809 } # Transit peptide
+  ?iso :cellularComponent ?loc .
+  ?loc :term /:childOf ?mitoloc.
+  filter not exists {?loc :negativeEvidence ?negev} # No negative localization evidence
 }
-
