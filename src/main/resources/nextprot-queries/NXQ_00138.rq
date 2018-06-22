@@ -2,7 +2,7 @@
 #title:Proteins with 10 or more gold interactions with SH3 domain-containing proteins
 #tags:domain,interaction,PPI,tutorial
 #acs:Q07889,P04626,P10721
-#count:13
+#count:21
 #time:0.2
 
 select distinct ?entry where {
@@ -10,7 +10,6 @@ select distinct ?entry where {
   ?iso :interaction ?it.
   ?it :quality :GOLD.
   ?it :interactant ?interactant.
-  ?interactant a :Entry.
-  ?interactant :isoform / :domain / :term cv:DO-00615. # SH3
+  ?interactant :isoform? / :domain / :term cv:DO-00615. # SH3
 }
 group by ?entry having (count (distinct ?interactant) >= 10)
