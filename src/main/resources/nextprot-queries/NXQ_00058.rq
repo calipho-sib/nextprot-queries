@@ -3,8 +3,8 @@
 #comment:In the future we will add / pre-calculate interesting predicates like :neighbor , :overlaps, ...
 #tags:gene location,neighbour,function,tutorial
 #acs:P50993,Q2M3M2,Q9NP85
-#count:893
-#time:3.3
+#count:1040
+#time:8.3
 
 select ?entry where {
 {
@@ -12,7 +12,9 @@ select ?entry where {
  select distinct ?entry where {
    {
    select ?sp_entry ?sp_gene_begin (MIN(?prev_distance) as ?min_distance_prev) ?chr WHERE {
-     ?sp_entry :isoform/ :function/:term /:childOf cv:GO_0007283 .
+     ?sp_entry :isoform/ :function ?func1 .
+     ?func1 :term /:childOf cv:GO_0007283 .
+     filter not exists { ?func1 :negativeEvidence ?negev. } # No negative function evidence
      ?sp_entry :gene ?sp_gene.
      ?sp_gene :begin ?sp_gene_begin.
      ?sp_gene  :chromosome ?chr.
@@ -36,7 +38,9 @@ union #union both queries
  select distinct ?entry where {
      {
      select ?sp_entry ?sp_gene_end (MIN(?next_distance) as ?min_distance_next) ?chr WHERE {
-     ?sp_entry :isoform/ :function/:term /:childOf cv:GO_0007283.
+     ?sp_entry :isoform / :function ?func2 .
+	 ?func2 :term / :childOf cv:GO_0007283. # spermatogenesis
+	 filter not exists { ?func2 :negativeEvidence ?negev. } # No negative function evidence
      ?sp_entry :gene ?sp_gene.
      ?sp_gene :end ?sp_gene_end.
      ?sp_gene  :chromosome ?chr.

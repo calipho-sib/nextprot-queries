@@ -2,10 +2,15 @@
 #title:Proteins located in the mitochondrion and which are enzymes
 #tags:enzyme,function,subcellular location,cellular component,tutorial
 #acs:O00154, P55211, Q14318, ...
-#count:562
-#time:0.08
+#count:821
+#time:0.4
 
 select distinct ?entry where {
+  values ?mitoloc {cv:SL-0173 cv:GO_0005739} # SL and GO values for mitochondrion
+  
   ?entry :classifiedWith/rdf:type :EnzymeClassificationCv.
-  ?entry :isoform/:cellularComponent/:term/:childOf cv:SL-0173
+  ?entry :isoform ?iso.
+  ?iso :cellularComponent ?loc .
+  ?loc :term / :childOf ?mitoloc.
+  filter not exists { ?loc :negativeEvidence ?negev. } # No negative localization evidence
 }

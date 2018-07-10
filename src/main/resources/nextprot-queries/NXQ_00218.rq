@@ -1,8 +1,8 @@
 #id:NXQ_00218
 #title:Proteins for which different splice isoforms have a different subcellular location or function
 #tags:tutorial,isoforms,function,subcellular location
-#acs:NX_P95255,...
-#count:475
+#A0A1B0GVQ0,A0AVT1 ,A0PJK1...
+#count:891
 #time:7.7
 
 select distinct ?entry where {
@@ -21,7 +21,7 @@ select distinct ?entry where {
  }
  UNION
  {
- ?iso2 :goCellularComponent / :term ?locterm .
- filter not exists {?iso1 :goCellularComponent / :term ?locterm}
+ ?iso2 :cellularComponent / :term ?locterm .
+ filter not exists {?iso1 :cellularComponent / :term ?locterm}
  }
 }

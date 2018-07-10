@@ -3,12 +3,17 @@
 #comment:The search takes into account all isoforms so sometimes you may see cysteines in a displayed isoform but at least one of the isoform does not contain any cysteine.
 #tags:sequence,subcellular location,cellular component,processing,tutorial
 #acs:P10163,P01258,P01270
-#count:165
-#time:0.08
+#count:371/220
+#time:1.9
 
 select distinct ?entry where {
+  values ?sloc {cv:GO_0005576 cv:SL-0243} # GO and SL values for secreted
   ?entry :isoform ?iso.
-  ?iso :cellularComponent/:term cv:SL-0243;:sequence / :chain ?seq. #secreted
+  ?iso :cellularComponent /:term /:childOf ?sloc .
+  #filter not exists {?iso :cellularComponent /:term cv:GO_0070062 .
+  #					 filter not exists {?iso :cellularComponent /:term /:childOf  cv:SL-0243 .}
+  #					} # you can uncomment this to filters out extracellular exosome only location (2240 entries), most of them evidenced only by large-scale proteomic analysis  
+  ?iso :sequence / :chain ?seq. 
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
   filter ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 
   bind (?mend - ?mstart + 1 as ?mlen)	 
