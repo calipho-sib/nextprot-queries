@@ -9,10 +9,16 @@
 select distinct ?entry where {
   values ?sloc {cv:GO_0005576 cv:SL-0243} # GO and SL values for secreted
   ?entry :isoform ?iso.
-  ?iso :cellularComponent /:term /:childOf ?sloc .
-  #filter not exists {?iso :cellularComponent /:term cv:GO_0070062 .
-  #					 filter not exists {?iso :cellularComponent /:term /:childOf  cv:SL-0243 .}
-  #					} # you can uncomment this to filters out extracellular exosome only location (2240 entries), most of them evidenced only by large-scale proteomic analysis  
+  ?iso :cellularComponent ?anno .
+  ?anno :term /:childOf ?sloc .
+  filter not exists { ?anno :negativeEvidence ?_ }
+  #
+  # filter not exists {?iso :cellularComponent /:term cv:GO_0070062 .
+  #   filter not exists {?iso :cellularComponent /:term /:childOf  cv:SL-0243 .}
+  # } 
+  # you can uncomment this to filters out extracellular exosome only location (2240 entries), 
+  # most of them evidenced only by large-scale proteomic analysis  
+  #
   ?iso :sequence / :chain ?seq. 
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
   filter ((?mend-?mstart > 0) && (?mend-?mstart < 1000))	 
