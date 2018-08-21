@@ -1,0 +1,11 @@
+#id:NXQ_00242
+#title:Proteins with a mitochondrial transit peptide
+#tags:sequence,subcellular location
+#acs:O00763,O00330,P13073
+#count:544
+#time:0.3
+
+select distinct ?entry where {
+ ?entry :isoform ?iso.
+ ?iso :keyword /:term cv:KW-0809. # Transit peptide
+}
