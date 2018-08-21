@@ -2,7 +2,7 @@
 #title:Proteins with no function annotated
 #tags:function,tutorial
 #acs:A0PJZ0,A0ZSE6,Q9BRQ4
-#count:2272
+#count:2323
 #time:3.3
 
 select distinct ?entry where {
@@ -16,8 +16,10 @@ select distinct ?entry where {
                        ?iso :function / :term ?fterm .
                        filter(?fterm != cv:GO_0005524 && ?fterm != cv:GO_0000287 && ?fterm != cv:GO_0005515 && ?fterm != cv:GO_0042802
                               && ?fterm != cv:GO_0008270 && ?fterm != cv:GO_0051260 && ?fterm != cv:GO_0005509
-                              && ?fterm != cv:GO_0003676 && ?fterm != cv:GO_0003824 && ?fterm != cv:GO_0007165 && ?fterm != cv:GO_0035556)
+                              && ?fterm != cv:GO_0003676 && ?fterm != cv:GO_0003824 && ?fterm != cv:GO_0007165 && ?fterm != cv:GO_0035556
+                              && ?fterm != cv:GO_0035556 && ?fterm != cv:GO_0046914 && ?fterm != cv:GO_0046872)
                       # eliminates proteins whose ONLY GO functions are one of ATP-binding, magnesium-binding, calcium-binding, zinc-binding,
                       # nucleic acid binding, protein-binding, identical protein binding, protein homooligomerization, catalytic activity, signal transduction,
+                      # intracellular signal transduction, transition metal ion binding, metal ion binding
                     }
 }
