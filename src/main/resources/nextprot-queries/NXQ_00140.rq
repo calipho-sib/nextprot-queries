@@ -11,8 +11,9 @@ PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
+  optional {?iso :interactionInfo ?itinfo .}
   {
-  ?iso :interactionInfo / rdfs:comment ?txt.
+  ?itinfo rdfs:comment ?txt.
   filter(contains(?txt,"viral") || contains(?txt,"virus")).
   } # refers to a virus in the free-text interactionInfo topic
 UNION

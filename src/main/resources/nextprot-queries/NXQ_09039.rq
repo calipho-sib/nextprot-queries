@@ -40,5 +40,6 @@ source:SynGO-UCL,
 source:SYSCILIA_CCNET,
 source:Uniprot,
 source:WormBase,
+source:YuBioLab,
 source:NextProt))
 }

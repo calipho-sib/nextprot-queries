@@ -2,8 +2,8 @@
 #title:Proteins with RNA-seq expression level "high" and IHC expression level "high" in brain or one of its subparts
 #tags:tutorial,expression,evidence
 #acs:NX_A5X5Y0, NX_Q8NFP9, NX_Q2KHR2 ...
-#count:406
-#time:20
+#count:450
+#time:2
 
 select distinct ?entry where {
   ?entry :isoform ?iso .
@@ -16,7 +16,7 @@ select distinct ?entry where {
   ?expihc :quality :GOLD .
   ?expihc :term ?ihctiss .
   ?expihc :evidence ?eviihc.
-  ?eviihc :experimentalContext / :detectionMethod cv:ECO_0000087. #IHC
+  ?eviihc :experimentalContext / :detectionMethod cv:ECO_0001055. #IHC
   ?eviihc :expressionLevel :High.
   ?ihctiss :childOf ?rnatiss .
 }

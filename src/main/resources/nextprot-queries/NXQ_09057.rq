@@ -1,5 +1,5 @@
 #id:NXQ_09057
-#title:Check there are no entries with modified residue annotations with evidence NOT from UniProt, neXtProt or PeptideAtlas Phosphoproteome
+#title:Check there are no entries with modified residue annotations with evidence NOT from UniProt, neXtProt, PeptideAtlas Phosphoproteome or GlyConnect 
 #comment:neXtProt MDATA
 #tags:QC,provenance,PTM
 #acs:
@@ -9,5 +9,5 @@
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
   ?iso :modifiedResidue /:evidence /:assignedBy ?src.
-  filter ( ?src not in (source:Uniprot, source:NextProt, source:PeptideAtlas_human_phosphoproteome))
+  filter ( ?src not in (source:Uniprot, source:NextProt, source:PeptideAtlas_human_phosphoproteome, source:GlyConnect))
 }
