@@ -1,14 +1,15 @@
 #id:NXQ_09173
-#title:Check there are no entries with GO cellular component annotations with evidence from IntAct, the evidence code not IEP and quality SILVER
+#title:Check there are no entries with GO cellular component annotations with evidence from IntAct of quality SILVER and evidence code not IEP, HMP, HDA or HEP
 #tags:QC,quality,evidence,cellular component
 #acs:
 #count:0
-#time:0.791
+#time:3.314
 
 select distinct ?entry where {
-  ?entry :isoform /:goCellularComponent /:evidence ?ev1.
-  ?ev1 :assignedBy source:IntAct.
-  ?ev1 :quality :SILVER.
-  filter not exists{?ev1 :evidenceCode cv:ECO_0000270 }
+  ?entry :isoform /:goCellularComponent /:evidence ?ev.
+  ?ev :assignedBy source:IntAct.
+  ?ev :quality :SILVER.
+  ?ev :evidenceCode ?eco.
+  filter ( ?eco not in ( cv:ECO_0000270,cv:ECO_0007001,cv:ECO_0007005,cv:ECO_0007007 ))
 }
 limit 10
