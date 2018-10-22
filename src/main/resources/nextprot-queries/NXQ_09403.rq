@@ -7,7 +7,7 @@
 
 select distinct ?entry where {
   values ?ac
-  {"P04220" "P04436" "P04437" "P01737" "P01733" "P04435"} # space-separated list of 6 excluded UniProt ACs
+  {"P04437" "P01737" "P01733" "P04435"} # space-separated list of 4 excluded UniProt primary ACs
   ?entry :reference ?ref.
   ?ref :provenance db:UniProt.
   ?ref :accession ?ac.
