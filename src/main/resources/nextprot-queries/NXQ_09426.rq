@@ -1,6 +1,6 @@
 #id:NXQ_09426
 #title:Check there are no entries which are PE2-PE4 with an expression-info annotation of GOLD quality which has a description which contains "(at protein level)" and evidence assigned by neXtProt
-#tags:QC,protein existence
+#tags:QC,protein existence,PE
 #acs:
 #count:0
 #time:0.727
