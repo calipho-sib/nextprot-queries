@@ -1,9 +1,9 @@
 #id:NXQ_09429
 #title:Check there are no entries which are PE3-PE4 with an expression-profile annotation with evidence from RNAseq and expression profile High or Medium
-#tags:QC,protein existence
-#acs:NX_P0CV99,NX_P0DMW5,NX_Q96HG1 (NEXTPROT-1502)
-#count:3
-#time:4.315
+#tags:QC,protein existence,PE
+#acs:
+#count:0
+#time:6.534
 
 select distinct ?entry where {
   ?entry a :Entry.
