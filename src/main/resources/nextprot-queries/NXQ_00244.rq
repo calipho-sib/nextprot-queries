@@ -6,8 +6,7 @@
 #time:1.5
 
 
-select distinct ?entry ?interactant
-where  {
+select distinct ?entry ?interactant where  {
   ?entry :isoform / :proteoform / :phenotypicVariation ?phvar .
   ?phvar :term / :childOf cv:ME_0000002 . # children of impact
   ?phvar :evidence / :quality :GOLD .
