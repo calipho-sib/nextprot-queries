@@ -2,7 +2,7 @@
 #title:Proteins which are enzymes catalyzing a reaction involving lipids
 #tags:enzyme,federated query
 #acs:
-#count:
+#count:?
 #time:
 
 PREFIX rh:<http://rdf.rhea-db.org/>
