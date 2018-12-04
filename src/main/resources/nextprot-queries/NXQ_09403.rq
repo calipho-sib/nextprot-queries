@@ -3,12 +3,13 @@
 #tags:QC,filtering
 #acs:
 #count:0
-#time:0.917
+#time:0.474
 
-select distinct ?entry where {
-  values ?ac
-  {"P04220" "P04436" "P04437" "P01737" "P01733" "P04435"} # space-separated list of 6 excluded UniProt ACs
+select ?entry ?ac where {
+  values ?ac {"P04437"^^xsd:string "P01737"^^xsd:string "P01733"^^xsd:string "P04435"^^xsd:string}
+  entry:NX_P01871 :reference ?ref. 
+  ?ref a :Identifier .
   ?entry :reference ?ref.
-  ?ref :provenance db:UniProt.
+  ?ref :provenance db:UniProtKB.
   ?ref :accession ?ac.
 }

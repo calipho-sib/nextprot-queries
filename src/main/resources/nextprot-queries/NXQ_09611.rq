@@ -1,12 +1,12 @@
 #id:NXQ_09611
-#title:Check there are no entries with modified residue annotations from GlyConnect for which the evidence code is NOT experimental evidence used in manual assertion
+#title:Check there are no entries with glycosylation site annotations from GlyConnect for which the evidence code is NOT experimental evidence used in manual assertion
 #tags:QC,evidence,ECO,PTM
 #acs:
-#count:
-#time:
+#count:0
+#time:0.764
 
 select distinct ?entry where {
-  ?entry :isoform /:modifiedResidue /:evidence ?ev1.
+  ?entry :isoform /:glycosylationSite /:evidence ?ev1.
   ?ev1 :assignedBy source:GlyConnect.
   ?ev1 :evidenceCode ?eco.
   filter (?eco not in (cv:ECO_0000269))
