@@ -1,5 +1,5 @@
 #id:NXQ_09032
-#title:Check there are no entries with enzyme regulation annotations with evidence NOT from UniProt
+#title:Check there are no entries with activity regulation (previously enzyme regulation) annotations with evidence NOT from UniProt
 #tags:QC,provenance,function,enzyme
 #acs:
 #count:0
@@ -7,6 +7,6 @@
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
-  ?iso :enzymeRegulation /:evidence /:assignedBy ?src.
+  ?iso :activityRegulation /:evidence /:assignedBy ?src.
   filter ( ?src not in (source:Uniprot))
 }
