@@ -5,7 +5,7 @@
 #count:11379
 #time:3.2
 
-select distinct ?entry str(?txt) where {
+select distinct ?entry (str(?txt) as ?itinfo) where {
  select distinct ?entry ?txt where {
  ?entry :isoform ?iso.
  ?iso :interactionInfo / rdfs:comment ?txt.
