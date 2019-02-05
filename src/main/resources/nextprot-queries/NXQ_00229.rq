@@ -5,7 +5,7 @@
 #count:1298
 #time:300
 
-select ?entry (str(?gen) as ?gene) (group_concat(distinct ?src,' ') as ?uniq_source) where {
+select ?entry (str(?gen) as ?gene) (group_concat(distinct ?src; separator = ' ') as ?uniq_source) where {
   ?entry :isoform ?iso.
   ?entry :gene / :name ?gen.
   ?iso :peptideMapping ?pm .
