@@ -5,9 +5,10 @@
 #count:100
 #time:0.5
 
-select distinct ?entry group_concat(distinct substr(str(?entry2),34),",") as ?sameseq where {
+select distinct ?entry (group_concat(distinct substr(str(?entry2),34); separator = ",") as ?sameseq) where {
   ?entry :isoform / :sequence / :chain ?chain1.
   ?entry2 :isoform / :sequence / :chain ?chain2.
   filter ( (?chain1 = ?chain2) && (?entry != ?entry2))
 }
+group by ?entry
 order by ?entry
