@@ -11,4 +11,5 @@ select ?entry (count(distinct(?statement)) as ?tmcnt) where {
  ?iso :topology ?statement.
  ?statement a :TransmembraneRegion.
 } 
+group by ?entry
 order by desc(?tmcnt)

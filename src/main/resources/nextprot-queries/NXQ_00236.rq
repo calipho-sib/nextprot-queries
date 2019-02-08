@@ -5,7 +5,7 @@
 #count:17882
 #time:3.2
 
-select distinct ?entry group_concat(distinct str(?loclab),",") as ?locs where {
+select distinct ?entry (group_concat(distinct str(?loclab); SEPARATOR = ",") as ?locs) where {
  ?entry :isoform ?iso.
  ?iso :cellularComponent ?locannot .
  ?locannot :term ?locterm .
@@ -14,3 +14,4 @@ select distinct ?entry group_concat(distinct str(?loclab),",") as ?locs where {
  ?locev :quality :GOLD .
  filter not exists {?locannot :negativeEvidence ?locev .}
 }
+GROUP BY ?entry

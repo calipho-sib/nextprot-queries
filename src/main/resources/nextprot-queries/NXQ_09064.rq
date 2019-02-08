@@ -3,8 +3,8 @@
 #comment:neXtProt MDATA. Natural peptides detected by MS
 #tags:QC,provenance,proteomics,peptide
 #acs:
-#count:
-#time:
+#count:0
+#time:33.49s
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
@@ -42,6 +42,7 @@ source:PeptideAtlas_human_Kidney,
 source:PeptideAtlas_human_Liver,
 source:PeptideAtlas_human_Lung,						
 source:PeptideAtlas_human_Non_Cancer_Cell_Lines,
+source:PeptideAtlas_human_Olfactory_System,
 source:PeptideAtlas_human_Oocyte,
 source:PeptideAtlas_human_Other_Anatomical_Entities,
 source:PeptideAtlas_human_Other_Female_Reproductive_Organ,
@@ -65,8 +66,10 @@ source:PeptideAtlas_human_Cancer_Kidney,
 source:PeptideAtlas_human_Cancer_Liver,
 source:PeptideAtlas_human_Cancer_Lung,
 source:PeptideAtlas_human_Cancer_Other_Anatomical_Entities,
+source:PeptideAtlas_human_Cancer_Other_Female_Reproductive_Organ,
 source:PeptideAtlas_human_Cancer_Other_Male_Reproductive_Organ,
 source:PeptideAtlas_human_Cancer_Ovary,
+source:PeptideAtlas_human_Cancer_Pancreas,
 source:PeptideAtlas_human_Cancer_Urinary_Bladder,
 source:PeptideAtlas_human_Cancer_Cell_Lines_Alimentary_System,
 source:PeptideAtlas_human_Cancer_Cell_Lines_Blood,						
@@ -78,7 +81,8 @@ source:PeptideAtlas_human_Cancer_Cell_Lines_Lung,
 source:PeptideAtlas_human_Cancer_Cell_Lines_Other_Anatomical_Entities,						
 source:PeptideAtlas_human_Cancer_Cell_Lines_Other_Female_Reproductive_Organ,
 source:PeptideAtlas_human_Cancer_Cell_Lines_Other_Male_Reproductive_Organ,
-source:PeptideAtlas_human_Cancer_Cell_Lines_Ovary,						
-source:PeptideAtlas_human_Cancer_Cell_Lines_Urinary_Bladder,						
+source:PeptideAtlas_human_Cancer_Cell_Lines_Ovary,
+source:PeptideAtlas_human_Cancer_Cell_Lines_Pancreas,
+source:PeptideAtlas_human_Cancer_Cell_Lines_Urinary_Bladder,	
 source:PeptideAtlas_human_phosphoproteome))
 }
