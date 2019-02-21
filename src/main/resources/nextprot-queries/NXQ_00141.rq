@@ -1,6 +1,6 @@
 #id:NXQ_00141
 #title:Human proteins highly expressed in brain and observed in a PDB structure involving a virus protein
-#tags:interaction,federated query,PDB,UniProt,expression,tutorial
+#tags:interaction,federated query,PDB,UniProt,expression,snorql-only,tutorial
 #acs:NX_P49023,NX_P05161,NX_Q16630
 #count:51
 #time:53
