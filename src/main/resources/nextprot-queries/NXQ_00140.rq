@@ -1,6 +1,6 @@
 #id:NXQ_00140
 #title:Proteins that interact with viral proteins
-#tags:interaction,PPI,federated query,UniProt,tutorial
+#tags:interaction,PPI,federated query,UniProt,snorql-only,tutorial
 #acs:P05556,P08047,P29590
 #count:650
 #time:46
