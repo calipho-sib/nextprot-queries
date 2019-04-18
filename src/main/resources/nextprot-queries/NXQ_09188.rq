@@ -10,4 +10,3 @@ select distinct ?entry where {
   ?ev1 :assignedBy source:Human_protein_atlas.
   ?ev1 :quality :GOLD.
 }
-limit 10
