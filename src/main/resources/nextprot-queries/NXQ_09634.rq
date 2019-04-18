@@ -5,7 +5,7 @@
 #count:0
 #time:0.599
 
-select distinct ?entry ?start where {
+select distinct ?entry where {
   ?entry :isoform /:variant ?var.
   ?var :end ?end.
   filter ( ?end < 1)
