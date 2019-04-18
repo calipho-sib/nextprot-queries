@@ -10,4 +10,3 @@ select distinct ?entry where {
   ?ev1 :assignedBy source:Orphanet.
   ?ev1 :quality :SILVER.
 }
-limit 10
