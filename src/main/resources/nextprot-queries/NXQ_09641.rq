@@ -1,5 +1,5 @@
 #id:NXQ_09641
-#title:Check there are no entries with variant annotations with an xref starting with COSM that do not have evidence from COSMIC
+#title:Check there are no entries with a variant annotation with an xref starting with COSM that do not have evidence from COSMIC
 #tags:QC,variant,xref
 #acs:
 #count:0
