@@ -11,4 +11,3 @@ select distinct ?entry where {
   ?ev1 :assignedBy source:SRMAtlas.
   ?ev1 :quality :SILVER.
 }
-limit 10

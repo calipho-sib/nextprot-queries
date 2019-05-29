@@ -10,4 +10,3 @@ select distinct ?entry where {
   ?ev1 :assignedBy source:DrugBank.
   ?ev1 :quality :GOLD.
 }
-limit 10

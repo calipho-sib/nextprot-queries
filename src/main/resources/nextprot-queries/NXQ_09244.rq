@@ -28,4 +28,3 @@ source:PeptideAtlas_human_urinary_bladder,
 source:PeptideAtlas_human_urine,
 source:PeptideAtlas_human_phosphoproteome))
 }
-limit 10

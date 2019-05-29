@@ -10,4 +10,3 @@ select distinct ?entry ?src where {
   ?ev1 :assignedBy source:Uniprot.
   ?ev1 :quality :SILVER.
 }
-limit 10

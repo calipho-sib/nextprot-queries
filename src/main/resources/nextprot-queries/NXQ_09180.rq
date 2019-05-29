@@ -12,4 +12,3 @@ select distinct ?entry where {
   ?ev :evidenceCode ?eco.
   filter ( ?eco not in ( cv:ECO_0000270,cv:ECO_0007001,cv:ECO_0007005,cv:ECO_0007007 ))
 }
-limit 10

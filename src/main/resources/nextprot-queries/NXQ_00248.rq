@@ -1,0 +1,22 @@
+#id:NXQ_00248
+#title:Variants with phenotype annotation that map to a 3D structure
+#tags:3D structure,PDB,phenotype,sequence variation,snorql-only,tutorial,variant
+#acs:P38398,Q04771,P25054...
+#count:3519
+#time:23
+
+select distinct ?entry str(?pfname) concat(str(sample(?pdbac)),"...")  where {
+  ?entry :gene / :name ?gen .
+  ?entry :isoform ?iso.
+  ?iso  :proteoform ?pf .
+  ?pf rdfs:label ?pfname .
+  ?pf :phenotypicVariation ?pv1 .
+  ?pf :modification ?pfmod .
+  ?pfmod a :Variant .
+  ?pfmod :start ?vstart; :end ?vend .
+  ?iso :pdbMapping  ?pdbmap.
+  ?pdbmap rdfs:comment ?pdbac.
+  ?pdbmap :start ?pdbstart ; :end ?pdbend.
+  filter(?pdbstart <= ?vstart && ?pdbend >= ?vend ) 
+}
+order by ?gen
