@@ -1,6 +1,6 @@
 #id:NXQ_00139
-#title:Protein kinases which are drug targets according to CHEMBL
-#tags:drug,federated query,CHEMBL,tutorial
+#title:Protein kinases which are drug targets according to ChEMBL
+#tags:drug,federated query,ChEMBL,tutorial
 #acs:O00141,O00238,O00311
 #count:512
 #time:3.5
