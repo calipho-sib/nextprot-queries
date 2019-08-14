@@ -1,0 +1,18 @@
+#id:NXQ_00251
+#title:Entries with at least one proteotypic peptide 9aa+ not mapping on canonical isoform
+#tags:isoforms,peptide,proteomics,proteotypic,tutorial
+#acs:Q9Y6S9,Q9Y6X3 ,O00560
+#count:2652
+#time:30
+
+select distinct ?entry ?isononcano ?pos where {
+  ?entry :isoform ?iso1, ?isononcano.
+  ?iso1 :swissprotDisplayed true .
+  ?isononcano :swissprotDisplayed false .
+  ?isononcano :peptideMapping ?pm.
+  ?pm :peptideName ?pepname.
+  ?pm :proteotypic true.
+  ?pm  :start ?pos ; :end ?pos2 .
+  filter(?pos2 - ?pos >= 8) # peptide length >= 9
+ filter not exists {?iso1 :peptideMapping/ :peptideName ?pepname.}
+ }
