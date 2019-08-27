@@ -2,8 +2,8 @@
 #title:Human pathways in which at least one protein is mitochondrial GOLD
 #tags:federated query,gene,pathway,snorql-only,subcellular location,tutorial
 #acs:22q11.2 Deletion Syndrome... 
-#count:382
-#time:86
+#count:527
+#time:250
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -20,12 +20,14 @@ SELECT DISTINCT ?pathwayname ?gen WHERE
   ?pathway wp:organism ?organism . 
   FILTER(contains(str(?organism),"9606"))
   ?pathway dc:title ?pathwayname . 
-} limit 30000
+} 
 }
 ?entry a :Entry .
 ?entry :gene / :name ?gen .
 ?entry :isoform / :cellularComponent ?loc . 
-?loc :term / :childOf cv:GO_0005739.  # mitochondrion
+values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
+?loc :term / :childOf ?mitoloc.  # mitochondrion
 ?loc :evidence / :quality :GOLD .
+filter not exists {?loc :negativeEvidence ?negev} # No negative localization evidence
 }
 order by ?pathwayname
