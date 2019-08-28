@@ -18,6 +18,7 @@ SELECT DISTINCT ?pathwayname ?gen WHERE
   {?geneProduct a wp:GeneProduct}
   
   ?geneProduct rdfs:label ?gen . 
+  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
   ?geneProduct dcterms:isPartOf ?pathway . 
   ?pathway a wp:Pathway . 
   ?pathway wp:organism ?organism . 
