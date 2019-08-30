@@ -1,5 +1,5 @@
 #id:NXQ_00254
-#title:neXtProt entries with associated pathways in WikiPathways
+#title:Proteins with associated pathways in WikiPathways
 #tags:federated query,pathway,snorql-only,tutorial
 #acs:O60674,P23458,P84022
 #count:47426 (11021 entries ans 1000 pathways)
