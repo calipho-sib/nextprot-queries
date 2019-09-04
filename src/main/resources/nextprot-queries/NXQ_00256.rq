@@ -12,8 +12,7 @@ select distinct ?entry ?varpos where
  ?iso :variant ?var . 
  ?var :start ?varpos . 
  ?var :evidence ?ev .
- ?ev :allele-frequency ?freq . 
  ?var :evidence / :homozygote-count ?hcnt .  
  filter(?hcnt > 100000) 
  } 
- order by desc(?freq)
+ order by desc(?hcnt)
