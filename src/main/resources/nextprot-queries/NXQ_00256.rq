@@ -1,0 +1,19 @@
+#id:NXQ_00256
+# Variants identified in exome datasets in a frequent homozygote state
+#tags:evidence,ariant,sequence variation,snorql-only,tutorial
+#acs:Q8NH87,Q58DX5,Q9BV87 
+#count:763
+#time:0.5
+
+select distinct ?entry ?varpos where
+{
+ ?entry :isoform ?iso . 
+ ?iso :swissprotDisplayed true .
+ ?iso :variant ?var . 
+ ?var :start ?varpos . 
+ ?var :evidence ?ev .
+ ?ev :allele-frequency ?freq . 
+ ?var :evidence / :homozygote-count ?hcnt .  
+ filter(?hcnt > 100000) 
+ } 
+ order by desc(?freq)
