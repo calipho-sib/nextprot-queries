@@ -12,5 +12,5 @@ select distinct ?entry where {
   ?entry :gene / :name ?genename .
   bind (str(?genename) as ?gn) # here we convert "xxx"^^xsd:string to "xxx" to match the values
   filter(?gn = ?gene)
-  filter not exists {?entry :isoform /:goMolecularFunction /:term cv:GO_0005248.} # No phenotype annotation
+  filter not exists {?entry :isoform /:goMolecularFunction /:term cv:GO_0005248.} # Voltage-gated sodium channel activity
 }
