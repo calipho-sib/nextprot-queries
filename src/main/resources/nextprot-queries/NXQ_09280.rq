@@ -1,13 +1,13 @@
 #id:NXQ_09280
-#title:Check there are no entries with expression information annotations from HPA for which the evidence code is NOT immunohistochemistry evidence
+#title:Check there are no entries with expression information annotations from HPA for which the evidence code is NOT immunolocalization evidence
 #tags:QC,evidence,ECO,expression
 #acs:
 #count:0
-#time:0.788
+#time:1.013
 
 select distinct ?entry where {
   ?entry :isoform /:expressionInfo /:evidence ?ev1.
   ?ev1 :assignedBy source:Human_protein_atlas.
   ?ev1 :evidenceCode ?eco.
-  filter (?eco not in (cv:ECO_0001055))
+  filter (?eco not in (cv:ECO_0000087))
 }
