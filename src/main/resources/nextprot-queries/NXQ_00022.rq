@@ -1,5 +1,6 @@
 #id:NXQ_00022
 #title:Proteins with no function annotated
+#comment:Warning: previous version of this query did include the PE5 proteins
 #tags:function,tutorial
 #acs:A0PJZ0,A0ZSE6,Q9BRQ4
 #count:2323
