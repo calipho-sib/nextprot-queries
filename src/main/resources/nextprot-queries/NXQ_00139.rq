@@ -4,7 +4,7 @@
 #acs:O00141,O00238,O00311
 #count:512
 #time:3.5
-#comment: Allmost all kinases
+#comment: Almost all kinases
 PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
 
 select distinct ?entry ?gen where {
