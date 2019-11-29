@@ -1,0 +1,22 @@
+#id:NXQ_00264
+#title:Orthodb viruses
+#tags:federated query,ortholog
+#acs:,, 
+#count:
+#time:
+
+PREFIX orth: <http://purl.orthodb.org/>
+PREFIX interpro: <http://www.ebi.ac.uk/interpro/entry/>
+PREFIX up: <http://purl.uniprot.org/core/>
+
+select distinct ?taxon ?taxlab where {
+  SERVICE <https://sparql.orthodb.org/sparql/> {
+   select distinct ?taxon ?taxlab where {
+   ?taxon a orth:Species; rdfs:subClassOf+  ?clade.
+   ?clade a orth:Clade; up:scientificName 'Viruses'.
+   ?gene_v up:organism / a ?taxon; orth:xref [a orth:Xref; orth:xrefResource ?xref].
+   VALUES ?xref {interpro:IPR018154 interpro:IPR008981}.
+   ?taxon up:scientificName ?taxlab .
+   } 
+  }
+}
