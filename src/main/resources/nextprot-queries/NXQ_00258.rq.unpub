@@ -8,7 +8,7 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
-PREFIX so: <http://www.sequenceontology.org/miso/current_svn/term/SO:>
+PREFIX so:<http://purl.obolibrary.org/obo/SO_>
 
 select distinct ?diseaseTitle ?entry str(?gen) as ?gene where {
   service <http://rdf.disgenet.org/sparql/> {
