@@ -1,5 +1,5 @@
 #id:NXQ_00264
-#title:Proteins with orthologs in viruses and matching viral species
+#title:Proteins with ENV polyprotein domains and matching viral species
 #tags:federated query,ortholog,snorql-only
 #acs:B6SEH9,P61550,B6SEH8  
 #count:13
@@ -10,7 +10,7 @@ PREFIX interpro: <http://www.ebi.ac.uk/interpro/entry/>
 PREFIX up: <http://purl.uniprot.org/core/>
 
 select distinct ?entry str(?ipac) group_concat(?taxlab,",") where {
-  VALUES ?ipac {"IPR018154"^^xsd:string "IPR008981"^^xsd:string }. # Interpro pattern for TLV/ENV coat polyprotein
+  VALUES ?ipac {"IPR018154"^^xsd:string "IPR008981"^^xsd:string }. # Interpro patterns for TLV/ENV coat polyprotein
   bind (iri(CONCAT("http://www.ebi.ac.uk/interpro/entry/",str(?ipac))) as ?ipref) .
   SERVICE <https://sparql.orthodb.org/sparql/> {
    select distinct ?ipref ?taxlab where {
