@@ -1,10 +1,10 @@
 #id:NXQ_00139
-#title:Protein kinases which are drug targets according to CHEMBL
+#title:Protein kinases which are high-confidence drug targets according to CHEMBL
 #tags:drug,federated query,CHEMBL,tutorial
-#acs:O00141,O00238,O00311
-#count:512
-#time:3.5
-#comment: Allmost all kinases
+#acs:P36888,P06493,P27361
+#count:72
+#time:5.5
+
 PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
 
 select distinct ?entry ?gen where {
@@ -15,7 +15,9 @@ select distinct ?entry ?gen where {
 		?tarComp cco:targetCmptXref ?protein . 
 		?protein a cco:UniprotRef .
 		?activity a cco:Activity ; cco:hasMolecule ?drug ; cco:hasAssay ?assay .
-		?assay cco:hasTarget ?target .
+		?drug cco:hasMechanism / cco:hasTarget ?target . # known drug action mechanism
+		?assay cco:hasTarget ?target; cco:targetConfScore ?score .
+		filter(?score > 8) # high-confidence assay
         }
   	 }
   ?entry skos:exactMatch ?protein .	    

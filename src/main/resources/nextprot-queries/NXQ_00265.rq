@@ -1,0 +1,15 @@
+#id:NXQ_00265
+#title:Retrieve all positional annotations at a given position on a neXtProt isoform
+#tags:isoforms,snorql-only
+#acs:P52701 
+#count:14
+#time:0.35
+
+select distinct ?spos ?epos ?annot_type str(?txt) where {
+ values ?poi {1134} # position of interest
+ values ?iso {isoform:NX_P52701-1} # isoform of interest
+ ?iso :positionalAnnotation ?statement .
+ optional {?statement rdfs:comment ?txt .}
+ ?statement a ?annot_type ; :start ?spos; :end ?epos .
+ filter((?spos <= ?poi) && (?epos >= ?poi)) # select annotations encompassing the position of interest
+ }

@@ -2,7 +2,7 @@
 #title:Human pathways in which at least one protein is mitochondrial GOLD
 #tags:federated query,pathway,snorql-only,subcellular location,tutorial
 #acs:22q11.2 Deletion Syndrome... 
-#count:777
+#count:792
 #time:650
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
@@ -17,8 +17,7 @@ SELECT DISTINCT ?pathwayname ?gen WHERE
   union
   { ?geneProduct a wp:Protein .  }
   ?geneProduct rdfs:label ?gen . 
-  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
-  ?geneProduct rdfs:label ?gen . 
+  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching 
   ?geneProduct dcterms:isPartOf ?pathway . 
   ?pathway a wp:Pathway . 
   ?pathway wp:organism ?organism . 
