@@ -19,5 +19,5 @@ select distinct ?entry where {
 					  && ?fterm != cv:GO_0003676 && ?fterm != cv:GO_0003824 && ?fterm != cv:GO_0007165 && ?fterm != cv:GO_0035556
 					  && ?fterm != cv:GO_0035556 && ?fterm != cv:GO_0046914 && ?fterm != cv:GO_0046872)
    }
- filter not exists { ?entry :existence :Uncertain }   # Remove PE5 proteins
+ #filter not exists { ?entry :existence :Uncertain }   # Remove PE5 proteins
 }

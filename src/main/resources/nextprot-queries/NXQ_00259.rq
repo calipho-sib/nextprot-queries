@@ -1,21 +1,19 @@
 #id:NXQ_00259
-#title:Proteins involved in long organs phenotypes with PMIDs
-#tags:disease,evidence,federated query,phenotype,publication,tutorial
-#acs:Q02809,Q09428,Q6KC79 
-#count:8
-#time:0.4
+#title:Proteins involved in diseases who'se phenotypic manifestations include long organs 
+#tags:disease,federated query,phenotype
+#acs:A2RRP1,A6NCS4,NX_A6NI61 
+#count:586
+#time:5
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
 
-select distinct ?entry (str(?gen) as ?genx) ?umlsTerm  ?samplepubmed where {
+select distinct ?entry (str(?gen) as ?genx) ?umlsTerm where {
   service <http://rdf.disgenet.org/sparql/> {
-    select distinct ?protein ?umlsTerm (sample(?article) as ?samplepubmed)
-    where {
+    select distinct ?protein ?umlsTerm where {
     ?gda sio:SIO_000628 ?gene,?disease .
-    ?gda sio:SIO_000772 ?article .
-    ?disease a sio:SIO_010056 .
+    ?disease a sio:SIO_010056 . # traits or phenotypes
     ?disease dcterms:title ?umlsTerm .
     filter(contains(str(?umlsTerm),"Long "))
         ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .

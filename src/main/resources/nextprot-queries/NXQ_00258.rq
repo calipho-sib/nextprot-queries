@@ -1,19 +1,20 @@
 #id:NXQ_00258
-#title:Diseases caused by intronic variants and associated proteins
-#tags:disease,federated query,snorql-only,tutorial,variant
-#acs:Q14264,O00255,O75478 
-#count:12756
-#time:36
+#title:Proteins involved in diseases due to intronic variants and sample PubMed evidences 
+#tags:disease,evidence,federated query,publication,variant
+#acs:A0A087WXM9,A0FGR8,O00463 
+#count:12650
+#time:45
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
 PREFIX so:<http://purl.obolibrary.org/obo/SO_>
 
-select distinct ?diseaseTitle ?entry str(?gen) as ?gene where {
+select distinct ?entry str(?gen) as ?gene ?diseaseTitle ?sampleArticle where {
   service <http://rdf.disgenet.org/sparql/> {
-    select distinct ?protein ?diseaseTitle where {
+    select distinct ?protein ?diseaseTitle sample(?article) as ?sampleArticle where {
     ?vda sio:SIO_000628 ?variant,?disease .
+	?vda sio:SIO_000772 ?article .
     ?disease a sio:SIO_010299 ; dcterms:title ?diseaseTitle . # true disease, use ncit:C7057 for traits
     ?variant a so:0001627 ; dcterms:title ?variantTitle . # intron variant
     ?variant so:associated_with ?gene .
@@ -24,5 +25,4 @@ select distinct ?diseaseTitle ?entry str(?gen) as ?gene where {
   BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
   ?entry :swissprotPage ?unipage .
   ?entry :gene / :name ?gen .
-  #filter not exists {?entry :Isoform / :disease ?_}
-} order by ?diseaseTitle
+} order by ?entry

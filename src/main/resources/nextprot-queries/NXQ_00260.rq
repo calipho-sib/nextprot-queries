@@ -1,9 +1,9 @@
 #id:NXQ_00260
 #title:Proteins with high-frequency missense variants involved in bacterial infection and variant's ids and positions
-#tags:cross-reference,disease,federated query,sequence variation,tutorial,variant,xref
-#acs:Q9HC29,Q9HB58,O00206  
+#tags:disease,federated query,variant
+#acs:Q9HC29,O00206,Q9HB58  
 #count:86
-#time:3.6
+#time:35
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
@@ -37,4 +37,4 @@ select distinct ?entry ?umlsTerm (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?o
   ?xref :provenance db:dbSNP; :accession ?snpac .
   ?var :start ?pos ; :original ?orgaa; :variation ?varaa .
   filter(contains(?snpac,str(?variantTitle))) # matches the exact same variant Didgenet returned
-}
+} order by ?entry
