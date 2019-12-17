@@ -29,4 +29,4 @@ SELECT distinct ?entry (group_concat(distinct str(?gomflab); SEPARATOR = ",") as
   	?gomf rdfs:label ?gomflab .
 }
 
-GROUP BY entry
+GROUP BY ?entry
