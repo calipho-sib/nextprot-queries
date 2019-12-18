@@ -23,14 +23,11 @@ select distinct ?entry ?umlsTerm (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?o
         ?altAl rdf:type <http://purl.obolibrary.org/obo/GENO_0000476>; sio:SIO_000900 ?altAlFreq .
     ?altAlFreq a sio:SIO_001367; sio:SIO_000300 ?altAlFreqVal .
         filter(?altAlFreqVal > 0.01) # freq > 1%
-    ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .
-        #filter(contains(str(?protein),"purl.uniprot"))
-        filter(contains(str(?protein),"swissprot"))
+    ?gene a ncit:C16612; sio:SIO_010078 ?protein .
    }
   }
 
-  #BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
-  BIND(IRI(replace(str(?protein),"bio2rdf.org/swissprot:","www.uniprot.org/uniprot/")) AS ?unipage) .
+  BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
   ?entry :swissprotPage ?unipage .
   ?entry :isoform ?iso .
   ?iso :swissprotDisplayed true .
