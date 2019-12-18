@@ -1,7 +1,7 @@
 #id:NXQ_00025
 #title:Proteins with at least 50 interactors that are not associated with a disease
 #comment:We exclude proteins that have either a disease annotation (Xref to Orphanet are considered  disease annotation) and proteins w Disease-category KWs
-#tags:interaction,PPI,disease,tutorial
+#tags:disease,PPI,tutorial
 #acs:Q12906, ...
 #count:617
 #time:12

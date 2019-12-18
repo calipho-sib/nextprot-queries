@@ -1,7 +1,7 @@
 #id:NXQ_00016
 #title:Proteins with a mature chain of less than 1000 amino acids which are secreted and do not contain cysteines in the mature chain
 #comment:The search takes into account all isoforms so sometimes you may see cysteines in a displayed isoform but at least one of the isoform does not contain any cysteine.
-#tags:sequence,subcellular location,cellular component,processing,tutorial
+#tags:processing,sequence,subcellular location,tutorial
 #acs:P10163,P01258,P01270
 #count:371/220
 #time:1.9
