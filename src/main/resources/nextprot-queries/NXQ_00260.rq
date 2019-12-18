@@ -1,6 +1,6 @@
 #id:NXQ_00260
-#title:Proteins with high-frequency missense variants involved in bacterial infection and variant's ids and positions
-#tags:disease,federated query,variant
+#title:Proteins with high-frequency missense variants involved in bacterial infection, with dbSNP identifiers and position on the canonical isoform
+#tags:disease,isoforms,federated query,sequence,snorql-only,tutorial,variant
 #acs:Q9HC29,O00206,Q9HB58  
 #count:86
 #time:35
