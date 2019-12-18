@@ -19,10 +19,11 @@ select distinct ?entry str(?gen) as ?gene ?diseaseTitle ?sampleArticle where {
     ?variant a so:0001627 ; dcterms:title ?variantTitle . # intron variant
     ?variant so:associated_with ?gene .
         ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .
-    filter(contains(str(?protein),"purl.uniprot"))
+    filter(contains(str(?protein),"swissprot"))
     }
   }
-  BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
+  #BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
+  BIND(IRI(replace(str(?protein),"bio2rdf.org/swissprot:","www.uniprot.org/uniprot/")) AS ?unipage) .
   ?entry :swissprotPage ?unipage .
   ?entry :gene / :name ?gen .
 } order by ?entry
