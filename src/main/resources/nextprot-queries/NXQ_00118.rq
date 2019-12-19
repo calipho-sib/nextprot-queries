@@ -1,7 +1,7 @@
 #id:NXQ_00118
 #title:Proteins with at least one somatic variant
 #comment:In this query we consider all COSMIC mutation to be somatic (which is not alwasy the case!).
-#tags:variant,sequence variation,tutorial
+#tags:variant,tutorial
 #acs:Q9Y6X6,Q9NYV4,Q9NZ52
 #count:17914
 #time:9.9

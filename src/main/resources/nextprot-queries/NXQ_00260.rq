@@ -1,6 +1,6 @@
 #id:NXQ_00260
-#title:Proteins with high-frequency missense variants involved in bacterial infection and variant's ids and positions
-#tags:disease,federated query,variant
+#title:Proteins with high-frequency missense variants involved in bacterial infection, with dbSNP identifiers and position on the canonical isoform
+#tags:disease,isoforms,federated query,sequence,snorql-only,tutorial,variant
 #acs:Q9HC29,O00206,Q9HB58  
 #count:86
 #time:35
@@ -19,12 +19,11 @@ select distinct ?entry ?umlsTerm (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?o
     ?doid  rdfs:subClassOf+ <http://purl.obolibrary.org/obo/DOID_104> . # DO id for bacterial infection
     ?variant a so:0001583 ; dcterms:title ?variantTitle . # Missense variant
     ?variant so:associated_with ?gene .
-        ?variant  sio:SIO_000223 ?altAl .
+    ?variant  sio:SIO_000223 ?altAl .
         ?altAl rdf:type <http://purl.obolibrary.org/obo/GENO_0000476>; sio:SIO_000900 ?altAlFreq .
     ?altAlFreq a sio:SIO_001367; sio:SIO_000300 ?altAlFreqVal .
         filter(?altAlFreqVal > 0.01) # freq > 1%
-    ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .
-        filter(contains(str(?protein),"purl.uniprot"))
+    ?gene a ncit:C16612; sio:SIO_010078 ?protein .
    }
   }
 
@@ -36,5 +35,5 @@ select distinct ?entry ?umlsTerm (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?o
   ?var :evidence /:reference ?xref .
   ?xref :provenance db:dbSNP; :accession ?snpac .
   ?var :start ?pos ; :original ?orgaa; :variation ?varaa .
-  filter(contains(?snpac,str(?variantTitle))) # matches the exact same variant Didgenet returned
+  filter(contains(?snpac,str(?variantTitle))) # matches the exact same variant Disgenet returned
 } order by ?entry

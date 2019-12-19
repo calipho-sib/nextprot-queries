@@ -1,6 +1,6 @@
 #id:NXQ_00131
 #title:Terms of controlled vocabularies containing some word(s)
-#tags:vocabulary,snorql-only,tutorial
+#tags:term,snorql-only,tutorial
 
 select distinct * where { 
   ?term rdfs:label ?label ; a ?type .

@@ -1,6 +1,6 @@
 #id:NXQ_00265
 #title:Retrieve all positional annotations at a given position on a neXtProt isoform
-#tags:isoforms,snorql-only
+#tags:isoforms,sequence,snorql-only,tutorial
 #acs:P52701 
 #count:14
 #time:0.35

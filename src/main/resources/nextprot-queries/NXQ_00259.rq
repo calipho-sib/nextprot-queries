@@ -1,6 +1,6 @@
 #id:NXQ_00259
-#title:Proteins involved in diseases who'se phenotypic manifestations include long organs 
-#tags:disease,federated query,phenotype
+#title:Proteins involved in diseases with clinical manifestations that include long organs 
+#tags:disease,federated query,tutorial
 #acs:A2RRP1,A6NCS4,NX_A6NI61 
 #count:586
 #time:5
@@ -16,9 +16,8 @@ select distinct ?entry (str(?gen) as ?genx) ?umlsTerm where {
     ?disease a sio:SIO_010056 . # traits or phenotypes
     ?disease dcterms:title ?umlsTerm .
     filter(contains(str(?umlsTerm),"Long "))
-        ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .
-    filter(contains(str(?protein),"purl.uniprot"))
-      } group by ?protein ?umlsTerm
+        ?gene a ncit:C16612; sio:SIO_010078 ?protein .
+      } 
     }
   BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
   ?entry :swissprotPage ?unipage .

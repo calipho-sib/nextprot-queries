@@ -1,7 +1,7 @@
 #id:NXQ_00069
 #title:Proteins which are the substrate of protein kinase SYK
 #comment:You can search for autophosphorylated kinases by replacing the "SYK" filter by the 'auto' one (339 results)
-#tags:PTM,phosphorylation,tutorial
+#tags:phosphorylation,PTM,tutorial
 #acs:P10636, P17252, P06239, ...
 #count:45
 #time: 3.5

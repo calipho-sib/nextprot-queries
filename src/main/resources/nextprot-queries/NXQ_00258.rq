@@ -1,6 +1,6 @@
 #id:NXQ_00258
-#title:Proteins involved in diseases due to intronic variants and sample PubMed evidences 
-#tags:disease,evidence,federated query,publication,variant
+#title:Proteins involved in diseases due to intronic variants with one selected publication
+#tags:disease,federated query,publication,snorql-only,tutorial,variant
 #acs:A0A087WXM9,A0FGR8,O00463 
 #count:12650
 #time:45
@@ -18,8 +18,7 @@ select distinct ?entry str(?gen) as ?gene ?diseaseTitle ?sampleArticle where {
     ?disease a sio:SIO_010299 ; dcterms:title ?diseaseTitle . # true disease, use ncit:C7057 for traits
     ?variant a so:0001627 ; dcterms:title ?variantTitle . # intron variant
     ?variant so:associated_with ?gene .
-        ?gene a ncit:C16612; sio:SIO_010078 / skos:exactMatch ?protein .
-    filter(contains(str(?protein),"purl.uniprot"))
+        ?gene a ncit:C16612; sio:SIO_010078 ?protein .
     }
   }
   BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .

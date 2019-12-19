@@ -1,7 +1,7 @@
 #id:NXQ_00078
 #title:Proteins which have been identified in at least one proteomics set and that are secreted
 #comment: If you don't consider extracellular exosome location as 'secreted' then remove the commented paragraph
-#tags:subcellular location,cellular component,proteomics,mass spectrometry,tutorial
+#tags:dataset,proteomics,subcellular location,tutorial
 #acs:P40933, A1L453, A6NNL5, ...
 #count:2222
 #time: 108
