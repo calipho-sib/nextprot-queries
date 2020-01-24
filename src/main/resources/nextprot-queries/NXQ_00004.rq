@@ -1,9 +1,9 @@
 #id:NXQ_00004
-#title:Proteins highly expressed in brain but not expressed in testis
+#title:Proteins expressed in brain with IHC expression level: "high" but not expressed in testis
 #tags:expression,tutorial
-#acs:A5YM72,P43699,P78411
-#count: 54
-#time: 34
+#acs:P13945,Q01959,Q6NUJ2 
+#count: 21
+#time: 45
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
