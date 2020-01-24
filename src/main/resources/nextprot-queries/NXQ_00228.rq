@@ -3,14 +3,17 @@
 #comment:Same query as NXQ_00226 but with constraint that peptides are not overlapping (takes much longer)
 #tags:dataset,peptide,proteomics,tutorial
 #acs:entry:Q8WYA6,Q8N8Y2,P13746
-#count:9120
-#time:1160
+#count:9419
+#time:2028
 
-select distinct ?entry where { 
+select distinct ?entry where {
 values ?pepsources { 
         source:PeptideAtlas_human_Cerebrospinal_Fluid 
         source:PeptideAtlas_human_Blood_Plasma 
         source:PeptideAtlas_human_Urine 
+        source:MassIVE_human_Cerebrospinal_Fluid 
+        source:MassIVE_human_Blood_Plasma 
+        source:MassIVE_human_Urine 
         } 
   ?entry :isoform ?iso. 
   ?iso :peptideMapping ?pm, ?pm2 . 
@@ -21,8 +24,6 @@ values ?pepsources {
   ?pm :evidence / :assignedBy ?pepsources . 
   ?pm2 :evidence / :assignedBy ?pepsources . 
   ?pm2  :start ?p21 ; :end ?p22 .
-  filter(?pm != ?pm2)
-  bind ( if(?p22<?p2, ?p22, ?p2) - if(?p21>?p1, ?p21, ?p1) as ?overlap) .
-  filter( ?overlap < 0) # the two peptides must not overlap
+  filter(?p22 - ?p21 >= 8) # peptide length >= 9
+  filter(?p2 < ?p21) # non-overlapping
 } 
-group by ?entry having(count (distinct ?pm) > 1) # at least two such peptides 
