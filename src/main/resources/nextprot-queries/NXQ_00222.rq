@@ -1,16 +1,16 @@
 #id:NXQ_00222
-#title:Proteins with RNA-seq expression level "high" and IHC expression level "high" in brain or one of its subparts
+#title:Proteins with both RNA-seq expression and IHC expression level "high" in brain or one of its subparts
 #tags:expression,evidence,tutorial
-#acs:NX_A5X5Y0, NX_Q8NFP9, NX_Q2KHR2 ...
-#count:450
-#time:2
+#acs:Q8IYJ0, P49770 , Q2KHR2 ...
+#count:1407
+#time:13
 
 select distinct ?entry where {
   ?entry :isoform ?iso .
   ?iso :expression ?exprna, ?expihc.
   ?exprna :term ?rnatiss .
   ?exprna :evidence ?evirna.
-  ?evirna :expressionLevel :High.
+  ?evirna :expressionLevel :Positive.
   ?evirna :experimentalContext / :detectionMethod cv:ECO_0000295. # RNA-seq
   ?rnatiss :childOf cv:TS-0095. #brain
   ?expihc :quality :GOLD .
