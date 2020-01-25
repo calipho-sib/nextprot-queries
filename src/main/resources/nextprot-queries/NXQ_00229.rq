@@ -16,5 +16,5 @@ select distinct ?entry (str(?gen) as ?gene) (group_concat(distinct ?organset; se
   filter(contains(str(?src),"human"))
   filter(?p2-?p1 >= 8) #peplen >= 9
 }
-group by ?entry ?gen having(count (distinct ?src) = 1  && count (distinct ?pm) > 1) 
+group by ?entry ?gen having(count (distinct ?organset) = 1  && count (distinct ?pm) > 1) 
 order by ?uniq_source
