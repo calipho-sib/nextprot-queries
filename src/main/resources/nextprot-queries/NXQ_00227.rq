@@ -2,8 +2,8 @@
 #title:Proteins with at least 2 peptides >=9aa found in testis, but with no peptide identified in sperm [lost during sperm maturation]
 #tags:dataset,peptide,proteomics,tutorial
 #acs:Q96BJ3,O43715,P61927
-#count:
-#time:700
+#count:3718
+#time:2000
 
 select distinct ?entry where {
 values ?pepsources { 
