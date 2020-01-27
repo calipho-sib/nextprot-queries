@@ -2,8 +2,8 @@
 #title:Proteins with at least 2 validating peptides >=9aa found in blood plasma, urine or cerebrospinal fluid (criteria for biomarker)].
 #tags:dataset,peptide,proteomics,tutorial
 #acs:entry:Q8WYA6,Q8N8Y2,P13746
-#count:10367
-#time:20
+#count:9717
+#time:24
 
 select distinct ?entry where { 
 values ?pepsources { 
@@ -16,9 +16,10 @@ values ?pepsources {
         } 
   ?entry :isoform ?iso. 
   ?iso :peptideMapping ?pm . 
+  ?pm :peptideName ?pepid .
   ?pm :evidence / :assignedBy ?pepsources . 
   ?pm :proteotypic true . 
   ?pm  :start ?p1 ; :end ?p2 . 
   filter(?p2-?p1 >= 8) # peptide length >= 9 
 } 
-group by ?entry having(count (distinct ?pm) > 1) # at least two such peptides 
+group by ?entry having(count (distinct ?pepid) > 1) # at least two such peptides 
