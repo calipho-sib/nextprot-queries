@@ -14,7 +14,7 @@ values ?pepsources {
   ?entry :isoform ?iso.
   ?iso :peptideMapping ?pm .
   ?pm :proteotypic true .
-  ?iso :peptideMapping ?pm . 
+  ?pm :peptideName ?pepid . 
   ?pm :evidence / :assignedBy  ?pepsources.
   ?pm  :start ?p1 ; :end ?p2 .
   filter(?p2-?p1 >= 8) #peplen >= 9
