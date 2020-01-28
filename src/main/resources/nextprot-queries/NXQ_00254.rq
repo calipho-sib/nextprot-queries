@@ -24,7 +24,6 @@ SELECT DISTINCT ?pathwayname ?gen WHERE
   ?pathway wp:organism ?organism . 
   FILTER(contains(str(?organism),"9606")) # Human proteins
   ?pathway dc:title ?pathwayname . 
-  #FILTER(regex(?pathwayname,"cancer","i")). # Can be used to restrict pathways, sometimes cancer keyword is missing (e.g. lymphome)
    }
 }
 ?entry a :Entry .
