@@ -5,7 +5,7 @@
 #count:10909
 #time:1.2
 
-select distinct ?entry ?varpos where
+select distinct ?entry ?varpos ?freq where
 {
  ?entry :isoform ?iso . 
  ?iso :swissprotDisplayed true .

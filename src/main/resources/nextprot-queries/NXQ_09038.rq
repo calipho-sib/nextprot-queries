@@ -38,7 +38,7 @@ source:SynGO,
 source:SynGO-UCL,
 source:SYSCILIA_CCNET,
 source:Uniprot,
-source:WormBase,
+source:WB,
 source:YuBioLab,
 source:NextProt))
 }

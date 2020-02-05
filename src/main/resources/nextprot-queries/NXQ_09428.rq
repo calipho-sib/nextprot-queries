@@ -1,5 +1,5 @@
 #id:NXQ_09428
-#title:Check there are no entries which are PE2-PE4 with a binary-interaction annotations with GOLD experimental evidence from neXtProt
+#title:Check there are no entries which are PE2-PE4 with a binary-interaction annotations with GOLD experimental evidence
 #tags:QC,protein existence,PE
 #acs:
 #count:0
@@ -11,7 +11,6 @@ select distinct ?entry where {
   filter ( ?pe not in (:Evidence_at_protein_level,:Uncertain ))
   ?entry :isoform ?iso.
   ?iso :binaryInteraction /:evidence ?ev.
-  ?ev :assignedBy source:NextProt.
   ?ev :quality :GOLD.
   ?ev :evidenceCode cv:ECO_0000006. # experimental evidence
 }
