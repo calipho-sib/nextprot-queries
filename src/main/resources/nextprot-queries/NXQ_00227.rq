@@ -3,7 +3,7 @@
 #tags:dataset,peptide,proteomics,tutorial
 #acs:Q96BJ3,O43715,P61927
 #count:3399
-#time:2500
+#time:787
 
 select distinct ?entry where {
 values ?pepsources { 
