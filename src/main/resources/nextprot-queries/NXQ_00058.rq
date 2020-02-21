@@ -3,13 +3,15 @@
 #comment:In the future we will add / pre-calculate interesting predicates like :neighbor , :overlaps, ...
 #tags:chromosomal location,function,tutorial
 #acs:P50993,Q2M3M2,Q9NP85
-#count:1037
-#time:6
+#count:1071
+#time:7
 
-select distinct ?neighbour  where {
+select distinct ?neighbour (str(?gen) as ?spergen) where {
   {
   select distinct ?entry ?chr ?gen ?sperstart (MAX(?ldist) as ?lmin) (MIN(?rdist)  as ?rmin) where {
-     ?entry :isoform / :function / :term / :childOf cv:GO_0007283 . # Involvment in spermatogenesis
+     ?entry :isoform / :function ?func .
+	 ?func :term / :childOf cv:GO_0007283 . # Involvment in spermatogenesis
+	 filter not exists {?func  :negativeEvidence ?negev}
      ?entry :gene ?gene.
      ?gene :begin ?sperstart; :end ?e; :chromosome ?chr; :name ?gen.
      ?ngen :chromosome ?chr. 
@@ -27,4 +29,4 @@ select distinct ?neighbour  where {
   { ?neighbour :gene ?lgene. }
 	   union
   { ?neighbour :gene ?rgene. }
-} 
+} order by ?gen
