@@ -2,8 +2,8 @@
 #title:Proteins that are glycosylated and phosphorylated on an extracellular topological domain
 #tags:domain,glycosylation,phosphorylation,PTM,region,topology,tutorial
 #acs:P01130,Q9UMD9,P06213
-#count:79
-#time: 5.4
+#count:113
+#time: 18
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
