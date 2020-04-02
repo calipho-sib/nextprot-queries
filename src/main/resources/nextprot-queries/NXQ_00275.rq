@@ -3,7 +3,7 @@
 #comment:Federated query with DrugBank
 #tags:drug,federated query,pathway,snorql-only,tutorial
 #acs:O14727,O14920,P01375 
-#count: 22
+#count:22
 #time:26
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
