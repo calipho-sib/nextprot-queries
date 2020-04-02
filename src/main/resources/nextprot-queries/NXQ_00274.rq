@@ -1,6 +1,6 @@
 #id:NXQ_00275
 #title:Proteins involved in coronaviruses/SARS-CoV-2 pathways that are drug targets according to DrugBank
-#comment:Federated query with DrugBank
+#comment:Federated query with DrugBank and WikiPathways
 #tags:drug,federated query,pathway,snorql-only,tutorial
 #acs:O14727,O14920,P01375 
 #count:22
