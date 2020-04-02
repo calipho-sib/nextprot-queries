@@ -1,7 +1,7 @@
 #id:NXQ_00272
 #title:Proteins in SARS-CoV-2 infection pathways with associated medical information
 #comment:Federated query with WikiPathways
-#tags:federated query,disease,pathway,snorql-only,tutorial
+#tags:disease,federated query,pathway,snorql-only,tutorial
 #acs:O14920,O15111
 #count:62
 #time:13
