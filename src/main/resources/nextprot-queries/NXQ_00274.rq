@@ -12,28 +12,29 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
 
 select distinct ?entry str(?gen) ?pathwayname   group_concat(distinct ?druglab,",") where {
-service <http://sparql.wikipathways.org/sparql> {
-SELECT DISTINCT ?pathwayname ?gen WHERE
-  {
-  {?geneProduct a wp:Protein}
-    union
-  {?geneProduct a wp:GeneProduct}
+    service <http://sparql.wikipathways.org/sparql> {
 
-  ?geneProduct rdfs:label ?gen .
-  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
-  ?geneProduct dcterms:isPartOf ?pathway .
-  ?pathway a wp:Pathway .
-  ?pathway wp:organism ?organism .
-  FILTER(contains(str(?organism),"9606"))
-  ?pathway dc:title ?pathwayname .
-  FILTER(regex(?pathwayname,"corona","i") || regex(?pathwayname,"sars-cov-2","i")).
-   }
-}
-?entry a :Entry .
-?entry :gene / :name ?gen .
-?entry :swissprotPage ?unipage.
-service <http://wifo5-03.informatik.uni-mannheim.de/drugbank/sparql> {
-    ?drug rdfs:label ?druglab; drugbank:target /drugbank:swissprotPage ?unipage.
-  }
+        {?geneProduct a wp:Protein}
+            union
+        {?geneProduct a wp:GeneProduct}
+
+        ?geneProduct rdfs:label ?gen .
+        filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
+
+        ?geneProduct dcterms:isPartOf ?pathway .
+        ?pathway a wp:Pathway .
+        ?pathway wp:organism ?organism .
+        filter(contains(str(?organism),"9606"))
+
+        ?pathway dc:title ?pathwayname .
+        filter(regex(?pathwayname,"corona","i") || regex(?pathwayname,"sars-cov-2","i")).
+
+    }
+    ?entry a :Entry .
+    ?entry :gene / :name ?gen .
+    ?entry :swissprotPage ?unipage.
+    service <http://wifo5-03.informatik.uni-mannheim.de/drugbank/sparql> {
+        ?drug rdfs:label ?druglab; drugbank:target /drugbank:swissprotPage ?unipage.
+    }
 }
 order by ?entry
