@@ -10,24 +10,21 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 select distinct ?entry str(?gen) ?pathwayname where {
-service <http://sparql.wikipathways.org/sparql> {
-SELECT DISTINCT ?pathwayname ?gen WHERE
-  { 
-  {?geneProduct a wp:Protein}
-    union
-  {?geneProduct a wp:GeneProduct}
+    service <http://sparql.wikipathways.org/sparql> {
+        {?geneProduct a wp:Protein}
+            union
+        {?geneProduct a wp:GeneProduct}
   
-  ?geneProduct rdfs:label ?gen . 
-  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
-  ?geneProduct dcterms:isPartOf ?pathway . 
-  ?pathway a wp:Pathway . 
-  ?pathway wp:organism ?organism . 
-  FILTER(contains(str(?organism),"9606")) # Human proteins
-  ?pathway dc:title ?pathwayname . 
-  ?pathway wp:ontologyTag <http://purl.obolibrary.org/obo/DOID_162> . # Parent id for all cancers
-   }
-}
-?entry a :Entry .
-?entry :gene / :name ?gen .
+        ?geneProduct rdfs:label ?gen .
+        filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
+        ?geneProduct dcterms:isPartOf ?pathway .
+        ?pathway a wp:Pathway .
+        ?pathway wp:organism ?organism .
+        filter(contains(str(?organism),"9606")) # Human proteins
+        ?pathway dc:title ?pathwayname .
+        ?pathway wp:ontologyTag <http://purl.obolibrary.org/obo/DOID_162> . # Parent id for all cancers
+    }
+    ?entry a :Entry .
+    ?entry :gene / :name ?gen .
 }
 order by ?pathwayname

@@ -10,31 +10,29 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 select distinct ?entry str(?gen) ?pathwayname (group_concat(distinct str(?loclab); SEPARATOR = ",") as ?locs)  where {
-service <http://sparql.wikipathways.org/sparql> {
-SELECT DISTINCT ?pathwayname ?gen WHERE
-  {
-  {?geneProduct a wp:Protein}
-    union
-  {?geneProduct a wp:GeneProduct}
+    service <http://sparql.wikipathways.org/sparql> {
+
+        {?geneProduct a wp:Protein}
+            union
+        {?geneProduct a wp:GeneProduct}
  
-  ?geneProduct rdfs:label ?gen .
-  filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
-  ?geneProduct dcterms:isPartOf ?pathway .
-  ?pathway a wp:Pathway .
-  ?pathway wp:organism ?organism .
-  FILTER(contains(str(?organism),"9606"))
-  ?pathway dc:title ?pathwayname .
-  FILTER(regex(?pathwayname,"rett","i")).
-   }
-}
-?entry a :Entry .
-?entry :gene / :name ?gen .
- ?entry :isoform ?iso.
- ?iso :cellularComponent ?locannot .
- ?locannot :term ?locterm .
- ?locterm rdfs:label ?loclab .
- ?locannot :evidence ?locev .
- ?locev :quality :GOLD .
- filter not exists {?locannot :negativeEvidence ?locev .}
+        ?geneProduct rdfs:label ?gen .
+        filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
+        ?geneProduct dcterms:isPartOf ?pathway .
+        ?pathway a wp:Pathway .
+        ?pathway wp:organism ?organism .
+        filter(contains(str(?organism),"9606"))
+        ?pathway dc:title ?pathwayname .
+        filter(regex(?pathwayname,"rett","i")).
+    }
+    ?entry a :Entry .
+    ?entry :gene / :name ?gen .
+    ?entry :isoform ?iso.
+    ?iso :cellularComponent ?locannot .
+    ?locannot :term ?locterm .
+    ?locterm rdfs:label ?loclab .
+    ?locannot :evidence ?locev .
+    ?locev :quality :GOLD .
+    filter not exists {?locannot :negativeEvidence ?locev .}
 }
 order by ?entry
