@@ -11,7 +11,7 @@ PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
 PREFIX so:<http://purl.obolibrary.org/obo/SO_>
 
-select distinct ?entry str(?umlsTerm) (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?orgAA) (str(?varaa) as ?varAA) ?sampleArticle where {
+select distinct ?entry str(?umlsTerm) (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?orgAA) (str(?varaa) as ?varAA) ?article where {
   service <http://rdf.disgenet.org/sparql/> {
     ?vda sio:SIO_000628 ?umls, ?variant .
     ?vda sio:SIO_000772 ?article .
