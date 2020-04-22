@@ -1,7 +1,7 @@
 #id:NXQ_00276
 #title:Diseases/phenotypes associated with coding variants and associated publications for a given gene
 #comment:Federated query with DisGeNET
-#tags:disease,federated query,snorql-only,variant
+#tags:disease,federated query,snorql-only,variant,tutorial
 #acs:P68871
 #count:99
 #time:12
