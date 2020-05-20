@@ -11,7 +11,7 @@ select distinct ?entry where {
   ?iso :goBiologicalProcess ?func1 .
   ?func1 :term / :childOf cv:GO_0016055.
   filter not exists { ?func1 :negativeEvidence ?negev. } # No negative function evidence
-  # cv:GO:0016055 Hippo pathway
+  # cv:GO:0035329 Hippo pathway
   ?iso :goBiologicalProcess ?func2 .
   ?func2  :term / :childOf cv:GO_0035329.
   filter not exists { ?func2 :negativeEvidence ?negev. } # No negative function evidence
