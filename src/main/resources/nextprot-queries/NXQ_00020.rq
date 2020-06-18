@@ -12,7 +12,7 @@ select ?entry where {
     ?s1 :term / :childOf cv:TS-0445.
     ?s1 :evidence ?evi.
     ?evi :expressionLevel :High.
-    ?evi :experimentalContext / :detectionMethod cv:ECO_0001055.
+    ?evi :evidenceCode cv:ECO_0001055.
     ?entry :isoform / :antibodyMapping ?map.
 	 ?map :evidence / :reference / :accession ?id . 
   }
