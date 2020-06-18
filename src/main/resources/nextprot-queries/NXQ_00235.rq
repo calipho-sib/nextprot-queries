@@ -10,7 +10,7 @@ select distinct ?entry where {
  ?iso :antibodyMapping ?abmap.
  ?abmap :evidence / :reference / :accession ?aid .
  ?iso :expressionProfile / :evidence ?ev .
- ?ev :experimentalContext / :detectionMethod cv:ECO_0001055.
+ ?ev :evidenceCode cv:ECO_0001055.
 # ?ev :quality :GOLD .
 }
 group by ?entry having(count(distinct ?aid) > 1)
