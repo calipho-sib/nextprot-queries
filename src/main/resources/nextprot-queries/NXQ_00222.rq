@@ -11,12 +11,12 @@ select distinct ?entry where {
   ?exprna :term ?rnatiss .
   ?exprna :evidence ?evirna.
   ?evirna :expressionLevel :Positive.
-  ?evirna :experimentalContext / :detectionMethod cv:ECO_0000295. # RNA-seq
+  ?evirna :evidenceCode cv:ECO_0000295. # RNA-seq
   ?rnatiss :childOf cv:TS-0095. #brain
   ?expihc :quality :GOLD .
   ?expihc :term ?ihctiss .
   ?expihc :evidence ?eviihc.
-  ?eviihc :experimentalContext / :detectionMethod cv:ECO_0001055. #IHC
+  ?eviihc :evidenceCode cv:ECO_0001055. #IHC
   ?eviihc :expressionLevel :High.
   ?ihctiss :childOf ?rnatiss .
 }
