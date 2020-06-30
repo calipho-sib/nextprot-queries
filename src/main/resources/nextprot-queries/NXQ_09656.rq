@@ -1,5 +1,5 @@
 #id:NXQ_09656
-#title:Check that there are no entries with a natural peptide from MassIVE with an AC which does NOT start with "MSVp"
+#title:Check there are no entries with a natural peptide from MassIVE with an AC which does NOT start with "MSVp"
 #tags:QC,mass spectrometry,peptide,proteomics
 #acs:
 #count:0
