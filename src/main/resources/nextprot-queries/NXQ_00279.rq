@@ -1,0 +1,12 @@
+#id:NXQ_00279
+#title:Binary interactions Proteins for which an interaction mapping regions are is described for both interactants 
+#tags:PPI,snorql-only,tutorial
+#acs:A6NK53,O00257,O00533
+#count:817
+
+select distinct ?entry str(?gen) ?entry2 str(?gen2) where {
+  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?iso :interactionMapping / :interactant ?entry2.
+  ?entry2 :gene / :name ?gen2 .
+  filter exists { ?entry2 :isoform / :interactionMapping / :interactant ?entry2.}
+} order by ?entry
