@@ -1,0 +1,25 @@
+#id:NXQ_00280
+#title:Proteins interacting with at least 10 members of a protein family  
+#tags:family,PPI,snorql-only,tutorial
+#acs:P08238,Q15788,48443 
+#count:60
+
+select distinct ?entry str(?gen) as ?gene str(?xlab) as ?itfamily  ?itcnt ?membercnt xsd:float(?itcnt) / xsd:float(?membercnt) as ?ratio  where {
+ {
+  select ?xterm ?xlab count(distinct ?member) as ?membercnt where {
+  ?member :isoform? / :family /:term /:childOf ?xterm.
+  ?xterm rdfs:label ?xlab .
+  }
+ } 
+ {
+  select distinct ?xterm ?entry ?gen count (distinct ?interactant) as ?itcnt where {
+  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?iso :interaction ?it.
+  ?it :quality :GOLD; :interactant ?interactant.
+  ?interactant :family /:term /:childOf ?xterm . 
+  } group by ?xterm ?entry ?gen having (count (distinct ?interactant) >= 10)	
+ }
+} 
+order by desc(?ratio)
+limit 60
+
