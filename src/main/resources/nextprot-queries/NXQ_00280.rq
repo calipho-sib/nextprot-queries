@@ -1,7 +1,7 @@
 #id:NXQ_00280
 #title:Proteins interacting with at least 10 members of a protein family  
 #tags:family,PPI,snorql-only,tutorial
-#acs:P08238,Q15788,48443 
+#acs:P08238,Q15788,P48443 
 #count:60
 
 select distinct ?entry str(?gen) as ?gene str(?xlab) as ?itfamily  ?itcnt ?membercnt xsd:float(?itcnt) / xsd:float(?membercnt) as ?ratio  where {
