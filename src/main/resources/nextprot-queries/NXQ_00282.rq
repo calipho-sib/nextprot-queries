@@ -1,0 +1,14 @@
+#id:NXQ_00282
+#title:Proteins with an interaction mapping encompassing a coiled coil region  
+#tags:PPI,region,snorql-only
+#acs:O00566,O14645,O15078
+#count:342
+
+select distinct ?entry str(?gen) ?entry2 where {
+  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?iso :interactionMapping ?itmap .
+  ?itmap :interactant ?entry2; :start ?its; :end ?ite .
+  ?iso :region ?coiled .
+  ?coiled a :CoiledCoilRegion; :start ?cs; :end ?ce .
+  filter (?cs >= ?its && ?ce <= ?ite)
+} order by ?entry
