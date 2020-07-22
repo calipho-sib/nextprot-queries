@@ -1,0 +1,18 @@
+#id:NXQ_00283
+#title:Proteins with no reported mitochondrial localization but interacting with many mitochondrial proteins 
+#tags:PPI,snorql-only,subcellular location
+#acs:O14880,P19320,Q9NX40 
+#count:30
+#time:645
+
+select distinct ?entry str(?gen) count(distinct ?mitopartner) as ?mitcnt count(distinct ?partner) as ?itcnt (xsd:float(?mitcnt) / xsd:float(?itcnt) as ?ratio) where {
+ ?entry :isoform ?iso; :gene / :name ?gen.
+ filter not exists { ?iso :goCellularComponent /:term / :childOf cv:GO_0005739  }
+  ?iso :binaryInteraction ?it, ?it2 .
+  ?it :interactant ?mitopartner .
+  ?mitopartner :isoform? / :goCellularComponent ?loc .
+  ?loc :quality :GOLD; :term / :childOf cv:GO_0005739 .
+  ?it2 :interactant ?partner .
+} group by ?entry ?gen ?itcnt ?mitcnt having (count(distinct ?mitopartner) >= 20)
+order by desc(?ratio) 
+limit 30
