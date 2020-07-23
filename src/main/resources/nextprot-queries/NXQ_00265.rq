@@ -5,7 +5,7 @@
 #count:14
 #time:0.35
 
-select distinct ?spos ?epos ?annot_type str(?txt) where {
+select distinct ?spos ?epos ?annot_type (str(?txt) as ?note) where {
  values ?poi {1134} # position of interest
  values ?iso {isoform:NX_P52701-1} # isoform of interest
  ?iso :positionalAnnotation ?statement .
