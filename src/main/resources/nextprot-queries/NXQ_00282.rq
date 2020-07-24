@@ -1,14 +1,23 @@
 #id:NXQ_00282
-#title:Proteins with an interaction mapping encompassing a coiled coil region  
+#title:Proteins with an interaction mapping encompassing a coiled coil or bZip region  
 #tags:PPI,region,snorql-only
-#acs:O00566,O14645,O15078
-#count:342
+#acs:O00291,O43889,P01100
+#count:604
 
-select distinct ?entry str(?gen) ?entry2 where {
+select distinct ?entry str(?gen) ?itlen ?coilen str(?gen2) as ?pertnergen where {
   ?entry :isoform ?iso; :gene / :name ?gen .
-  ?iso :interactionMapping ?itmap .
+  ?iso :swissprotDisplayed true; :interactionMapping ?itmap .
   ?itmap :interactant ?entry2; :start ?its; :end ?ite .
-  ?iso :region ?coiled .
-  ?coiled a :CoiledCoilRegion; :start ?cs; :end ?ce .
-  filter (?cs >= ?its && ?ce <= ?ite)
-} order by ?entry
+  bind(?ite - ?its + 1 as ?itlen)
+  ?entry2 :isoform? ?iso2; :gene / :name ?gen2.
+  ?iso2 :swissprotDisplayed true.
+  {?iso :coiledCoilRegion ?coil . }
+  union
+  {?iso :region ?coil . 
+   ?coil :term cv:DO-00078 # bzip
+  }
+  ?coil :start ?cs; :end ?ce .
+  bind(?ce - ?cs + 1 as ?coilen)
+  filter (?cs >= ?its -15 && ?ce <= ?ite + 15) # overlap
+  filter(xsd:float(?itlen) / xsd:float(?coilen) < 2.0) # itlen no more than 2 coilen
+} order by ?entry 
