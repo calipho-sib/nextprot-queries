@@ -1,5 +1,5 @@
 #id:NXQ_09064
-#title:Check there are no entries with peptide mapping annotations with evidence NOT from PeptideAtlas or neXtProt
+#title:Check there are no entries with peptide mapping annotations with evidence NOT from MassIVE, PeptideAtlas or neXtProt
 #comment:neXtProt MDATA. Natural peptides detected by MS
 #tags:QC,provenance,proteomics,peptide
 #acs:

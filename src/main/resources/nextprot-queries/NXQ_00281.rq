@@ -1,0 +1,17 @@
+#id:NXQ_00281
+#title:Proteins pairs with at least 50 common interactors  
+#tags:PPI,snorql-only
+#acs:P0DPK4,Q7Z3S9,Q15004
+#count:266
+
+select distinct ?entry str(?gen) as ?gene ?entry2 str(?gen2) as ?gene2 count (distinct ?commonpartner) as ?commonitcnt str(sample(?genit)) as ?sampleit where {
+  ?entry :isoform / :interaction ?it1; :gene / :name ?gen.
+  ?it1 :quality :GOLD; :interactant ?commonpartner .
+  ?entry2 :isoform / :interaction ?it2; :gene / :name ?gen2.
+  ?it2 :quality :GOLD;:interactant ?commonpartner . 
+  ?commonpartner :gene / :name ?genit .
+  filter(?entry != ?entry2)
+  filter(!contains(?gen,"KRT") && !contains(?gen2,"KRT") && !contains(?genit,"KRT")) # remove sticky keratins
+}
+group by ?entry ?gen ?entry2 ?gen2 having (count (distinct ?commonpartner) >= 50)   
+order by desc(?commonitcnt)

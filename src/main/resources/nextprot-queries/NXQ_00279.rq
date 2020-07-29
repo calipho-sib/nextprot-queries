@@ -1,0 +1,12 @@
+#id:NXQ_00279
+#title:Proteins for which an interaction mapping region is described for both interactants  
+#tags:PPI,snorql-only,tutorial
+#acs:A0AVT1,A2A3L6,A4FU01
+#count:4340
+
+select distinct ?entry str(?gen) ?entry2 str(?gen2) where {
+  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?iso :interactionMapping / :interactant ?entry2.
+  ?entry2 :gene / :name ?gen2 .
+  filter exists { ?entry2 :isoform / :interactionMapping / :interactant ?entry.}
+} order by ?entry

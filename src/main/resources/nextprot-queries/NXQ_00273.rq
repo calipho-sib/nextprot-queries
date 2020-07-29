@@ -36,13 +36,13 @@ select distinct ?entry str(?gen) ?pathwayname  group_concat(distinct str(?rnatis
     ?exprna :evidence ?evirna.
     ?exprna :quality :GOLD .
     ?evirna :expressionLevel :Positive.
-    ?evirna :experimentalContext / :detectionMethod cv:ECO_0000295. # RNA-seq
+    ?evirna :evidenceCode cv:ECO_0000295. # RNA-seq
     ?rnatiss :childOf cv:TS-0568. #lung
     ?rnatiss rdfs:label ?rnatissname.
     ?expihc :quality :GOLD .
     ?expihc :term ?ihctiss .
     ?expihc :evidence ?eviihc.
-    ?eviihc :experimentalContext / :detectionMethod cv:ECO_0001055. # Immunohistochemistry (IHC)
+    ?eviihc :evidenceCode cv:ECO_0001055. # Immunohistochemistry (IHC)
     ?eviihc :expressionLevel :High.
     ?ihctiss :childOf ?rnatiss .
     ?ihctiss rdfs:label ?ihctissname.
