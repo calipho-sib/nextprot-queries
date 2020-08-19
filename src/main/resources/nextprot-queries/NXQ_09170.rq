@@ -3,7 +3,7 @@
 #tags:QC,quality,evidence,cellular component
 #acs:
 #count:0
-#time:0.864
+#time:0.411
 
 select distinct ?entry where {
   ?entry :isoform /:goCellularComponent /:evidence ?ev.
