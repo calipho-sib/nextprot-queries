@@ -3,7 +3,7 @@
 #tags:QC,quality,evidence,function
 #acs:
 #count:0
-#time:0.866
+#time:0.451
 
 select distinct ?entry where {
   ?entry :isoform /:goMolecularFunction /:evidence ?ev.
