@@ -1,6 +1,7 @@
 #id:NXQ_00285
 #title:Proteins that have an interaction mapping region that contains the sequence 'ERLI'
 #tags:PPI,region,sequence,snorql-only
+#comment: crumbs are missing, find a better motif
 #acs:O43679,P05412,Q86U70  
 #count:12
 #time:0.5
