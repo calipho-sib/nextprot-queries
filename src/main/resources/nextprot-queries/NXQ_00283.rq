@@ -1,5 +1,5 @@
 #id:NXQ_00283
-#title:Proteins with no reported mitochondrial localization but interacting with many (over 20) GOLD mitochondrial proteins 
+#title:Proteins with no reported mitochondrial localization but interacting with 20 or more mitochondrial proteins ('gold' quality) 
 #tags:PPI,snorql-only,subcellular location,tutorial
 #acs:O14880,P19320,Q9NX40 
 #count:30
