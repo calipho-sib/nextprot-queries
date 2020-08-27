@@ -1,6 +1,7 @@
 #id:NXQ_00281
 #title:Protein pairs with at least 50 common interactors (excluding keratins)  
 #tags:PPI,snorql-only,tutorial
+#comment:WARNING This query may take a long time to return results
 #acs:P0DPK4,Q7Z3S9,Q15004
 #count:548
 #time:1300
