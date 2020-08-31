@@ -1,10 +1,11 @@
 #id:NXQ_00282
 #title:Proteins with an interaction mapping encompassing a coiled coil or bZip region  
-#tags:PPI,region,snorql-only
+#tags:PPI,region,domain,snorql-only,tutorial
 #acs:O00291,O43889,P01100
 #count:604
+#time:3
 
-select distinct ?entry str(?gen) ?itlen ?coilen str(?gen2) as ?pertnergen where {
+select distinct ?entry (str(?gen) as ?gene) ?itlen ?coilen (str(?gen2) as ?partnergene) where {
   ?entry :isoform ?iso; :gene / :name ?gen .
   ?iso :swissprotDisplayed true; :interactionMapping ?itmap .
   ?itmap :interactant ?entry2; :start ?its; :end ?ite .

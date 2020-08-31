@@ -1,6 +1,6 @@
 #id:NXQ_00286
-#title:Proteins domains that frequently occur in interaction mappings
-#tags:PPI,region,snorql-only
+#title:Protein domains or regions that frequently occur in interaction mappings
+#tags:PPI,domain,region,snorql-only,tutorial
 #acs:SH3,WW,bZip  
 #count:23
 #time:0.5
