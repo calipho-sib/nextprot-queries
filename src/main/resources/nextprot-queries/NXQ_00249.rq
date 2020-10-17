@@ -9,7 +9,7 @@ PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
 PREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>
 PREFIX chembl: <http://rdf.ebi.ac.uk/terms/chembl#>
 
-SELECT distinct ?gomf ?gomflab count(distinct ?entry) as ?ecnt WHERE
+SELECT distinct ?gomf ?gomflab (count(distinct ?entry) as ?ecnt) WHERE
 {
   {
     SELECT ?compound ?UNIPROT WHERE {

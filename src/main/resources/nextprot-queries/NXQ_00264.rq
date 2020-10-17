@@ -9,7 +9,7 @@ PREFIX orth: <http://purl.orthodb.org/>
 PREFIX interpro: <http://www.ebi.ac.uk/interpro/entry/>
 PREFIX up: <http://purl.uniprot.org/core/>
 
-select distinct ?entry str(?ipac) group_concat(?taxlab,",") where {
+select distinct ?entry (str(?ipac) AS ?ipacSTR) (group_concat(?taxlab ; SEPARATOR = ",") AS ?taxlab1) where {
   VALUES ?ipac {"IPR018154"^^xsd:string "IPR008981"^^xsd:string }. # Interpro patterns for TLV/ENV coat polyprotein
   bind (iri(CONCAT("http://www.ebi.ac.uk/interpro/entry/",str(?ipac))) as ?ipref) .
   SERVICE <https://sparql.orthodb.org/sparql/> {

@@ -6,13 +6,12 @@
 #count:99
 #time:12
 
-PREFIX : <http://nextprot.org/rdf#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
 PREFIX so:<http://purl.obolibrary.org/obo/SO_>
 
-select distinct ?entry (str(?umlsTerm) as ?umlsTermSTR) (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?orgAA) (str(?varaa) as ?varAA) ?article where {
+select distinct ?entry (str(?umlsTerm) as ?umlsTerm_str) (str(?snpac) as ?varid) ?pos (str(?orgaa) as ?orgAA) (str(?varaa) as ?varAA) ?article where {
   service <http://rdf.disgenet.org/sparql/> {
     ?vda sio:SIO_000628 ?umls, ?variant .
     ?vda sio:SIO_000772 ?article .

@@ -4,7 +4,7 @@
 #acs:
 #count:11
 
-select distinct str(?auth) count (distinct ?itid) as ?itcnt where {
+select distinct (str(?auth) AS ?auth1) (count (distinct ?itid) as ?itcnt) where {
  ?entry :isoform / :binaryInteraction ?interaction.
  ?interaction :evidence / :reference ?publi .
  ?publi :author / :name ?auth .
