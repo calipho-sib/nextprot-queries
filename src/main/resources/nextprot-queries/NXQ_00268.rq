@@ -4,7 +4,7 @@
 #count:17
 #time:8
 
-select distinct ?entry str(?gen) ?spos ?annot_type str(?txt) where {
+select distinct ?entry (str(?gen) AS ?gene) ?spos ?annot_type (str(?txt) AS ?txt1) where {
 ?entry :isoform ?iso .
   ?entry :gene / :name ?gen .
   ?iso :swissprotDisplayed true .
