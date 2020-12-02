@@ -6,7 +6,6 @@
 #count:99
 #time:12
 
-PREFIX : <http://nextprot.org/rdf#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>

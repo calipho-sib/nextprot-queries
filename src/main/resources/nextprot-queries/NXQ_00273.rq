@@ -7,10 +7,9 @@
 #time:17
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-select distinct ?entry (str(?gen) AS ?gene) ?pathwayname  (group_concat(distinct str(?rnatissname); SEPARATOR = ',') as ?RNAseq_positive) (group_concat(distinct str(?ihctissname); SEPARATOR = ',') as ?IHC_high)   where {
+select ?entry (str(?gen) AS ?gene) ?pathwayname  (group_concat(distinct str(?rnatissname); SEPARATOR = ',') as ?RNAseq_positive) (group_concat(distinct str(?ihctissname); SEPARATOR = ',') as ?IHC_high)   where {
     service <http://sparql.wikipathways.org/sparql> {
 
         {?geneProduct a wp:Protein}
@@ -47,4 +46,5 @@ select distinct ?entry (str(?gen) AS ?gene) ?pathwayname  (group_concat(distinct
     ?ihctiss :childOf ?rnatiss .
     ?ihctiss rdfs:label ?ihctissname.
 }
+group by ?entry ?gen ?pathwayname
 order by ?entry
