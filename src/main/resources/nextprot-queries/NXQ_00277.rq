@@ -8,7 +8,7 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
 
-select distinct ?interactant str(?itgen) group_concat(distinct ?druglab,",") where {
+select distinct ?interactant (str(?itgen) AS ?itgene) (group_concat(distinct ?druglab; SEPARATOR = ",") AS ?fyndrug) where {
     ?entry :gene / :name "FYN"^^xsd:string .
     ?entry :isoform /:binaryInteraction ?interaction.
     ?interaction :interactant ?interactant; :quality :GOLD. # GOLD quality interaction
@@ -17,3 +17,4 @@ select distinct ?interactant str(?itgen) group_concat(distinct ?druglab,",") whe
         ?drug rdfs:label ?druglab; drugbank:target /drugbank:swissprotPage ?unipage.
     }
 }
+

@@ -10,7 +10,6 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX lscr: <http://purl.org/lscr#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX orth: <http://purl.org/net/orth#>
-PREFIX up: <http://purl.uniprot.org/core/>
 
 select distinct ?entry where {
   SERVICE <https://sparql.omabrowser.org/> {

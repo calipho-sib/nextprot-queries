@@ -7,11 +7,10 @@
 #time:26
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
 
-select distinct ?entry str(?gen) ?pathwayname   group_concat(distinct ?druglab,",") where {
+select ?entry (str(?gen) AS ?gene) ?pathwayname   (group_concat(distinct ?druglab ; SEPARATOR = ",") AS ?drug) where {
     service <http://sparql.wikipathways.org/sparql> {
 
         {?geneProduct a wp:Protein}
@@ -37,4 +36,5 @@ select distinct ?entry str(?gen) ?pathwayname   group_concat(distinct ?druglab,"
         ?drug rdfs:label ?druglab; drugbank:target /drugbank:swissprotPage ?unipage.
     }
 }
+group by ?entry ?gen ?pathwayname
 order by ?entry
