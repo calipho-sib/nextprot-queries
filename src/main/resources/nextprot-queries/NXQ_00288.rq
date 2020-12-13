@@ -1,0 +1,15 @@
+#id:NXQ_00288
+#title:Unipathway labels and their equivalent GoBiologicalProcesses.
+#tags:pathway,snorql-only,tutorial
+#acs:
+#count:91
+#time:1.1
+
+select distinct (str(?pathwayname) as ?unipathway) ?related (str(?pathlabel) as ?GOpathway) where {
+  ?entry :isoform ?iso.
+  ?iso :pathway ?pathannot .
+  ?pathannot :term ?pathterm; rdfs:comment ?pathwayname; :evidence / :assignedBy ?src.	 
+  ?pathterm :related ?related .
+  ?related a :GoBiologicalProcessCv .
+  ?related rdfs:label ?pathlabel .
+}
