@@ -10,6 +10,5 @@ select distinct (str(?pathwayname) as ?unipathway) ?related (str(?pathlabel) as 
   ?iso :pathway ?pathannot .
   ?pathannot :term ?pathterm; rdfs:comment ?pathwayname; :evidence / :assignedBy ?src.	 
   ?pathterm :related ?related .
-  ?related a :GoBiologicalProcessCv .
-  ?related rdfs:label ?pathlabel .
+  ?related a :GoBiologicalProcessCv ; rdfs:label ?pathlabel .
 }
