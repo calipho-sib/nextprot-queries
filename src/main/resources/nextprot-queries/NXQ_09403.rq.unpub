@@ -1,5 +1,6 @@
 #id:NXQ_09403
 #title:Check there are no entries that have the accession number of excluded UniProt entries
+#comment:Unpublished as no longer exclude UniProt entries
 #tags:QC,filtering
 #acs:
 #count:0
