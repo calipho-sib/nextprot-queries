@@ -1,15 +1,15 @@
 #id:NXQ_00266
 #title:Proteins binding estradiol and/or similar molecules (substructure search with SMILES) and their associated GO_MF terms
-#tags:function,similarity,small molecule interaction,snorql-only,federated query
-#count:277
-#time:9.9
+#tags:function,similarity,small molecule interaction,snorql-only,federated query, tutorial
+#count:278
+#time:77
 
 PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
 PREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>
 PREFIX chembl: <http://rdf.ebi.ac.uk/terms/chembl#>
 
 SELECT distinct ?entry (group_concat(distinct str(?gomflab); SEPARATOR = ",") as ?gomf) WHERE {
-	SERVICE <http://www.ebi.ac.uk/rdf/services/chembl/sparql> {
+	SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/idsm> {
 		SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/chembl> {
 		  ?compound sachem:substructureSearch  [ sachem:query "CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O" ] . # smiles chain for estradiol
 		}
