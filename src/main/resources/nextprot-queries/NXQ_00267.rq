@@ -8,7 +8,7 @@ PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
 PREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>
 PREFIX chembl: <http://rdf.ebi.ac.uk/terms/chembl#>
 
-SELECT distinct ?entry (group_concat(distinct str(?gomflab); SEPARATOR = ",") as ?gomf) WHERE {
+SELECT distinct ?entry (group_concat(distinct str(?gomflab); SEPARATOR = ",") as ?gomfx) WHERE {
   		SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/idsm> {
   		SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/chembl> {
     		?compound sachem:similarCompoundSearch [ sachem:query "CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O" ] . # smiles chain for estradiol
