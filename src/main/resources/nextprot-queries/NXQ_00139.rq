@@ -1,6 +1,6 @@
 #id:NXQ_00139
 #title:Protein kinases which are high-confidence drug targets according to CHEMBL
-#tags:drug,enzyme,function,quality,federated query
+#tags:drug,enzyme,function,quality,federated query,tutorial
 #acs:P36888,P06493,P27361
 #count:84
 #time:27
@@ -8,7 +8,7 @@
 PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
 
 select distinct ?entry (str(?gen) as ?gene) where {
-  SERVICE<http://www.ebi.ac.uk/rdf/services/chembl/sparql>{
+  SERVICE<https://idsm.elixir-czech.cz/sparql/endpoint/idsm>{
         SELECT distinct ?protein WHERE {
   		?target cco:hasTargetComponent ?tarComp . 
   		?target cco:taxonomy <http://identifiers.org/taxonomy/9606> . # human protein target
