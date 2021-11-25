@@ -2,7 +2,7 @@
 #title:Variants that delete a N-glycosylation site (and their frequencies)
 #tags:glycosylation,PTM,variant,snorql-only
 #acs:A6NHA9,P24855,P24394
-#count:9765
+#count:11643
 #time:600
 
 select distinct ?entry ?varpos where {
