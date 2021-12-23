@@ -4,7 +4,7 @@
 #tags:QC,provenance,subcellular location
 #acs:
 #count:0
-#time:1.547
+#time:0.434
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
@@ -34,6 +34,7 @@ source:NTNU_SB,
 source:ParkinsonsUK-UCL,
 source:PINC,
 source:Reactome,
+source:RGD,
 source:Roslin_Institute,
 source:SGD,
 source:SynGO,
