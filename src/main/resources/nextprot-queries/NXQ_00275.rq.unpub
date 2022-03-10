@@ -1,7 +1,7 @@
 #id:NXQ_00275
 #title:Proteins targeted by chloroquine and their GOLD binary interactions with other human proteins
 #comment:Federated query with DrugBank
-#tags:drug,federated query,PPI,quality,snorql-only,tutorial
+#tags:drug,federated query,PPI,quality,snorql-only
 #acs:P01375,P69905,P09210 
 #count:23 
 #time:1
