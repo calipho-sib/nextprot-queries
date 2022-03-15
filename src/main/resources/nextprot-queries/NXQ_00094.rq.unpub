@@ -1,7 +1,7 @@
 #id:NXQ_00094
 #title:Proteins which are targets of antipsychotic drugs and expressed in brain
 #comment:Federated query with DrugBank, the sparql endpoint hasn't been updated since 2011
-#tags:drug,expression,federated query,tutorial
+#tags:drug,expression,federated query
 #acs:P08183,P10635,P11229, ...
 #count: 34
 #time: 1

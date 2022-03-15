@@ -2,7 +2,7 @@
 #title:Proteins which are targets of drugs for cardiac therapy
 #comment:Federated query with DrugBank
 #comment:Query based on the drug classification ATC Codes implemented in DrugBank
-#tags:drug,federated query,tutorial
+#tags:drug,federated query
 #acs:P23975,O95069,P31645, ...
 #count:135
 #time:11

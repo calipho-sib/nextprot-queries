@@ -4,7 +4,7 @@
 #tags:QC,provenance,function
 #acs:
 #count:0
-#time:0.728
+#time:0.51
 
 select distinct ?entry ?src where {
   ?entry :isoform ?iso.
@@ -33,6 +33,7 @@ source:NTNU_SB,
 source:ParkinsonsUK-UCL,
 source:PINC,
 source:Reactome,
+source:RGD,
 source:Roslin_Institute,
 source:SGD,
 source:SynGO,
