@@ -14,8 +14,8 @@ select distinct ?entry (str(?gen) as ?gene) ?pathwayname where {
         {?geneProduct a wp:Protein}
             union
         {?geneProduct a wp:GeneProduct}
-  
-        ?geneProduct rdfs:label ?gen .
+        ?geneProduct rdfs:label ?genraw .
+        bind (concat( ""^^xsd:string, ?genraw) as ?gen).
         filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
         ?geneProduct dcterms:isPartOf ?pathway .
         ?pathway a wp:Pathway .

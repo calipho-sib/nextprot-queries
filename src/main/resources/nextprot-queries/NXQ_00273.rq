@@ -19,7 +19,9 @@ select ?entry (str(?gen) AS ?gene) ?pathwayname  (group_concat(distinct str(?rna
         ?geneProduct rdfs:label ?gen .
         filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
 
-        ?geneProduct dcterms:isPartOf ?pathway .
+        ?geneProduct rdfs:label ?genraw .
+        bind (concat( ""^^xsd:string, ?genraw) as ?gen).
+
         ?pathway a wp:Pathway .
         ?pathway wp:organism ?organism .
         filter(contains(str(?organism),"9606"))

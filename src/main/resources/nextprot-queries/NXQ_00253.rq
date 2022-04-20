@@ -14,7 +14,8 @@ select ?pathwayname (group_concat(distinct ?gen ; SEPARATOR = ',') as ?gene) whe
         { ?geneProduct a wp:GeneProduct .  }
             union
         { ?geneProduct a wp:Protein .  }
-        ?geneProduct rdfs:label ?gen .
+        ?geneProduct rdfs:label ?genraw .
+        bind (concat( ""^^xsd:string, ?genraw) as ?gen).
         filter(!regex(?gen,"[ a-z-]")). # ensures official gene names for subsequent neXtprot matching
         ?geneProduct dcterms:isPartOf ?pathway .
         ?pathway a wp:Pathway .
