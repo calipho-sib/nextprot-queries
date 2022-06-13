@@ -12,7 +12,7 @@ select distinct ?entry ?varpos where
  ?iso :variant ?var . 
  ?var :start ?varpos . 
  ?var :evidence ?ev .
- ?var :evidence / :homozygote-count ?hcnt .  
+ ?var :evidence / :homozygoteCount ?hcnt .  
  filter(?hcnt > 100000) 
  } 
  order by desc(?hcnt)
