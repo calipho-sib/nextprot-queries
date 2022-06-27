@@ -8,6 +8,7 @@
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :pdbMapping ?map.
-  ?map :resolution ?res.
+  ?map :resolution ?res_and_unit.
+  bind (xsd:float(substr(?res_and_unit,0,strlen(?res_and_unit)-2)) as ?res)
   filter (?res <= 3.0)
 }

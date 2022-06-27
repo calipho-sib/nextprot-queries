@@ -12,7 +12,7 @@ select distinct ?entry ?varpos ?freq where
  ?iso :variant ?var . 
  ?var :start ?varpos . 
  ?var :evidence ?ev .
- ?ev :allele-number ?anb .
- ?ev :allele-frequency ?freq . 
+ ?ev :alleleNumber ?anb .
+ ?ev :alleleFrequency ?freq . 
  filter(?freq > 0.1 && ?anb > 100000) 
  } order by desc(?freq)

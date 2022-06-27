@@ -8,5 +8,5 @@
 select distinct ?entry where {
   ?entry :isoform  ?iso .
     ?iso :compositionallyBiasedRegion / rdfs:comment ?desc.
-  filter (contains(?desc,'Poly-Pro')).
+  filter (contains(?desc,'Pro residues')).
 }
