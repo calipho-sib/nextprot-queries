@@ -13,7 +13,7 @@ select distinct ?entry (str(?gen) as ?gene) (str(?xlab) as ?itfamily)  ?itcnt ?m
  } 
  {
   select ?xterm ?entry ?gen (count (distinct ?interactant) as ?itcnt) where {
-  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?entry :isoform ?iso; :gene / :name / rdfs:label ?gen .
   ?iso :interaction ?it.
   ?it :quality :GOLD; :interactant ?interactant.
   ?interactant :family /:term /:childOf ?xterm . 

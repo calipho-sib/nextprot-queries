@@ -6,7 +6,8 @@
 #time:8.21
 
 select distinct ?entry ?name ?ec where {
-  ?entry :recommendedName /:fullName ?name.
+  ?entry :recommendedName ?name_entity .
+  ?name_entity a :ProteinName; rdfs:label ?name.
   ?entry :isoform ?iso.
   ?iso :enzymeClassification /rdfs:comment ?ec.
   ?iso :cofactor /:interactant /skos:exactMatch chebi:CHEBI_29108. # Ca(2+) cofactor

@@ -6,7 +6,7 @@
 
 select distinct ?entry (str(?gen) AS ?gene) ?spos ?annot_type (str(?txt) AS ?txt1) where {
 ?entry :isoform ?iso .
-  ?entry :gene / :name ?gen .
+  ?entry :gene / :name / rdfs:label ?gen .
   ?iso :swissprotDisplayed true .
   ?iso :positionalAnnotation ?statement .
   ?statement a ?annot_type .

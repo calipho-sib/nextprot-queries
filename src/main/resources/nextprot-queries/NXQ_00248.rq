@@ -6,7 +6,7 @@
 #time:23
 
 select distinct ?entry (str(?pfname) as ?phenovar) (concat(str(sample(?pdbac)),"...") as ?pdbsample) where {
-  ?entry :gene / :name ?gen .
+  ?entry :gene / :name / rdfs:label ?gen .
   ?entry :isoform ?iso.
   ?iso  :proteoform ?pf .
   ?pf rdfs:label ?pfname .

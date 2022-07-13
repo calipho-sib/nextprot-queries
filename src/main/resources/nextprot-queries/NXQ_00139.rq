@@ -23,5 +23,5 @@ select distinct ?entry (str(?gen) as ?gene) where {
   	 }
   ?entry skos:exactMatch ?protein .	    
   ?entry :isoform / :keyword / :term cv:KW-0418. #kinase	
-  ?entry :gene / :name ?gen.
+  ?entry :gene / :name / rfds:label ?gen.
 }

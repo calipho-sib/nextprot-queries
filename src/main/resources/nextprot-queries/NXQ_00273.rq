@@ -30,7 +30,7 @@ select ?entry (str(?gen) AS ?gene) ?pathwayname  (group_concat(distinct str(?rna
     }
 
     ?entry a :Entry .
-    ?entry :gene / :name ?gen .
+    ?entry :gene / :name / rdfs:label ?gen .
     ?entry :isoform ?iso.
     ?iso :expression ?exprna, ?expihc.
     ?exprna :term ?rnatiss .

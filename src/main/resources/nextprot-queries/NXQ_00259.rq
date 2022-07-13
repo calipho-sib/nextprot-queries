@@ -21,5 +21,5 @@ select distinct ?entry (str(?gen) as ?genx) ?umlsTerm where {
     }
   BIND(IRI(replace(str(?protein),"purl","www")) AS ?unipage) .
   ?entry :swissprotPage ?unipage .
-  ?entry :gene / :name ?gen .
+  ?entry :gene / :name / rdfs:label ?gen .
 } order by ?entry
