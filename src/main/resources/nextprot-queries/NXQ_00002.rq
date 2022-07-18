@@ -1,8 +1,10 @@
 #id:NXQ_00002
 #title:Proteins that are located in both the nucleus and in the cytoplasm
+#comment:Select protein entries with an isoform. The isoform must be localized in two subcellular
+#comment:components, cytoplasm and nucleus and any child term thereof, without a negative evidence.
 #tags:subcellular location,tutorial
-#acs:A0AVF1,A0PK00,A1A4S6,A1A5C7,A1KXE4,A2RRD8
-#count:6305
+#acs:NX_O75952,NX_Q9Y6X0,NX_Q14849,NX_Q9ULJ3,NX_P04818
+#count:6667
 
 select distinct ?entry where {
   values ?cytoloc {cv:GO_0005737 cv:SL-0086} # GO and SL values for cytoplasm
@@ -15,3 +17,8 @@ select distinct ?entry where {
   filter not exists {?loc2  :negativeEvidence ?negev} # No negative localization evidence
 }
 
+# Note the dot "." at the end of statements.
+# If missing, you will get a syntax error.
+#
+# Use a comma to retrieve two localizations in:
+# ?iso :cellularComponent ?loc1, ?loc2 .
