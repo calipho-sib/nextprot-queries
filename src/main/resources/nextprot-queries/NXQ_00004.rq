@@ -20,5 +20,6 @@ select distinct ?entry where {
 }
 
 # Use the semicolon ';' to refer to the previous subject (?e1)
+# Only IHC data has expression level "High" so ECO is not specified.
 #
 # Note that we also exclude expression detected in testis.
