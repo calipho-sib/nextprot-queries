@@ -30,7 +30,7 @@ select distinct ?entry (str(?gen) AS ?gene) ?pathwayname  (str(?discom) AS ?disc
    }
 
    ?entry a :Entry .
-   ?entry :gene / :name / rdfs:label ?gen .
+   ?entry :gene / :recommendedName / rdfs:label ?gen .
    ?entry :isoform ?iso.
    ?iso :medical ?med.
    ?med rdfs:comment ?discom.

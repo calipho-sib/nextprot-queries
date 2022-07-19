@@ -7,7 +7,7 @@
 
 select distinct ?entry (str(?gen) as ?gene) ?hlen where {
   ?entry :isoform ?iso.
-  ?entry :gene / :name / rdfs:label ?gen.
+  ?entry :gene / :recommendedName / rdfs:label ?gen.
   ?iso :helix ?hel .
   ?hel :start ?s; :end ?e .
   bind((?e - ?s + 1) as ?hlen )

@@ -25,6 +25,6 @@ select distinct ?entry (str(?gen) as ?gene) ?pathwayname where {
         ?pathway wp:ontologyTag <http://purl.obolibrary.org/obo/DOID_162> . # Parent id for all cancers
     }
     ?entry a :Entry .
-    ?entry :gene / :name / rdfs:label ?gen .
+    ?entry :gene / :recommendedName / rdfs:label ?gen .
 }
 order by ?pathwayname

@@ -25,7 +25,7 @@ select ?pathwayname (group_concat(distinct ?gen ; SEPARATOR = ',') as ?gene) whe
     }
 
     ?entry a :Entry .
-    ?entry :gene / :name / rdfs:label ?gen .
+    ?entry :gene / :recommenedName / rdfs:label ?gen .
     ?entry :isoform / :cellularComponent ?loc .
     values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
     ?loc :term / :childOf ?mitoloc.  # mitochondrion

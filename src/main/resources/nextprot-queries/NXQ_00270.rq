@@ -27,7 +27,7 @@ select ?entry (str(?gen) AS ?gene) ?pathwayname (group_concat(distinct str(?locl
         filter(regex(?pathwayname,"rett","i")).
     }
     ?entry a :Entry .
-    ?entry :gene / :name / rdfs:label ?gen .
+    ?entry :gene / :recommendedName / rdfs:label ?gen .
     ?entry :isoform ?iso.
     ?iso :cellularComponent ?locannot .
     ?locannot :term ?locterm .
