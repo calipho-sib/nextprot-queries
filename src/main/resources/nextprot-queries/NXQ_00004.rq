@@ -1,8 +1,10 @@
 #id:NXQ_00004
-#title:Proteins expressed in brain with IHC expression level: "high" but not expressed in testis
+#title:Proteins expressed in brain with IHC expression level "high" but not expressed in testis
+#comment:Select entries with an isoform expressed in the brain with expression level "high".
+#comment:The isoform must also not be expressed in testis.
 #tags:expression,tutorial
-#acs:P13945,Q01959,Q6NUJ2 
-#count: 21
+#acs:NX_P11487,NX_Q96PX8,NX_P41143,NX_Q13516,NX_Q9P2U8
+#count: 9
 #time: 45
 
 select distinct ?entry where {
@@ -16,3 +18,8 @@ select distinct ?entry where {
   ?e2 :term cv:TS-1030.
   filter not exists { ?iso :detectedExpression / :term / :childOf cv:TS-1030 }
 }
+
+# Use the semicolon ';' to refer to the previous subject (?e1)
+# Only IHC data has expression level "High" so ECO is not specified.
+#
+# Note that we also exclude expression detected in testis.
