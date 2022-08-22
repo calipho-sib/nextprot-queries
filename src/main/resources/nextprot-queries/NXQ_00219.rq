@@ -2,7 +2,7 @@
 #title:Proteins entries from a list of gene names
 #tags:gene,tutorial
 #acs:NX_O00141,...
-#count:13
+#count:14
 #time:1.1
 
 select distinct ?entry where {
@@ -11,5 +11,5 @@ select distinct ?entry where {
    "PIK3CD" "PDE2A" "DNM1L"} # space or nl-separated
   
   bind (STRDT (?gene,xsd:string) as ?genename ) . # converts raw string to ^^xsd:string
-  ?entry :gene / :name / rdfs:label ?genename .
+  ?entry :gene / :recommendedName / rdfs:label ?genename .
  }

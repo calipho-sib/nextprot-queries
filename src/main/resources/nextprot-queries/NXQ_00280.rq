@@ -7,7 +7,7 @@
 select distinct ?entry (str(?gen) as ?gene) (str(?xlab) as ?itfamily)  ?itcnt ?membercnt ((xsd:float(?itcnt) / xsd:float(?membercnt)) as ?ratio)  where {
  {
   select ?xterm ?xlab (count(distinct ?member) as ?membercnt) where {
-  ?member :isoform? / :family /:term /:childOf ?xterm.
+  ?member :isoform? / :familyName /:term /:childOf ?xterm.
   ?xterm rdfs:label ?xlab .
   } group by ?xterm ?xlab
  } 
@@ -16,7 +16,7 @@ select distinct ?entry (str(?gen) as ?gene) (str(?xlab) as ?itfamily)  ?itcnt ?m
   ?entry :isoform ?iso; :gene / :name / rdfs:label ?gen .
   ?iso :interaction ?it.
   ?it :quality :GOLD; :interactant ?interactant.
-  ?interactant :family /:term /:childOf ?xterm . 
+  ?interactant :familyName /:term /:childOf ?xterm . 
   } group by ?xterm ?entry ?gen having (count (distinct ?interactant) >= 10)	
  }
 } 
