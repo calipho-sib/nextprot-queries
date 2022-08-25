@@ -1,5 +1,16 @@
-#id:NXQ_DEREF_004
-#title:
-#tags:deref_class_
+#id:NXQ_DEREF_002
+#title:Query for an Isoform Instance e.g isoform:NX_Q8WZ42-1
+#tags:deref_instance_Isoform
 
-describe :
+CONSTRUCT {
+     $INSTANCE_ISOFORM :functionInfo ?object .
+     ?object rdfs:comment ?comment.
+     $INSTANCE_ISOFORM :canonicalIsoform ?isCanonical.
+} WHERE {
+     $INSTANCE_ISOFORM :functionInfo ?object .
+     ?object rdfs:comment ?comment.
+     optional {
+          $INSTANCE_ISOFORM :canonicalIsoform ?isCanonical.
+     }
+     FILTER(!isBlank(?object))
+}
