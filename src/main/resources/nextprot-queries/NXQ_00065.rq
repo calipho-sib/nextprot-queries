@@ -6,6 +6,7 @@
 #time:0.3
 
 select distinct ?entry where {
-  ?ec a :EnzymeClassificationCv.
-  ?entry :classifiedWith ?ec
-} group by ?entry having (count(?ec)>1)
+  ?entry :isoform / :enzymeClassification / :term ?ec .
+} 
+group by ?entry having (count(distinct ?ec)>1)
+

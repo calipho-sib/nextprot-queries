@@ -7,8 +7,7 @@
 
 select distinct ?entry where {
   values ?mitoloc {cv:SL-0173 cv:GO_0005739} # SL and GO values for mitochondrion
-  
-  ?entry :classifiedWith/rdf:type :EnzymeClassificationCv.
+  ?entry :isoform / :enzymeClassification ?_ .
   ?entry :isoform ?iso.
   ?iso :cellularComponent ?loc .
   ?loc :term / :childOf ?mitoloc.
