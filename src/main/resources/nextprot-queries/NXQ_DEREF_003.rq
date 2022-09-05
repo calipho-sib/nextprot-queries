@@ -1,5 +1,30 @@
 #id:NXQ_DEREF_003
-#title:
-#tags:deref_class_
+#title:Query for an Entry Instance e.g entry:NX_Q8WZ42
+#tags:deref_instance_entry
 
-describe :
+CONSTRUCT {
+    $INSTANCE_ENTRY rdf:type ?type.
+    $INSTANCE_ENTRY :gene ?gene.
+    $INSTANCE_ENTRY :existence ?existence.
+    $INSTANCE_ENTRY :swissprotPage ?swissprotPage.
+    $INSTANCE_ENTRY skos:exactMatch ?skos.
+    #$INSTANCE_ENTRY :isoform ?isoform.
+    $INSTANCE_ENTRY :isoformCount ?isoformCount.
+    $INSTANCE_ENTRY :classifiedWith ?classifiedWith.
+    $INSTANCE_ENTRY :recommendedName [rdf:type :Toto ; rdfs:label ?recommendedName ;].
+}
+WHERE {
+  {
+        $INSTANCE_ENTRY rdf:type ?type.
+        $INSTANCE_ENTRY :gene ?gene.
+        $INSTANCE_ENTRY :existence ?existence.
+        $INSTANCE_ENTRY :swissprotPage ?swissprotPage.
+        $INSTANCE_ENTRY skos:exactMatch ?skos.
+        $INSTANCE_ENTRY :isoform ?isoform.
+            ?isoform :canonicalIsoform ""true""^^xsd:boolean.
+        $INSTANCE_ENTRY :isoformCount ?isoformCount.
+        $INSTANCE_ENTRY :classifiedWith ?classifiedWith.
+        $INSTANCE_ENTRY :recommendedName ?n.
+            ?n rdfs:label ?recommendedName.
+  }
+}
