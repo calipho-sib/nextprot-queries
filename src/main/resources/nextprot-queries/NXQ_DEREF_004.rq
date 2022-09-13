@@ -3,14 +3,14 @@
 #tags:deref_instance_Isoform
 
 CONSTRUCT {
-     $INSTANCE_ISOFORM :functionInfo ?object .
+     <INSTANCE> :functionInfo ?object .
      ?object rdfs:comment ?comment.
-     $INSTANCE_ISOFORM :canonicalIsoform ?isCanonical.
+     <INSTANCE> :canonicalIsoform ?isCanonical.
 } WHERE {
-     $INSTANCE_ISOFORM :functionInfo ?object .
+     <INSTANCE> :functionInfo ?object .
      ?object rdfs:comment ?comment.
      optional {
-          $INSTANCE_ISOFORM :canonicalIsoform ?isCanonical.
+          <INSTANCE> :canonicalIsoform ?isCanonical.
      }
      FILTER(!isBlank(?object))
 }

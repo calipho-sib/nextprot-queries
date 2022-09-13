@@ -2,4 +2,4 @@
 #title:Generic query template for a class
 #tags:deref_class_
 
-describe :$CLASS
+describe <CLASS>
