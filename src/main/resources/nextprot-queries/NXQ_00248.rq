@@ -11,7 +11,7 @@ select distinct ?entry (str(?pfname) as ?phenovar) (concat(str(sample(?pdbac)),"
   ?iso  :proteoform ?pf .
   ?pf rdfs:label ?pfname .
   ?pf :phenotypicVariation ?pv1 .
-  ?pf :modification ?pfmod .
+  ?pf :difference ?pfmod .
   ?pfmod a :Variant .
   ?pfmod :start ?vstart; :end ?vend .
   ?iso :pdbMapping  ?pdbmap.

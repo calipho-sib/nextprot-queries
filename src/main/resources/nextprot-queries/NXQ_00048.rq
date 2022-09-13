@@ -14,7 +14,7 @@ select distinct ?entry where {
   } UNION {
     ?entry :isoform ?iso .
 	?iso :proteoform ?pf.
-	?pf :modification ?var.
+	?pf :difference ?var.
 	?var :evidence / :negative false.                  # positive evidence
 	?pf :diseaseRelatedVariant / :term cv:ME_0000013 . # cause of disease
 	?var :original "C"^^xsd:string.
