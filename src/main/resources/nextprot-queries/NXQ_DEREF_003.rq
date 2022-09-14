@@ -3,28 +3,28 @@
 #tags:deref_instance_entry
 
 CONSTRUCT {
-    $INSTANCE_ENTRY rdf:type ?type.
-    $INSTANCE_ENTRY :gene ?gene.
-    $INSTANCE_ENTRY :existence ?existence.
-    $INSTANCE_ENTRY :swissprotPage ?swissprotPage.
-    $INSTANCE_ENTRY skos:exactMatch ?skos.
-    #$INSTANCE_ENTRY :isoform ?isoform.
-    $INSTANCE_ENTRY :isoformCount ?isoformCount.
-    $INSTANCE_ENTRY :classifiedWith ?classifiedWith.
-    $INSTANCE_ENTRY :recommendedName [rdf:type :Toto ; rdfs:label ?recommendedName ;].
+    <INSTANCE> rdf:type ?type.
+    <INSTANCE> :gene ?gene.
+    <INSTANCE> :existence ?existence.
+    <INSTANCE> :swissprotPage ?swissprotPage.
+    <INSTANCE> skos:exactMatch ?skos.
+    <INSTANCE> :isoform ?isoform.
+    <INSTANCE> :isoformCount ?isoformCount.
+    <INSTANCE> :classifiedWith ?classifiedWith.
+    <INSTANCE> :recommendedName [rdfs:label ?recommendedName ;].
 }
 WHERE {
-  {
-        $INSTANCE_ENTRY rdf:type ?type.
-        $INSTANCE_ENTRY :gene ?gene.
-        $INSTANCE_ENTRY :existence ?existence.
-        $INSTANCE_ENTRY :swissprotPage ?swissprotPage.
-        $INSTANCE_ENTRY skos:exactMatch ?skos.
-        $INSTANCE_ENTRY :isoform ?isoform.
-            ?isoform :canonicalIsoform ""true""^^xsd:boolean.
-        $INSTANCE_ENTRY :isoformCount ?isoformCount.
-        $INSTANCE_ENTRY :classifiedWith ?classifiedWith.
-        $INSTANCE_ENTRY :recommendedName ?n.
+        <INSTANCE> rdf:type ?type.
+        <INSTANCE> :gene ?gene.
+        <INSTANCE> :existence ?existence.
+        <INSTANCE> :swissprotPage ?swissprotPage.
+        <INSTANCE> skos:exactMatch ?skos.
+        <INSTANCE> :isoform ?isoform.
+            ?isoform :canonicalIsoform "true"^^xsd:boolean.
+        <INSTANCE> :isoformCount ?isoformCount.
+        <INSTANCE> :classifiedWith ?classifiedWith.
+        optional {
+            <INSTANCE> :recommendedName ?n.
             ?n rdfs:label ?recommendedName.
-  }
+        }
 }

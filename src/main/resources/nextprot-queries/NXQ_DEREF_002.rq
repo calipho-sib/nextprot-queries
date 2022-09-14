@@ -3,9 +3,9 @@
 #tags:deref_instance_
 
 CONSTRUCT  {
-    $INSTANCE ?predicate ?object
+    <INSTANCE> ?predicate ?object
 }
 WHERE {
-    $INSTANCE ?predicate ?object .
+    <INSTANCE> ?predicate ?object .
     FILTER (!isBlank(?object))
 }
