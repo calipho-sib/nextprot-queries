@@ -11,8 +11,9 @@ where {
   ?entry :reference ?ref .
    ?ref a :Publication.
    ?ref :title ?tt .
-   ?ref :from ?publiid .
-   filter(contains (?publiid,'PubMed'))
+   ?ref :from ?xref .
+   ?xref :accession ?publiid .
+   ?xref :provenance db:PubMed .
 }
 group by ?publiid ?tt
 order by desc(?ecnt)

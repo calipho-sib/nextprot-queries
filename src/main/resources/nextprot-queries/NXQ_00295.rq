@@ -2,7 +2,7 @@
 #title:References for SCN1A variants causing Dravet syndrome
 #tags:disease,publication,variant,snorql-only,tutorial
 #acs:"PubMed:26993267","PubMed:22612257","PubMed:25818041"
-#count:79
+#count:108
 #time:0.125
 
 select distinct (str(?publiid) as ?PMID) ?title where {
@@ -13,8 +13,8 @@ select distinct (str(?publiid) as ?PMID) ?title where {
   ?v :disease cv:DI-01023. #UniProtKB term for Dravet syndrome
   ?v :evidence /:reference ?pub.
   ?pub :title ?title.
-  ?pub :from ?publiid .
-  filter(contains (?publiid,'PubMed'))
+  ?pub :from ?xref .
+  ?xref :accession ?publiid ; :provenance db:PubMed .
   }
   union
   {
@@ -24,7 +24,7 @@ select distinct (str(?publiid) as ?PMID) ?title where {
   ?ann :impactedObject /:term cv:C116573. #NCI Thesaurus term for Dravet syndrome
   ?ann :evidence /:reference ?pub.
   ?pub :title ?title.
-  ?pub :from ?publiid .
-  filter(contains (?publiid,'PubMed'))
+  ?pub :from ?xref .
+  ?xref :accession ?publiid ; :provenance db:PubMed .
   }
 }
