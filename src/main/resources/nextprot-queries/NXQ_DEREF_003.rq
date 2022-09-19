@@ -22,8 +22,8 @@ WHERE {
         <INSTANCE> :isoform ?isoform.
             ?isoform :canonicalIsoform "true"^^xsd:boolean.
         <INSTANCE> :isoformCount ?isoformCount.
-        <INSTANCE> :classifiedWith ?classifiedWith.
         optional {
+            <INSTANCE> :classifiedWith ?classifiedWith.
             <INSTANCE> :recommendedName ?n.
             ?n rdfs:label ?recommendedName.
         }
