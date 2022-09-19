@@ -7,7 +7,7 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?iso :keyword /:term cv:KW-0560. #oxidoreductase
-  ?iso :keyword /:term ?kw
+  ?iso :uniprotKeyword /:term cv:KW-0560. #oxidoreductase
+  ?iso :uniprotKeyword /:term ?kw
   filter( ?kw in (cv:KW-0520,cv:KW-0521)) # NAD or NADP
 }

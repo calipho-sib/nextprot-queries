@@ -10,7 +10,7 @@
 select distinct ?entry where {
   values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
   ?entry :isoform ?iso.
-  filter not exists { ?iso :keyword /:term cv:KW-0809 } # Transit peptide
+  filter not exists { ?iso :uniprotKeyword /:term cv:KW-0809 } # Transit peptide
   ?iso :cellularComponent ?loc .
   ?loc :term /:childOf ?mitoloc.
   filter not exists {?loc :negativeEvidence ?negev} # No negative localization evidence

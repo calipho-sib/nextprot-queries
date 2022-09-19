@@ -12,5 +12,5 @@ select distinct ?entry where {
   ?iso :cellularComponent ?loc .
   ?loc :term/:childOf ?nucloc.
   filter not exists {?loc :negativeEvidence ?negev} # No negative localization evidence
-  ?iso :keyword/:term cv:KW-0007,cv:KW-0488. # acetylated and methylated
+  ?iso :uniprotKeyword/:term cv:KW-0007,cv:KW-0488. # acetylated and methylated
 }

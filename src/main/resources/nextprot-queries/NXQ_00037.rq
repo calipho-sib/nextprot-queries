@@ -7,6 +7,6 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso .
-  ?iso :keyword /:term cv:KW-0694. #RNA-binding
+  ?iso :uniprotKeyword /:term cv:KW-0694. #RNA-binding
   filter not exists {?iso :region/:term cv:DO-00581} #RRM
 }

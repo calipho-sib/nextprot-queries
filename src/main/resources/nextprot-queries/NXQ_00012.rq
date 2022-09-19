@@ -6,5 +6,5 @@
 
 select distinct ?entry where {
   entry:NX_Q96I25 :isoform / :interaction / :interactant ?entry.
-  ?entry :isoform / :keyword / :term cv:KW-0508
+  ?entry :isoform / :uniprotKeyword / :term cv:KW-0508
 }

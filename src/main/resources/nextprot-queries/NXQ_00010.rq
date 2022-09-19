@@ -7,7 +7,7 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?iso :keyword / :term cv:KW-0325.
-  filter not exists { ?iso :keyword / :term cv:KW-0812.} # KW for Transmembrane
+  ?iso :uniprotKeyword / :term cv:KW-0325.
+  filter not exists { ?iso :uniprotKeyword / :term cv:KW-0812.} # KW for Transmembrane
   filter not exists { ?iso :topology / :term cv:CVTO_0004 } # intramembrane segment
 }

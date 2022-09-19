@@ -9,7 +9,7 @@
 select distinct ?entry where {
   values ?cytoloc {cv:SL-0086 cv:GO_0005737} # SL and GO values for cytoplasm
   ?entry :isoform ?iso.
-  ?iso :keyword / :term cv:KW-0597. # Phosphorylated
+  ?iso :uniprotKeyword / :term cv:KW-0597. # Phosphorylated
   ?iso :cellularComponent ?loc .
   ?loc :term /:childOf ?cytoloc.
   filter not exists {?loc  :negativeEvidence ?negev} # No negative localization evidence
