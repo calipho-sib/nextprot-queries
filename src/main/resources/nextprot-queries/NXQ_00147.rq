@@ -8,7 +8,7 @@
 select distinct ?entry 
 where {
   values ?ioTerm {cv:GO_0005634} . # nucleus
-  ?entry :isoform / :proteoform / :phenotypeVariation ?phvar .
+  ?entry :isoform / :proteoform / :phenotypicVariation ?phvar .
   ?phvar :term / :childOf cv:ME_0000002 . # children of impact
   ?phvar :evidence / :quality :GOLD .
   ?phvar :impactedObject / :term ?ioTerm .

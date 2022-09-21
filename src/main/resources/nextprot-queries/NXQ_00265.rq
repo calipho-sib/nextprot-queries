@@ -21,7 +21,7 @@ select distinct ?iso ?spos ?epos ?annot_type (str(?txt) as ?note) where
  
 {       
   ?iso :proteoform ?pf .     
-  ?pf :difference ?varmut; :phenotypeVariation ?phvar .     
+  ?pf :difference ?varmut; :phenotypicVariation ?phvar .     
   ?varmut :start ?spos; :end ?epos.     
   ?phvar :term ?phtype; :impactedObject /:term /rdfs:label ?ioTermlab .
   ?phvar a ?annot_type .

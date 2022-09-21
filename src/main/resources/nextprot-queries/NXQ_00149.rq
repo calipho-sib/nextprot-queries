@@ -12,7 +12,7 @@ SELECT
 WHERE {
   entry:NX_P38398 :isoform / :proteoform ?pf .
   ?pf rdfs:label ?pfname .
-  ?pf :phenotypeVariation ?pv1 .
+  ?pf :phenotypicVariation ?pv1 .
   ?pv1 rdfs:comment ?pvlabel .
   ?pv1 :evidence / :severity "Severe"^^xsd:string .  
   }
