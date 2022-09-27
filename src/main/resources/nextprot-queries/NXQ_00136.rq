@@ -8,5 +8,5 @@
 select distinct ?entry where {
   ?entry a :Entry.
   ?entry :history / :lastSequenceUpdate ?sequpd.
-  filter(contains(?sequpd,"2014"))
+  filter(contains(str(?sequpd),"2014"))
 }
