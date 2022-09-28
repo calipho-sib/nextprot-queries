@@ -8,8 +8,8 @@ CONSTRUCT {
     <INSTANCE> :existence ?existence.
     <INSTANCE> :swissprotPage ?swissprotPage.
     <INSTANCE> skos:exactMatch ?skos.
-    <INSTANCE> :isoform ?isoform.
     <INSTANCE> :isoformCount ?isoformCount.
+    <INSTANCE> :isoform ?isoform.
     <INSTANCE> :classifiedWith ?classifiedWith.
     <INSTANCE> :recommendedName [rdfs:label ?recommendedName ;].
 }
@@ -19,12 +19,13 @@ WHERE {
         <INSTANCE> :existence ?existence.
         <INSTANCE> :swissprotPage ?swissprotPage.
         <INSTANCE> skos:exactMatch ?skos.
-        <INSTANCE> :isoform ?isoform.
-            ?isoform :canonicalIsoform "true"^^xsd:boolean.
         <INSTANCE> :isoformCount ?isoformCount.
-        optional {
+        {
+           <INSTANCE> :isoform ?isoform.
+            ?isoform :canonicalIsoform "true"^^xsd:boolean.
+        } union {
             <INSTANCE> :classifiedWith ?classifiedWith.
-            <INSTANCE> :recommendedName ?n.
-            ?n rdfs:label ?recommendedName.
+        } union {
+            <INSTANCE> :recommendedName / rdfs:label ?recommendedName.
         }
 }

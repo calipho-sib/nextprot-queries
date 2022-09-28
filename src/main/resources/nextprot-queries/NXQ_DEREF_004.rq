@@ -5,12 +5,12 @@
 CONSTRUCT {
      <INSTANCE> :functionInfo ?object .
      ?object rdfs:comment ?comment.
-     <INSTANCE> :canonicalIsoform ?isCanonical.
+     <INSTANCE> :swissprotDisplayed ?swissprotDisplayed.
 } WHERE {
      <INSTANCE> :functionInfo ?object .
      ?object rdfs:comment ?comment.
      optional {
-          <INSTANCE> :canonicalIsoform ?isCanonical.
+          <INSTANCE> :swissprotDisplayed ?swissprotDisplayed.
      }
      FILTER(!isBlank(?object))
 }
