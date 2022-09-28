@@ -11,7 +11,7 @@ select distinct ?entry where {
   filter not exists { ?variant :disease ?disease. }
   filter ( not exists { 
 	?entry :isoform / :proteoform ?pf.
-	?pf :modification ?variant.
+	?pf :difference ?variant.
 	?variant :evidence / :negative false.              # variant with positive evidence
 	?pf :diseaseRelatedVariant / :term cv:ME_0000013 . # variant is causing disease
   } ) 

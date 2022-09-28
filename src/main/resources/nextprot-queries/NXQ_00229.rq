@@ -7,7 +7,7 @@
 
 select distinct ?entry (str(?gen) as ?gene) (group_concat(distinct ?organset; separator = ' ') as ?uniq_source) where {
   ?entry :isoform ?iso.
-  ?entry :gene / :name ?gen.
+  ?entry :gene / :name / rdfs:label ?gen.
   ?iso :peptideMapping ?pm .
   ?pm :proteotypic true .
   ?pm :peptideName ?pepid .

@@ -6,6 +6,6 @@
 #time:0.1
 
 select distinct ?entry where {
-  ?entry :gene / :name ?name.
+  ?entry :gene / :name  / rdfs:label ?name.
   filter (regex(?name, "^CLDN"@en))
 }

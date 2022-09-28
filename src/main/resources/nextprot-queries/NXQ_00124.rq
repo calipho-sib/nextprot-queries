@@ -6,7 +6,7 @@
 #time:0.5
 
 select (str(?famlab) as ?familylabel) (count(distinct(?member)) as ?membercnt) where{
-  ?member :family /:term /:childOf / rdfs:label ?famlab .
+  ?member :familyName /:term /:childOf / rdfs:label ?famlab .
 } group by ?famlab
 order by desc(?membercnt)
 limit 25

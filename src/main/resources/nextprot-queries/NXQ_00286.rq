@@ -6,7 +6,7 @@
 #time:0.5
 
 select distinct (str(?rlab) as ?rlab1) (count(distinct ?itid) as ?itcnt) where {
-  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?entry :isoform ?iso; :gene / :name / rdfs:label ?gen .
   ?iso :swissprotDisplayed true; :interactionMapping ?itmap .
   ?itmap :entryAnnotationId ?itid; :start ?its; :end ?ite .
   bind(?ite - ?its + 1 as ?itlen)

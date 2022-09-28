@@ -13,7 +13,7 @@ select distinct (?neighbour as ?entry) (str(?gen) as ?spergen) where {
 	 ?func :term / :childOf cv:GO_0007283 . # Involvment in spermatogenesis
 	 filter not exists {?func  :negativeEvidence ?negev}
      ?entryx :gene ?gene.
-     ?gene :begin ?sperstart; :end ?e; :chromosome ?chr; :name ?gen.
+     ?gene :begin ?sperstart; :end ?e; :chromosome ?chr; :recommendedName / rdfs:label ?gen.
      ?ngen :chromosome ?chr. 
      ?ngen :begin ?n_begin; :end ?n_end .
      filter ( ?n_end > (?sperstart - 1000000) && ?n_begin <= (?sperstart + 1000000)  && ?ngen != ?gene)
@@ -23,9 +23,9 @@ select distinct (?neighbour as ?entry) (str(?gen) as ?spergen) where {
      } group by ?chr ?gen ?sperstart
   }
   bind(?sperstart - ?lmin as ?lchrpos)
-  ?lgene :begin ?lchrpos; :chromosome ?chr; :name ?lgen.
+  ?lgene :begin ?lchrpos; :chromosome ?chr.
   bind(?sperstart - ?rmin as ?rchrpos)
-  ?rgene :begin ?rchrpos; :chromosome ?chr; :name ?rgen.
+  ?rgene :begin ?rchrpos; :chromosome ?chr.
   { ?neighbour :gene ?lgene. } # left gene
 	   union
   { ?neighbour :gene ?rgene. } # right gene

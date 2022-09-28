@@ -7,7 +7,7 @@
 #time:0.5
 
 select distinct ?entry (str(?gen) as ?gene)  where {
-  ?entry :isoform ?iso; :gene / :name ?gen .
+  ?entry :isoform ?iso; :gene / :name / rdfs:label ?gen .
   ?iso :swissprotDisplayed true; :interactionMapping ?itm .
   ?itm :start ?its; :end ?ite .
   ?iso :sequence / :chain ?seq.

@@ -7,7 +7,7 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?entry :gene / :name ?gen .
+  ?entry :gene / :name / rdfs:label ?gen .
   ?iso :dnaBindingRegion ?dnab.
   filter not exists { ?entry :isoform / :cellularComponent /:term /:childOf cv:SL-0191}  # SL for nucleus
   filter not exists { ?entry :isoform / :cellularComponent /:term /:childOf cv:GO_0005634} # GO for nucleus

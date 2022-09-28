@@ -7,5 +7,5 @@
 
 select distinct ?entry where {
  ?entry :isoform ?iso.
- ?iso :keyword / :term cv:KW-0449.
+ ?iso :uniprotKeyword / :term cv:KW-0449.
 }

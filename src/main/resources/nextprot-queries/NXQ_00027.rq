@@ -6,8 +6,9 @@
 #time:0.5
 
 select distinct ?entry ?publications where {
-  values ?publications {"PubMed:20570859"^^xsd:string "PubMed:14760718"^^xsd:string}
+  values ?pmid {"20570859"^^xsd:string "14760718"^^xsd:string}
   # get all assertions from the publications
   ?entry :isoform/:glycosylationSite ?statement.
-  ?statement :evidence/:reference/:from ?publications
+  ?statement :evidence/:reference/:from ?xref .
+  ?xref :accession ?pmid ; :provenance db:PubMed .
 }

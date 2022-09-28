@@ -6,7 +6,7 @@
 #time:1.119
 
 select distinct ?entry ?name where {
-  ?entry :gene / :name ?name .
+  ?entry :gene / :name / rdfs:label ?name .
    filter (!regex (?name,'[A-Z]'))
    filter (!regex (?name,'unknown'))
 }

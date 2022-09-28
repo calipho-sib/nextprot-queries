@@ -10,5 +10,5 @@ select distinct ?entry where {
   ?iso :function ?statement.
   ?statement :term / :childOf cv:GO_0005102.
   filter not exists { ?statement :negativeEvidence ?negev. } # No negative function evidence
-  ?iso :keyword/:term cv:KW-0391.
+  ?iso :uniprotKeyword/:term cv:KW-0391.
 }

@@ -27,6 +27,6 @@ select distinct ?entry ?gen ?pathwayname where {
         ?pathway dc:title ?pathwayname .
     }
     ?entry a :Entry .
-    ?entry :gene / :name ?gen .
+    ?entry :gene / :recommendedName / rdfs:label ?gen .
 }
 order by ?pathwayname

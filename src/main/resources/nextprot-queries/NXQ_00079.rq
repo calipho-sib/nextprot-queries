@@ -7,6 +7,6 @@
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
-  ?iso :keyword / :term cv:KW-0597. # Phosphoprotein
+  ?iso :uniprotKeyword / :term cv:KW-0597. # Phosphoprotein
   ?iso :pdbMapping ?map.
 }

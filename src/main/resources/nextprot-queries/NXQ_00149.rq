@@ -14,7 +14,7 @@ WHERE {
   ?pf rdfs:label ?pfname .
   ?pf :phenotypicVariation ?pv1 .
   ?pv1 rdfs:comment ?pvlabel .
-  ?pv1 :evidence / :intensity "Severe"^^xsd:string .  
+  ?pv1 :evidence / :severity :Severe .  
   }
 group by ?pfname having (count(?pvlabel)>=5)
 order by desc(count(?pvlabel)) ?pfname

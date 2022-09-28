@@ -23,7 +23,7 @@ select distinct ?start ?stop ?original ?modified where {
   ?pf :diseaseRelatedVariant ?ann.
   filter not exists {?ann :negativeEvidence ?negev} # No negative disease evidence
   ?ann :impactedObject /:term cv:C75488. #NCI Thesaurus term for Rett Syndrome
-  ?pf :modification ?v.
+  ?pf :difference ?v.
   ?v :start ?start.
   ?v :end ?stop.
   filter((?stop - ?start) = 0)

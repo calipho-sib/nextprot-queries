@@ -16,7 +16,7 @@ select distinct ?entry where {
   filter(contains(?txt,"viral") || contains(?txt,"virus")).
   } # refers to a virus in the free-text interactionInfo topic
 UNION
-  {  ?iso :keyword / :term cv:KW-0945.} # host-virus interaction keyword
+  {  ?iso :uniprotKeyword / :term cv:KW-0945.} # host-virus interaction keyword
 UNION
   {
    SERVICE <http://sparql.uniprot.org/sparql> {
