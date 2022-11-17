@@ -1,5 +1,6 @@
 #id:NXQ_00300
-#title:Uncharacterized proteins highly expressed in brain with their homologs in Drosophila melanogaster according to OrthoDB
+#title:Proteins with protein existence "At protein level" (PE=1) that have no function annotated, are highly expressed in brain and have homologs in Drosophila melanogaster according to OrthoDB
+#comment:combination of NXQ_00004 and NXQ_00022, plus federation with OrthoDB
 #tags:federated query,expression,function,gene,name,phylogeny,protein existence,snorql-only,tutorial
 #acs:Q5SZI1,Q8IV50,A1L170
 #count:44
