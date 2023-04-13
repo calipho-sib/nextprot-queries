@@ -1,0 +1,12 @@
+#id:NXQ_00302
+#title:PE1 entries that do not comply with HPP guidelines (at least 2 non overlapping peptides of at least 9aa from a single data source)
+#tags:proteomics,protein existence,keyword,tutorial
+#acs:
+#count: 944
+#time: 1.569[s]
+
+select distinct ?entry where {
+    ?entry :existence :Evidence_at_protein_level .
+  ?entry :isoform ?iso.
+  filter not exists { ?iso :uniprotKeyword / :term cv:KW-1267.}
+}
