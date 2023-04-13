@@ -2,7 +2,7 @@
 #title:Proteins with at least one 3D structure and that are located in the mitochondrion and are linked with a disease
 #tags:3D structure,disease,subcellular location,keyword,tutorial
 #acs:P43897, Q6PI48, Q92890, ...
-#count:479
+#count:476
 #time: 0.8
 
 select distinct ?entry where {
@@ -74,7 +74,6 @@ cv:KW-0550
 cv:KW-0553
 cv:KW-0586
 cv:KW-0622
-cv:KW-0656
 cv:KW-0657
 cv:KW-0668
 cv:KW-0682
@@ -171,6 +170,7 @@ cv:KW-1268
 cv:KW-1269
 cv:KW-1270
 cv:KW-1274
+cv:KW-2001
 }
   ?iso :uniprotKeyword / :term ?kw} 
 } 
