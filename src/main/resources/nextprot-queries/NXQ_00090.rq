@@ -2,7 +2,7 @@
 #title:Proteins which are linked to a disease and that do not have orthologs/paralogs in mouse
 #tags:disease,ortholog,keyword,tutorial
 #acs:P12035,P48668,P35125
-#count:51
+#count:49
 #time:77
 
 select distinct ?entry where {
@@ -69,7 +69,6 @@ cv:KW-0550
 cv:KW-0553
 cv:KW-0586
 cv:KW-0622
-cv:KW-0656
 cv:KW-0657
 cv:KW-0668
 cv:KW-0682
@@ -166,6 +165,7 @@ cv:KW-1268
 cv:KW-1269
 cv:KW-1270
 cv:KW-1274
+cv:KW-2001
 }
   ?iso :uniprotKeyword / :term ?kw} 
 
