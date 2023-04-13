@@ -3,8 +3,8 @@
 #comment:COSMIC variants are not taken into account as the link between the variant and the cancer is not established
 #tags:disease,variant,keyword,tutorial
 #acs:O00253,O14681,O15265,O43542,O95999,P00338,P00533,P02679
-#count:1775
-#time:14.5
+#count:1726
+#time:
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
@@ -70,7 +70,6 @@ cv:KW-0550
 cv:KW-0553
 cv:KW-0586
 cv:KW-0622
-cv:KW-0656
 cv:KW-0657
 cv:KW-0668
 cv:KW-0682
@@ -167,6 +166,7 @@ cv:KW-1268
 cv:KW-1269
 cv:KW-1270
 cv:KW-1274
+cv:KW-2001
 }
   ?iso :uniprotKeyword / :term ?kw} 
  filter ( not exists { ?entry :isoform / :variant / :disease ?_ . } )
