@@ -1,13 +1,20 @@
 #id:NXQ_00028
 #title:Proteins associated with a disease but without a disease-causing amino-acid substitution variant
 #comment:COSMIC variants are not taken into account as the link between the variant and the cancer is not established
-#tags:disease,variant,tutorial
+#tags:disease,variant,keyword,tutorial
 #acs:O00253,O14681,O15265,O43542,O95999,P00338,P00533,P02679
-#count:1556
-#time:14.5
+#count:1726
+#time:10
 
 select distinct ?entry where {
-  ?entry :isoform / :medical / rdf:type :Disease.
+  ?entry :isoform ?iso.
+   { 
+	 ?iso :medical / rdf:type :Disease.
+   } union { 
+     ?iso :uniprotKeyword / :term ?kw .
+	 ?kw :termType "Disease"^^xsd:string
+	 filter (?kw != cv:KW-0656)
+   }
   filter ( not exists { ?entry :isoform / :variant / :disease ?_ . } )
   filter ( not exists { 
 	?entry :isoform / :proteoform ?pf.

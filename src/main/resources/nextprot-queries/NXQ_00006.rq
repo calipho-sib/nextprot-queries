@@ -1,10 +1,18 @@
 #id:NXQ_00006
 #title:Proteins whose genes are on chromosome 13 and are associated with a disease
-#tags:chromosomal location,disease,tutorial
+#tags:chromosomal location,disease,keyword,tutorial
 #acs:O00287,O14788,O15198,O75503,O95409,O95452,P00742,P02462,P05165
-#count:65
+#count:98
 
 select distinct ?entry where {
-  ?entry :gene / :chromosome "13"^^xsd:string;
-  :isoform / :medical /rdf:type :Disease.
+  ?entry :gene / :chromosome "13"^^xsd:string.
+  ?entry  :isoform ?iso.
+   {
+	 ?iso :medical / rdf:type :Disease.
+   } union { 
+     ?iso :uniprotKeyword / :term ?kw .
+	 ?kw :termType "Disease"^^xsd:string
+	 filter (?kw != cv:KW-0656)
+   }
 }
+

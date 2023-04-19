@@ -1,12 +1,18 @@
 #id:NXQ_00208
 #title:Proteins which are ion channels and are associated with a disease
-#tags:disease,function,tutorial
+#tags:disease,function,keyword,tutorial
 #acs:P42263,....
-#count:126
+#count:168
 
 select distinct ?entry where {
   ?entry :isoform ?iso.
   ?iso :uniprotKeyword /:term cv:KW-0407. #ion channel
-  ?iso :medical / rdf:type :Disease.
+   {
+     ?iso :medical / rdf:type :Disease.
+   } union {
+     ?iso :uniprotKeyword / :term ?kw .
+     ?kw :termType "Disease"^^xsd:string
+     filter (?kw != cv:KW-0656)
+   }
 }
 
