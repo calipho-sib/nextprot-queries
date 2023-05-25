@@ -1,0 +1,20 @@
+#id:NXQ_00290
+#title:Proteins that are enzymes requiring the cofactor Ca(2+) and with a calcium binding site
+#tags:enzyme,small molecule interaction,tutorial,snorql-only
+#acs:NX_P11678,NX_P22079,NX_Q92626
+#count:114
+#time:0.21
+
+select  distinct ?entry (str(?name) as ?name) (str(?ec) as ?ec) where
+
+{ ?entry :recommendedName ?name_entity . 
+ ?name_entity a :ProteinName; rdfs:label ?name. 
+ ?entry :isoform ?iso. 
+ ?iso :enzymeClassification /rdfs:comment ?ec. 
+ ?iso :cofactor /:interactant /skos:exactMatch chebi:CHEBI_29108. # Ca(2+) cofactor 
+  ?iso :bindingSite /:interactant ?inter.
+ ?inter :accession "CHEBI:29108"^^xsd:string  #  binding site interactant Ca(2+)
+}
+order by asc(?ec)
+
+
