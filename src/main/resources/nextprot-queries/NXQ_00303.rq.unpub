@@ -1,0 +1,63 @@
+#id:NXQ_00303
+#title:Variants that create a potential N-glycosylation site, with their frequencies 
+#tags:glycosylation,PTM,variant,snorql-only
+#acs:NX_Q8WXI7, NX_Q5DID0...
+#count: 20753 rows
+#time: 34.825[s] 
+
+select * where {
+{
+select distinct ?entry ('newN' as ?type) (?nglypos as ?neoglyco) ?varpos ?freq where 
+  {
+?entry :isoform ?iso.
+?iso :glycosylationSite ?glycosite; :swissprotDisplayed true .  
+?glycosite :start ?glypos; rdfs:comment ?desc .
+filter(contains(?desc,"N-linked"))  # entry has at least one known N-glycosite
+?iso :sequence / :chain ?seq.
+?iso :variant ?var .
+optional {?var :evidence / :alleleFrequency ?freq .}
+?var :start ?nglypos; :variation "N"^^xsd:string .   #new N
+#proper context for N-glycosylation (motif)
+bind (substr(?seq, ?nglypos+1, 1) as ?aa1)  
+bind (substr(?seq, ?nglypos+2, 1) as ?aa2)
+bind (?nglypos as ?varpos)
+filter(regex(?aa2,"[ST]")).
+filter(!regex(?aa1,"[P]")).
+#proper topology for N-glycosylation 
+filter not exists
+{ ?iso :transmembraneRegion ?tm. ?tm :start ?stm; :end ?etm . filter(?nglypos >= ?stm && ?nglypos <= ?etm) }
+filter not exists
+{ ?iso :topologicalDomain ?topodom. ?topodom :term cv:CVTO_0001. ?topodom :start ?scyt; :end ?ecyt . filter(?nglypos >= ?scyt && ?nglypos <= ?ecyt) }
+filter not exists
+{ ?iso :signalPeptide ?sigpep. ?sigpep :end ?esig . filter(?nglypos <= ?esig)}
+  }
+}
+UNION 
+{
+select distinct ?entry ('newST' as ?type) (?varpos - 2) as ?neoglyco ?varpos ?freq where 
+  {
+?entry :isoform ?iso.
+?iso :glycosylationSite ?glycosite; :swissprotDisplayed true .
+?glycosite rdfs:comment ?desc . 
+filter(contains(?desc,"N-linked")) # entry has at least one known N-glycosite
+?iso :sequence / :chain ?seq.
+?iso :variant ?var2 .
+optional {?var2 :evidence / :alleleFrequency ?freq . }
+{?var2 :start ?varpos; :variation "S"^^xsd:string .} union {?var2 :start ?varpos; :variation "T"^^xsd:string .} #new S/T
+filter(!regex(substr(?seq, ?varpos, 1),"[ST]"))
+#proper context for N-glycosylation (motif)
+bind (substr(?seq, ?varpos-2, 1) as ?aax)
+filter(!regex(substr(?seq, ?varpos-1, 1),"P")).
+filter(regex(?aax,"[N]")). # preexisting N at pos -2
+#proper topology for N-glycosylation 
+filter not exists
+{ ?iso :transmembraneRegion ?tm. ?tm :start ?stm; :end ?etm . filter(?varpos >= ?stm && ?varpos <= ?etm) }
+filter not exists
+{ ?iso :topologicalDomain ?topodom. ?topodom :term cv:CVTO_0001. # not cytoplasmic 
+  ?topodom :start ?scyt; :end ?ecyt . 
+  filter(?varpos >= ?scyt && ?varpos <= ?ecyt) }
+filter not exists
+{ ?iso :signalPeptide ?sigpep. ?sigpep :end ?esig . filter(?varpos <= ?esig) }
+  }  
+}
+} order by desc (?freq)
