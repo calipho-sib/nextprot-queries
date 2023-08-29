@@ -5,7 +5,7 @@
 #count:17
 #time:210.058
 
-select distinct ?entry str(?gen) (count(distinct ?mitopartner) as ?mitcnt) (count(distinct ?partner) as ?itcnt) where {
+select distinct ?entry (str(?gen) as ?gene) (count(distinct ?mitopartner) as ?mitcnt) (count(distinct ?partner) as ?itcnt) where {
 values ?mitloc {cv:GO_0005739 cv:SL-0173} # GO and SL values for mitochondrion
  ?entry :isoform ?iso.
   ?entry :gene / :recommendedName / rdfs:label ?gen.
