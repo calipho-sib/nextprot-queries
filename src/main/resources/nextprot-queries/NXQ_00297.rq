@@ -6,7 +6,7 @@
 #count:2805
 #time:16.254
 
-select distinct ?entry (group_concat(distinct str(?pdbac); SEPARATOR = ",") as ?pdbacs) where {  
+select ?entry (group_concat(distinct str(?pdbac); SEPARATOR = ",") as ?pdbacs) where {  
   ?entry :isoform ?iso.
   ?iso :pdbMapping  ?pdbmap.
   ?pdbmap :evidence /:reference ?ref.
@@ -16,4 +16,4 @@ select distinct ?entry (group_concat(distinct str(?pdbac); SEPARATOR = ",") as ?
   ?iso :matureProtein [ :start ?mstart ; :end ?mend]
   filter (?mend-?mstart > 0)	 
   filter ((?pdbstart <= ?mstart) && (?pdbend >= ?mend))
-}
+} group by ?entry
