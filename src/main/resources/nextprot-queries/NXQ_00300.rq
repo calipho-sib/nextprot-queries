@@ -12,7 +12,7 @@ PREFIX orth: <http://purl.org/net/orth#>
 PREFIX up: <http://purl.uniprot.org/core/>
 PREFIX odb: <http://purl.orthodb.org/>
 
-select distinct ?entry (str(?name) as ?human_name) (group_concat(distinct str(?fly_name); SEPARATOR = ",") as ?fly_names) where
+select ?entry (str(?name) as ?human_name) (group_concat(distinct str(?fly_name); SEPARATOR = ",") as ?fly_names) where
 {
 ?entry :isoform ?iso.
 ?entry :gene / :recommendedName / rdfs:label ?name.
@@ -32,4 +32,4 @@ service <http://sparql.orthodb.org/sparql>
 ?ortholog odb:name ?fly_name; up:organism/a/up:scientificName 'Drosophila melanogaster'.
 filter (?clade='Metazoa') }
 }
-}
+} group by ?entry str(?name)
