@@ -14,5 +14,5 @@ select ?entry where {
   bind (?src != source:MassIVE && ?src != source:PeptideAtlas as ?other)
 } 
 group by ?entry
-having (sum(?massive)=0 && sum(?pa)=0 and sum(?other)>0)
+having (sum(?massive)=0 && sum(?pa)=0 && sum(?other)>0)
 
