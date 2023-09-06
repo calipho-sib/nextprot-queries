@@ -5,7 +5,7 @@
 #count:114
 #time:0.21
 
-select  distinct ?entry (str(?name) as ?name) (str(?ec) as ?ec) where
+select  distinct ?entry (str(?name) as ?prot_name) (str(?ec) as ?ec) where
 
 { ?entry :recommendedName ?name_entity . 
  ?name_entity a :ProteinName; rdfs:label ?name. 
